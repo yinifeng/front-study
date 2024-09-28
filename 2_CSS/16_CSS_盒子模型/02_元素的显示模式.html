@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_元素的显示模式</title>
+    <style>
+        body {
+            /* margin: 0; */
+            background-color: gray;
+        }
+        /* 块元素（block），又称：块级元素
+            特点：
+                1、在页面中独占一行，不会与任何元素共用一行，是从上到下排列的。
+                2、默认宽度：撑满父元素。
+                3、默认高度：由内容撑开。
+                4、可以通过CSS设置宽高。
+        */
+        div {
+            width: 200px;
+            height: 200px;
+        }
+        #d1 {
+            background-color: skyblue;
+        }
+        #d2 {
+            background-color: red;
+        }
+        #d3{
+            background-color: yellow;
+        }
+        /* 行内元素（inline），又称：内联元素
+            特点：
+                1、在页面中不独占一行，一行中不能容纳下的行内元素，会在下一行继续从左到右排列。
+                2、默认宽度：由内容撑开。
+                3、默认高度：由内容撑开。
+                4、无法通过CSS设置宽高。        
+        */
+        .one {
+            background-color: skyblue;
+        }
+        .two {
+            background-color: darkorchid;
+        }
+
+        /* 行内块元素（inline-block），又称：内联块元素 ，后面才有这个说法，以前也叫行内元素 
+             特点：
+                1、在页面中不独占一行，一行中不能容纳下的行内元素，会在下一行继续从左到右排列。
+                2、默认宽度：由内容撑开。
+                3、默认高度：由内容撑开。
+                4、可以通过CSS设置宽高。        
+        */
+        img {
+            width: 100px;
+            height: 100px;
+        }
+        /* 注意：
+            元素早期只分为：行内元素，块级元素，区分条件也只有一条：“只是独占一行”，
+            如果按照这种分类方式，行内块元素应该算作行内元素。     
+        */
+    </style>
+</head>
+<body>
+    <div id="d1">床前明月光</div>
+    <div id="d2">疑似地上霜</div>
+    <div id="d3">举头望明月</div>
+    <hr>
+    <span class="one">人之初</span>
+    <span class="two">性本善</span>
+    <span class="one">人之初</span>
+    <span class="two">性本善</span>
+    <span class="one">人之初</span>
+    <span class="two">性本善</span>
+    <span class="one">人之初</span>
+    <span class="two">性本善</span>
+    <span class="one">人之初</span>
+    <span class="two">性本善</span>
+    <span class="one">人之初</span>
+    <span class="two">性本善</span>
+    <span class="one">人之初</span>
+    <span class="two">性本善</span>
+    <span class="one">人之初</span>
+    <span class="two">性本善</span>
+    <span class="one">人之初</span>
+    <span class="two">性本善</span>
+    <hr>
+    <img src="../images/宁宁婆.jpg" alt="宁宁">
+    <img src="../images/宁宁婆.jpg" alt="宁宁">
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22_布局的技巧1</title>
+    <style>
+        .outer {
+            width: 400px;
+            height: 400px;
+            background-color: gray;
+            overflow: hidden;
+        }
+        .inner {
+            width: 200px;
+            height: 100px;
+            background-color: orange;
+            margin: 0 auto;
+            /* （父元素的height - 子元素height(如果有边框和内边距都要加起来)，也就是盒子的总高度）/ 2 */
+            margin-top: 150px;
+            text-align: center;
+            /* 当行高 等于 height 为垂直居中 */
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">inner</div>
+    </div>
+</body>
+</html>

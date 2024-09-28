@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15_伪类选择器_语言伪类</title>
+    <style>
+        div:lang(en) {
+            color: red;
+        }
+        /* 选中语言为zh-CN的元素，因为html设置的是zh-CN所以未指定的元素都为zh-CN */
+        :lang(zh-CN) {
+            color: green;
+        }
+        
+    </style>
+</head>
+<body>
+    <div>深圳1</div>
+    <div lang="en">深圳2</div>
+    <span>前端</span>
+    <p>后端</p>
+</body>
+</html>

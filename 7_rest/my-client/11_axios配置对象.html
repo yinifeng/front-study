@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>axios</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+     <button id="btn1">按钮1</button>
+     <button id="btn2">按钮2</button>
+
+     <script>
+        const btn1 = document.getElementById("btn1");
+        const btn2 = document.getElementById("btn2");
+
+        btn2.onclick = () =>{
+            axios({
+                //指定服务器路径前缀
+                baseURL:"http://127.0.0.1:3000",
+                //请求资源路径
+                url:"test",
+                //请求方式
+                method:"get",
+                // `timeout` 指定请求超时的毫秒数。
+                // 如果请求时间超过 `timeout` 的值，则请求会被中断
+                timeout: 5000, // 默认值是 `0` (永不超时)
+            }).then((res) =>{
+                //默认状态码为2xx，调用then
+                console.log(res);
+                console.log(res.data);
+            }).catch((error) =>{
+                console.log("出错了~",error);
+            });
+        }
+
+        btn1.onclick = () =>{
+            axios({
+                //指定服务器路径前缀
+                baseURL:"http://127.0.0.1:3000",
+                //请求资源路径
+                url:"/students",
+                //请求方式
+                method:"post",
+
+                //请求头，默认会使用json
+                //headers:{"Content-Type":"application/json"},
+
+                //请求体，只是在post，put，delete才有，会自动转换json
+                //data:"name=hobart&age=18",//query参数
+                data:{
+                    name: "陈慧娴",
+                    age: 21,
+                    gender: "女",
+                    address: "中国香港"
+                },
+                // `transformRequest` 允许在向服务器发送前，修改请求数据
+                // 它只能用于 'PUT', 'POST' 和 'PATCH' 这几个请求方法
+                // 数组中最后一个函数必须返回一个字符串， 一个Buffer实例，ArrayBuffer，FormData，或 Stream
+                // 你可以修改请求头。
+                // transformRequest: [function(data, headers) {
+                //     // 对发送的 data 进行任意转换处理
+                //     console.log(11111);
+                //     //默认的头是Content-Type: application/x-www-form-urlencoded
+                //     headers["Content-Type"]="application/json";
+                //     return data;
+                // },(data, headers)=>{
+                //     console.log(22222);
+                //     console.log(headers);
+                //     console.log(data);
+                //     //最后一个函数必须返回一个字符串，才能使得数据有效
+                //     return JSON.stringify(data);
+                // }],
+
+                // `params` 是与请求一起发送的 URL 参数
+                // 必须是一个简单对象或 URLSearchParams 对象
+                params: {
+                    //请求路径带参数
+                    //http://127.0.0.1:3000/students?id=12345&name=hoabrt
+                    id: 12345,
+                    name:"hoabrt"
+                },
+                // `timeout` 指定请求超时的毫秒数。
+                // 如果请求时间超过 `timeout` 的值，则请求会被中断
+                timeout: 1000, // 默认值是 `0` (永不超时)
+            }).then((res) =>{
+                //默认状态码为2xx，调用then
+                console.log(res);
+                console.log(res.data);
+            }).catch((error) =>{
+                console.log("出错了~",error);
+            });
+        }
+     </script>
+</body>
+</html>

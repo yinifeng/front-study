@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单_fieldset和lgend</title>
+</head>
+<body>
+    <form action="https://search.jd.com/search" target="_self" method="get">
+        <fieldset>
+            <legend>主要信息</legend>
+            <!-- label点击 账户 获得输入框焦点，提示的文字和输入框做关联 -->
+            <label for="zhanghu">账户：</label>
+            <input id="zhanghu" type="text" name="account" value="zhangsan" maxlength="10"><br>
+            <!-- 第二种lable关联方法 -->
+            <label>
+                密码：
+                <input type="password" name="pwd" maxlength="6"><br>
+            </label>
+            性别：
+            <label><input type="radio" name="gender" value="male">男</label>
+            <label><input type="radio" name="gender" value="female">女</label>
+        </fieldset>
+        <!-- <br> -->
+        <fieldset>
+            <legend>附加信息</legend>
+            爱好：
+            <label>
+                <input type="checkbox" name="hobby" value="smoke">抽烟
+            </label>
+            <label>
+                <input type="checkbox" name="hobby" value="drink">喝酒
+            </label>
+            <label>
+                <input type="checkbox" name="hobby" value="perm">烫头
+            </label>
+            <br>
+            <label for="qita">其他：</label>
+            <textarea id="qita" name="other" cols="22" rows="3" maxlength="50"></textarea><br>
+            籍贯：
+            <select name="place">
+                <option value="湘">湖南</option>
+                <option value="沪">上海</option>
+                <option value="粤">广东</option>
+            </select>
+        </fieldset>
+        <!-- <br> -->
+        <input type="hidden" name="from" value="pc"><br>
+        <!-- 一般按钮没必要label提示做关联 -->
+        <input type="submit" value="确认">
+        <button type="reset">重置</button>
+        <button type="button">检测账户是否被注册</button>
+    </form>
+</body>
+</html>

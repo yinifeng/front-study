@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06_渲染列表</title>
+    <script src="./script/react.development.js"></script>
+    <script src="./script/react-dom.development.js"></script>
+    <!-- 引入babel， babel为了翻译 -->
+    <script src="./script/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- 设置js类型为 text/babel -->
+    <script type="text/babel">
+        
+        /* 
+            {} 只能用来放js表达式，而不能放语句（if for）
+                语句中是可以操作JSX
+        */
+        const name = "刘德华";
+        let lang = "cn";
+
+        //const div = <div>Hello {name}</div>
+        
+        let div;
+        if(lang === "en") {
+            div = <div>Hello Hobart</div>;
+        }else if(lang === "cn") {
+            div = <div>Hello 张学友</div>;
+        }else {
+            div = <div>Hello {name}</div>
+        }
+        
+        const data = ["刘亦菲","赵丽颖","杨幂"];
+        //渲染的会把数组拼到一起，刘亦菲赵丽颖杨幂
+        //const list = <div>{data}</div>;
+
+        /* 
+            ["刘亦菲","赵丽颖","杨幂"]
+            转换为：
+                <ul>
+                    <li>刘亦菲</li>
+                    <li>赵丽颖</li>
+                    <li>杨幂</li>
+                </ul>    
+            也就是转换为li的JSX数组放入ul中：[<li>刘亦菲</li>,<li>赵丽颖</li>,<li>杨幂</li>]    
+        */
+        //列表渲染
+        const list = <ul>{data.map(item => <li>{item}</li>)}</ul>
+
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(list);
+    </script>
+</body>
+</html>

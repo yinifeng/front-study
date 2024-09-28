@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05_动画小案例</title>
+    <style>
+        div {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto;
+            margin-top: 100px;
+            background-image: url('../images/bike.png');
+            animation: bike 0.8s steps(31) infinite;
+        }
+        @keyframes bike {
+            from {
+
+            }
+            to {
+                background-position: 0px -4030px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_浮动_简介</title>
+    <style>
+        /* 浮动
+            在最初，浮动是用来实现文字环绕图片效果的，现在浮动是主流的页面布局方式之一
+        
+        */
+        div {
+            width: 600px;
+            background-color: skyblue;
+        }
+        img {
+            width: 200px;
+            float: right;
+            /* margin-right: 0.5em; */
+        }
+        .test::first-letter {
+            font-size: 80px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <!-- 文字环绕图片 -->
+    <div>
+        <img src="../images/宁宁婆.jpg" alt="">
+        <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste possimus atque ad nesciunt sint asperiores molestiae omnis aperiam assumenda? Soluta pariatur, et minus natus commodi iure cum dolorum harum est qui sint, laudantium nobis exercitationem fugiat. Doloremque dicta architecto atque, possimus sapiente nisi accusantium, odio, delectus facere obcaecati quo ut perspiciatis corporis animi deleniti ducimus illum. Quam nobis laboriosam illo aperiam blanditiis recusandae praesentium delectus iusto. Debitis, quisquam incidunt architecto pariatur inventore voluptatibus ab consequatur fuga sunt aut deserunt necessitatibus sed ipsam animi ad eius soluta consequuntur nihil fugit, ut assumenda quas quis? Adipisci sed veniam natus, qui vero ipsam.</span>
+    </div>
+    <hr>
+    <!-- 文字环绕文字 -->
+    <div class="test">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium quos eaque impedit, accusantium architecto accusamus pariatur at deserunt provident nostrum eos facere ab ex quod! Soluta officiis ex, expedita placeat voluptas at quae exercitationem repudiandae neque aliquid excepturi libero, eum dolores quos ipsum tempora illo laboriosam temporibus labore quasi porro! Nihil molestiae sit quis est inventore praesentium doloribus et sapiente itaque quibusdam, tempora, voluptate adipisci omnis? Quo maiores inventore quibusdam incidunt ad, aliquid hic distinctio illum officia! Iure corrupti, mollitia quos consectetur error incidunt magnam expedita aliquid! Sed molestiae totam porro eveniet ex obcaecati excepturi cum! Magni iure quae totam!
+    </div>
+</body>
+</html>

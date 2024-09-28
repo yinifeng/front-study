@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_粘性定位</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            height: 2000px;
+        }
+        .page-header {
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            background-color: orange;
+            font-size: 40px;
+        }
+        /* .content {
+            height: 200px;
+            overflow: auto;
+        } */
+        .item {
+            background-color: gray;
+        }
+        .first {
+            background-color: skyblue;
+            font-size: 40px;
+            position: sticky;
+            top: 0px;
+
+            /* float: right; */
+        }
+
+        /* 粘性定位
+            4.1、如何设置粘性定位？
+                给定元素 position: sticky 即可实现粘性定位。
+                可以使用 left、right、top、bottom 四个属性调整位置，不过最常用的是top值。
+            4.2、粘性定位的参考点在哪里？
+                离它最近的一个拥有“滚动机制”的祖元素，即便这个祖先不是最近的真实可滚动祖先。
+            4.3、粘性定位元素的特点：
+                1、不会脱离文档流，它是一种专门用于窗口滚动时的定位方式。
+                2、最常用的值是top值。
+                3、粘性定位和浮动可以同时设置，但不推荐这样做。
+                4、粘性定位的元素，也能通过margin调整位置，但不推荐这样做。
+            粘性定位和相对定位的特点基本一致，不同的是：粘性定位可以在元素到达某个位置时将其固定。
+        
+        
+        */
+    </style>
+</head>
+<body>
+    <!-- 头部 -->
+    <div class="page-header">头部</div>
+    <!-- 内容区 -->
+    <div class="content">
+        <div class="item">
+            <div class="first">A</div>
+            <h2>A1</h2>
+            <h2>A2</h2>
+            <h2>A3</h2>
+            <h2>A4</h2>
+            <h2>A5</h2>
+            <h2>A6</h2>
+            <h2>A7</h2>
+            <h2>A8</h2>
+            <h2>A9</h2>
+        </div>
+        <div class="item">
+            <div class="first">B</div>
+            <h2>B1</h2>
+            <h2>B2</h2>
+            <h2>B3</h2>
+            <h2>B4</h2>
+            <h2>B5</h2>
+            <h2>B6</h2>
+            <h2>B7</h2>
+            <h2>B8</h2>
+            <h2>B9</h2>
+        </div>
+        <div class="item">
+            <div class="first">C</div>
+            <h2>C1</h2>
+            <h2>C2</h2>
+            <h2>C3</h2>
+            <h2>C4</h2>
+            <h2>C5</h2>
+            <h2>C6</h2>
+            <h2>C7</h2>
+            <h2>C8</h2>
+            <h2>C9</h2>
+        </div>
+    </div>
+</body>
+</html>

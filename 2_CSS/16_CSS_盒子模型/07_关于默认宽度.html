@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07_关于默认宽度</title>
+    <style>
+        /* 
+            所谓的默认宽度，就是不设置width属性时，元素所呈现出来的宽度
+            总宽度=父的content-自身的左右margin
+            内容区的宽度=父的content-自身的左右margin-自身的左右border-自身的左右padding
+        
+        
+        */
+        div {
+            
+            margin: 5px;
+            border: 5px solid black;
+            padding: 5px;
+
+            height: 100px;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div>你好啊</div>
+</body>
+</html>

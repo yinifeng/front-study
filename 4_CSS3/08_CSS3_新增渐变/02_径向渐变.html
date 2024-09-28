@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_径向渐变</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 200px;
+            border: 1px solid black;
+            float: left;
+            margin-left: 50px;
+            font-size: 20px;
+        }
+        .box1 {
+            /* 径向渐变，从中心点向外围扩散
+                默认形状和高度宽度有关，宽高相同为圆形
+            */
+            background-image: radial-gradient(red,yellow,green);
+        }
+        .box2 {
+            /* 第一个参数 圆形点在那个位置
+                at left 左边(红，黄,绿)
+                at right 右边 (红，黄,绿)
+                at right top 右上 (红，黄,绿)
+            */
+            background-image: radial-gradient(at left bottom,red,yellow,green);
+        }
+        .box3 {
+            /* 第一个参数 通过坐标定位圆形，左上角为原点
+                at 150px 100px 这个相当就是中心点
+            */
+            background-image: radial-gradient(at 150px 100px,red,yellow,green);
+        }
+        .box4 {
+            /* 第一个参数 关键词，调整径向渐变的形状
+                circle 圆形
+            */
+            background-image: radial-gradient(circle,red,yellow,green);
+        }
+        .box5 {
+            /* 第一个参数 像素，调整径向渐变的形状
+                相等则为圆形
+            */
+            background-image: radial-gradient(100px 100px,red,yellow,green);
+        }
+        .box6 {
+            /* 第一个参数 像素，调整径向渐变的范围
+            */
+            background-image: radial-gradient(red 50px,yellow 100px,green 150px);
+            margin-top: 50px;
+        }
+        .box7{
+            background-image: radial-gradient(100px 50px at 150px 100px,red 50px,yellow 100px,green 150px);
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box box1">默认情况</div>
+    <div class="box box2">通过关键词调整径向渐变圆的圆心</div>
+    <div class="box box3">通过像素调整径向渐变圆的圆心</div>
+    <div class="box box4">通过关键词调整径向渐变的形状</div>
+    <div class="box box5">通过像素调整径向渐变的形状</div>
+    <div class="box box6">通过像素调整径向渐变的范围</div>
+    <div class="box box7">综合写法</div>
+</body>
+</html>

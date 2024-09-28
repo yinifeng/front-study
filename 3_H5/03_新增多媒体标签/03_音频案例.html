@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_音频案例</title>
+    <style>
+        audio {
+            width: 600px;
+            border: 1px solid black;
+        }
+        .mask {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.274);
+        }
+        .dialog {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            background-color: green;
+            font-size: 40px;
+            text-align: center;
+            line-height: 400px;
+        }
+        span {
+            border: 1px solid white;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <audio id="music" src="./小曲.mp3" controls preload="metadata"></audio>
+    <div class="mask" id="mask">
+        <div class="dialog">
+            <span>点我登录</span>
+            <span onclick="go()">随便听听</span>
+        </div>
+    </div>
+
+    <script>
+        function go() {
+            music.play();
+            mask.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

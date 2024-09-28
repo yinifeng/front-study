@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_扭曲_了解</title>
+    <style>
+        .outer {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: deepskyblue;
+            /* 2D扭曲是指：让元素在二维平面内被“拉扯”，进而“走形”，实际开发几乎不用，了解即可，具体使用方式如下：
+                1、先给元素添加 转换属性 transform
+                2、编写transform的具体值，相关可选值如下：
+
+                skewX:设置元素水平方向扭曲，值为角度值，会将元素的左上角、右下角拉扯。
+                skewY：设置元素在垂直方向扭曲，值为角度值，会将元素的左上角、右下角拉扯。
+                skew：一个值代表skewX,两个值分别代表：skewX，skewY
+
+            */
+
+            /* transform: skewX(60deg); */
+
+            /* transform: skewY(-60deg); */
+
+            transform: skew(30deg,30deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">你好啊</div>
+    </div>
+</body>
+</html>

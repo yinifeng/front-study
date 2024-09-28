@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13_练习-图片轮播</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            vertical-align: top;
+        }
+        ul {
+            list-style: none;
+        }
+        .outer {
+            width: 206px;
+            height: 215px;
+            margin: 100px auto;
+            position: relative;
+        }
+        .img-list {
+            height: 215px;
+        }
+        .img-list li {
+            position: absolute;
+            opacity: 0;
+            /* 动画过渡 */
+            transition: opacity 1s;
+        }
+        li.current {
+            z-index: 1;
+            opacity: 1;
+        }
+        .prve-next a {
+            font-size: 40px;
+            color: black;
+            opacity: 0.1;
+            font-weight: bold;
+            text-decoration: none;
+            position: absolute;
+            height: 40px;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            z-index: 2;
+        }
+        .prve-next a:hover {
+            opacity: 0.5;
+        }
+        #next {
+            right: 0;
+        }
+        /* 
+            设置导航点样式
+        */
+        .dot {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            z-index: 3;
+            left: 0;
+            right: 0;
+            bottom: 5px;
+            margin: auto;
+        }
+        .dot a {
+            width: 10px;
+            height: 10px;
+            margin: 5px;
+            border-radius: 50%;
+            background-color: black;
+            opacity: 0.1;
+        }
+        .dot a:hover,
+        .dot .active{
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <ul class="img-list">
+            <li class="current">
+                <a href="#">
+                    <img src="./images/01.png">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/02.png">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/03.png">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/04.png">
+                </a>
+            </li>
+        </ul>
+        <!-- 左右切换 -->
+        <div class="prve-next">
+            <a id="prev" href="javascript:;"><</a>
+            <a id="next" href="javascript:;">></a>
+        </div>
+        <!-- 导航点切换 -->
+        <div class="dot">
+            <a class="active" href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+
+    <script>
+        /* 
+            优化图片轮播
+                打开页面所有图片先加载，通过改变css样式实现图片轮播
+
+            问题一：如何简化代码
+            问题二：如何控制图片自动切换的关闭和开启    
+        */
+
+        //获取需要轮播的图片数组
+        const imgArr = Array.from(document.querySelectorAll(".img-list li"));
+        //或导航点数组
+        const dotArr = Array.from(document.querySelectorAll(".dot a"));
+
+        //为导航点绑定click事件
+        document.addEventListener("click",(event) => {
+            //目标元素为导航点传播的事件
+            const index = dotArr.indexOf(event.target);
+            if(index !== -1) {
+                changeImg(index);
+            }
+        });
+
+        //防止变量安全性，匿名函数封装起来
+        const toggleImg = (function(){
+            let timer = null;
+            return function() {
+                if (timer === null) {
+                    timer = setTimeout(function autoImg() {
+                        changeImg("next");
+                        timer = setTimeout(autoImg, 3000);
+                    }, 3000);
+                } else {
+                    clearTimeout(timer);
+                    timer = null;
+                }
+            }
+        })();
+
+        //启动定时任务切换图片
+        toggleImg();
+
+        const outer = document.getElementsByClassName("outer")[0];
+        //当鼠标进入outer
+        outer.onmouseenter = ()=> {
+            //暂停定时
+            toggleImg();
+        }
+        //当鼠标离开outer
+        outer.onmouseleave = ()=> {
+            //启动定时
+            toggleImg();
+        }
+
+        /* 
+            点击按钮切换图片
+        */
+        const prev = document.getElementById("prev");
+        const next = document.getElementById("next");
+
+        
+
+        //上一张图片
+        prev.onclick = ()=> {
+            changeImg("prev");
+        }
+        
+        //下一张图片
+        next.onclick = ()=> {
+            changeImg("next");
+        }
+
+        /* 
+            参数 dir：
+                next 下一张图片
+                prev 上一张图片
+        */
+        function changeImg(dir) {
+            //当前显示的图片
+            const currentElement = document.querySelector(".img-list .current");
+
+            //当最后一张nextElementSibling为null
+            let imgElement = null;
+            if(dir === "next") {
+                imgElement = currentElement.nextElementSibling || imgArr[0];
+            }else if(dir === "prev") {
+                imgElement = currentElement.previousElementSibling || imgArr.at(-1);
+            }else if (typeof dir === "number"){
+                //点击导航点的图片
+                imgElement = imgArr[dir];
+            }
+            //通过显示图片查找到改变导航点样式的索引
+            let dotIndex = imgArr.indexOf(imgElement);
+
+            //切换显示状态
+            currentElement.classList.remove("current");
+            imgElement.classList.add("current");
+
+            //删除已激活的导航点样式
+            const currentDot = document.querySelector(".dot .active");
+            currentDot.classList.remove("active");
+            //变更选中图片点样式
+            dotArr[dotIndex].classList.add("active");
+        }     
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07_行高</title>
+    <style>
+        .hobart1 {
+            font-size: 40px;
+            background-color: skyblue;
+            /* 行高 
+                第一种写法：值为像素，如果行高值和 font-size一致会有重叠的风险
+            */
+            /* line-height: 40px; */
+            
+            /* 第二种写法：值为normal，由浏览器决定，自适用行高 */
+            /* line-height: normal; */
+
+            /*第三种写法：值为数值,字体大小倍数 40*1.5 = 60px  */
+            /* 这种写法最常用 ，最好是1.5~2.0直接的值 */
+            /* line-height: 1.5; */
+
+            /* 第四种写法：百分比  40*1.5 = 60px */
+            line-height: 150%;
+
+            /* 由于字体设计原因，文字在一行中，并不是绝对垂直居中，若一行都是文字，不会太影响观感 */
+        }
+    </style>
+</head>
+<body>
+    <div class="hobart1">guangdongshenzhengx广东深圳1guangdongshenzhengx广东深圳1guangdongshenzhengx广东深圳1guangdongshenzhengx广东深圳1</div>
+</body>
+</html>

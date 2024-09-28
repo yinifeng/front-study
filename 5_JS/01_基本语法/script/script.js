@@ -1,0 +1,1 @@
+document.write('外部的js文件')

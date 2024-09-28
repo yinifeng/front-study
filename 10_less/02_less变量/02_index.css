@@ -1,0 +1,26 @@
+/* 
+    less变量分类：
+        1、选择器变量
+        2、属性变量
+        3、url变量
+        4、声明变量
+        5、变量运算
+        6、变量作用域
+        7、用变量去定义变量
+
+*/
+#wrap {
+  background-color: greenyellow;
+  width: 50%;
+}
+.wrap {
+  background-color: lightskyblue;
+  width: 50%;
+}
+#wrap {
+  background-color: pink;
+  width: 50%;
+}
+#wrap {
+  border-style: solid;
+}

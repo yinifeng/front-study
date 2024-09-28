@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_旋转</title>
+    <style>
+        .outer {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: deepskyblue;
+            /* 2D旋转：让元素在二维平面内，顺时针旋转或逆时针旋转，具体使用方式如下：
+                1、先给元素增加转换属性 transform
+                2、编写 transform的具体值，相关可选值如下：
+                    rotate 设置旋转角度，需指定一个角度值（deg），正值顺时针，负值顺时针。
+                
+                注意：
+                    rotateZ(20deg)相当于 rotate(20deg)
+            
+            */
+
+            transform: rotateZ(60deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">你好啊</div>
+    </div>
+</body>
+</html>

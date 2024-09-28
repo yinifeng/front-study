@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_伸缩容器_伸缩项目</title>
+    <style>
+        body {
+            display: flex;
+        }
+        .outer {
+            width: 600px;
+            height: 600px;
+            background-color: gray;
+            /* 设置伸缩容器,子元素都为伸缩项目,孙子重孙都不是伸缩项目
+                子元素都会块状化
+            
+            */
+            /* display: flex; */
+
+            /* 行内块 伸缩容器，第一个outer和第二个outer 中间有空隙，所以这个属性一般不用，把父元素设置为伸缩容器代替 */
+            /* display: inline-flex; */
+
+            display: flex;
+        }
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            border: 1px solid black;
+            /* 盒子区域大小包含边框 */
+            box-sizing: border-box;
+
+            /* 浮动脱落文档流 */
+            /* float: left; */
+        }
+        .inner3 {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <span class="inner">1</span>
+        <div class="inner">2</div>
+        <div class="inner inner3">
+            <div>a</div>
+            <div>b</div>
+            <div>c</div>
+        </div>
+    </div>
+    <div class="outer">
+        <div class="inner">1</div>
+        <div class="inner">2</div>
+        <div class="inner inner3">
+            <div>a</div>
+            <div>b</div>
+            <div>c</div>
+        </div>
+    </div>
+</body>
+</html>

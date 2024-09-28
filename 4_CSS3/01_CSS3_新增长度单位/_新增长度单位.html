@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>_新增长度单位</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+        .box2 {
+            /* 长度单位 
+                vw：代表视口20%宽，视口大小发生变化也随之变化（移动端用的比较多）
+                vh：代表视口20%高
+            */
+            width: 20vw;
+            /* 这height也可以设置vw，但是一般不设置随着内容撑开高度 */
+            height: 20vh;
+            background-color: green;
+        }
+        .box3 {
+            /* 视口高度宽度最大的20% */
+            width: 20vmax;
+             /* 视口高度宽度最小的20% */
+            height: 20vmin;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2">vw和vh</div>
+    <div class="box3">vmin和vmax</div>
+</body>
+</html>

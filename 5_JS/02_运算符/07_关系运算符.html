@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07_关系运算符</title>
+    <script>
+        /* 
+            关系运算符
+                - 关系运算符用来检查两个值之间的关系是否成立
+                    成立返回true，不成立返回false
+                    - 用来检查左值是否大于右值
+                >
+                >=
+                <
+                <=
+            注意：
+                当对非数值进行关系运算时，它会先将前转换为数值然后再比较
+                当关系运算符的两端是两个字符串，它不会将字符串转换为数值，
+                    而是逐位的比较字符的Unicode编码
+                    利用这个特点可以对字符串按照字面排序  
+                注意比较两个字符串格式的数字时一定要进行类型转换  
+        */
+       let result = 10 > 5;//true
+        console.log(result);
+       //不同类型的关系运算比较
+
+       result = 5 < "10";//true
+       console.log(result);
+       result = "1" > false;//true
+       console.log(result);
+       result = "a" < "b";//true
+       console.log(result);
+       result = "z" < "f";//false
+       console.log(result);
+       result = "abc" < "b";//true
+       console.log(result);
+
+       result = "12" < "2";//true
+       console.log(result);
+       result = +"12" < +"2";//false
+       console.log(result);
+
+       //检查num 是否在5和10之间
+       let num = 6;
+       result = num > 5 && num < 10;
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

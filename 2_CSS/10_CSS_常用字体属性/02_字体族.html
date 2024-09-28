@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_字体族</title>
+    <style>
+        body {
+            font-size: 100px;
+        }
+        /* 字体族依赖运行环境按照字体，windows搜索字体 */
+        .hobart1 {
+            /* Microsoft YaHei */
+            font-family: "微软雅黑";
+        }
+        .hobart2 {
+            font-family: "宋体";
+        }
+        .hobart3 {
+            font-family: "楷体";
+        }
+        .hobart4 {
+            font-family: "新宋体";
+        }
+        /* 上面字体族 最好英文表示，防止有些浏览器不支持 */
+        .hobart5 {
+            font-family: "KaiTi";
+        }
+        /* 字体族分为两大类
+            1、称线字体 笔画有棱有角 （宋体 楷体 新宋体）
+            2、非衬线字体
+        */
+        .hobart6 {
+            /* 可以写多个，多个最好写相同的类型（如称线字体 ） 
+                系统开始从第一个查找字体库，如果没找到找第二个。。。
+                都找不到，按字体类型 系统和浏览器决定一个
+                serif 称线字体
+                sans-serif 非衬线字体
+            */
+            font-family: "SimSun","KaiTi","NSimSun",serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="hobart1">广东深圳1</div>
+    <div class="hobart2">广东深圳2</div>
+    <div class="hobart3">广东深圳3</div>
+    <div class="hobart4">广东深圳4</div>
+    <div class="hobart5">广东深圳5</div>
+    <div class="hobart6">广东深圳6</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_for-of语句</title>
+    <script>
+        /* 
+            for-of语句可以用来遍历可迭代对象
+            语法：
+                for(变量 of 可迭代对象) {
+                    语句...
+                }
+            执行流程：
+                for-of的循环体会执行多次，数组中有几个元素就会执行几次
+                    每次执行时都会将一个元素赋值给变量    
+        */
+
+        const arr = ["tom","jack","marry","hobart"]
+        //arr[99] = "aaa"; //一下会迭代100次
+        for (let value of arr) {
+            console.log(value);
+        }
+
+        for (const c of "hello") {
+            console.log(c);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

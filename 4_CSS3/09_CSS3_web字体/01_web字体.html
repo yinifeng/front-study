@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_web字体</title>
+    <style>
+        /* 本地文件字体库 */
+        @font-face {
+            font-family: "情书字体";
+            src: url('./font1/方正手迹.ttf');
+        }
+        /* 根据某些固定文字 定制的字体文件
+            定制网站：https://www.iconfont.cn/webfont
+        
+        */
+        @font-face {
+            font-family: "在线定制固定字体";
+            font-display: swap;
+            src: url('webfont.eot'); /* IE9 */
+            src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+            url('./font2/webfont.woff2') format('woff2'),
+            url('./font2/webfont.woff') format('woff'), /* chrome、firefox */
+            url('./font2/webfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+            url('./font2/webfont.svg#webfont') format('svg'); /* iOS 4.1- */
+        }
+        .t1 {
+            font-size: 100px;
+            font-family: '情书字体';
+        }
+        .t2 {
+            font-size: 100px;
+            font-family: '在线定制固定字体';
+        }
+    </style>
+</head>
+<body>
+    <h1 class="t1">天青色等烟雨，而我在等你</h1>
+    <h1 class="t2">天青色等烟雨，而我在等你</h1>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12_原型对象</title>
+    <script>
+        class Person {
+            name = "hobart";
+            age = 18;
+
+            sayHello() {
+                console.log("Hello,我是" + this.name);
+            }
+        }
+        const p = new Person();
+        const p2 = new Person();
+
+        class Dog {
+
+        }
+        const d = new Dog();
+        const d2 = new Dog();
+
+        /* 
+            所有的同类型对象它们的原型对象都是同一个
+                也就意味着，同类型对象的原型链是一样的
+            
+            原型的作用：
+                原型就相当于是一个公共的区域，可以被所有该类实例访问
+                    可以将该类实例中，所有的公共属性（通常是方法）统一存储到原型当中
+                    这样我们只需要创建一个属性，即可被所有实例访问
+                JS中继承就是通过原型来实现的
+                    当继承时，子类的原型就是父类的实例
+            在对象中有些值是对象独有的，像属性（name，age，gender）每个对象都应该有自己的值
+                但是有些值对于每个对象来说都是一样的，像各种方法，对于一样的值没必要重复创建                
+            
+            尝试：
+                函数的原型链是什么样子？
+                Object的原型链是什么样子？    
+        
+        */
+
+        console.log(p);
+        console.log(p2);
+        console.log(p.__proto__ === p2.__proto__);
+
+        class Animal {
+
+        }
+
+        class Cat extends Animal {
+
+        }
+
+        class TomCat extends Cat {
+
+        }
+
+        //TomCat的原型：Cat实例 => Animal实例 => object => Object原型 => null
+
+        const cat = new Cat();
+        console.log(cat);
+        //cat的原型：Animal实例 => object => Object原型 => null
+        //p的原型：object => Object原型 => null
+        console.log(cat.__proto__.__proto__.__proto__);
+
+        function f1() {
+            console.log("f1");
+        }
+        console.log(f1);
+        console.log(f1.__proto__.__proto__);
+
+        const f2 = function() {
+            console.log("f2");
+        }
+        console.log(f2);
+        //函数的原型：function实例 => Object原型 => null
+        console.log(typeof f2.__proto__);
+
+        const obj ={name:"tom"}
+        console.log(obj);
+        //Object的原型：Object原型 => null
+        console.log(obj.__proto__.__proto__);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

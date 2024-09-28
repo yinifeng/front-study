@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05_主轴对齐方式</title>
+    <style>
+        .outer {
+            width: 1000px;
+            height: 600px;
+            background-color: gray;
+            margin: 0 auto;
+
+            /* 开始设置伸缩盒模型属性===== */
+            display: flex;
+            /* 主轴水平方向，默认是从左到右 */
+            flex-direction: row;
+
+            /* 主轴换行方式 */
+            /* 换行，按父元素剩余空间 侧轴居中 */
+            flex-wrap:wrap;
+
+            /* 主轴对齐方式 */
+
+            /* 主轴的对齐方式，主轴的起始位置,默认 */
+            /* justify-content: flex-start; */
+
+            /* 主轴的对齐方式，主轴的结束位置 */
+            /* justify-content: flex-end; */
+
+            /* 主轴的对齐方式，中间对齐 */
+            /* justify-content: center; */
+            
+            /* 主轴的对齐方式，项目均匀的分布在一行中，项目与项目之间的距离，是项目距边缘的两倍 */
+            /* justify-content: space-around;*/
+
+            /* 主轴的对齐方式，项目均匀的分布在一行中，项目与项目之间的距离是相等的，是项目边缘没有距离 （使用的比较多） */
+            /* justify-content: space-between; */
+            
+            /* 主轴的对齐方式，项目均匀的分布在一行中 */
+            justify-content: space-evenly;            
+        }
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            border: 1px solid black;
+            /* 盒子区域大小包含边框 */
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">1</div>
+        <div class="inner">2</div>
+        <div class="inner">3</div>
+    </div>
+</body>
+</html>

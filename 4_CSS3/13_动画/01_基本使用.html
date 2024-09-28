@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_基本使用</title>
+    <style>
+        .outer {
+            width: 1000px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        /* 动画(定义一组关键帧)写法一 */
+        @keyframes wangyoudong {
+            /* 第一帧 */
+            from {
+                /* transform: translate(0); */
+                /* background-color: deepskyblue; */
+            }
+            /* 最后一帧 */
+            to {
+                transform: translate(900px);
+                background-color: blueviolet;
+            }
+        }
+        /* 动画(定义一组关键帧)写法二 */
+        @keyframes wangyoudong2 {
+            /* 第一帧 */
+            0% {
+                /* transform: translate(0); */
+                /* background-color: deepskyblue; */
+            }
+            /* 28% {
+                background-color: blanchedalmond;
+            } */
+            /* 48% {
+                background-color: orange;
+            } */
+            /* 88% {
+                background-color: red;
+            } */
+            /* 最后一帧 */
+            100% {
+                transform: translate(900px) rotate(360deg);
+                background-color: blueviolet;
+                border-radius: 50%;
+            }
+        }
+        .inner {
+            width: 100px;
+            height: 100px;
+            background-color: deepskyblue;
+            /* 应用动画到元素 */
+            /* animation-name: wangyoudong; */
+            animation-name: wangyoudong2;
+
+            /* 动画持续时间 */
+            animation-duration: 3s;
+            /* 动画延迟时间 */
+            animation-delay: 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>axios</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+     <button id="btn1">按钮1</button>
+     <button id="btn2">按钮2</button>
+
+     <script>
+        axios.defaults.baseURL = "http://127.0.0.1:3000";
+        axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("token")}`;
+        //axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
+        const btn1 = document.getElementById("btn1");
+        const btn2 = document.getElementById("btn2");
+
+        btn2.onclick = () =>{
+            axios({
+                //请求资源路径
+                url:"students",
+                //请求方式
+                method:"get",
+                // `timeout` 指定请求超时的毫秒数。
+                // 如果请求时间超过 `timeout` 的值，则请求会被中断
+                timeout: 5000, // 默认值是 `0` (永不超时)
+            }).then((res) =>{
+                //默认状态码为2xx，调用then
+                console.log(res);
+                console.log(res.data);
+            }).catch((error) =>{
+                console.log("出错了~",error);
+            });
+        }
+
+        btn1.onclick = () =>{
+            axios({
+                //请求资源路径
+                url:"/students",
+                //请求方式
+                method:"post",
+                data:{
+                    name: "陈慧娴",
+                    age: 21,
+                    gender: "女",
+                    address: "中国香港"
+                }
+            }).then((res) =>{
+                //默认状态码为2xx，调用then
+                console.log(res);
+                console.log(res.data);
+            }).catch((error) =>{
+                console.log("出错了~",error);
+            });
+        }
+     </script>
+</body>
+</html>

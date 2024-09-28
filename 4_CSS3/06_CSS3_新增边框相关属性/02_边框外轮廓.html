@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_边框外轮廓</title>
+    <style>
+        .box1 {
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            border: 10px solid black;
+            background-color: gray;
+            margin-top: 100px;
+            padding: 10px;
+
+            /* 边框外轮廓,不占位，不参与盒子大小计算，比如成盒子发出的光 */
+
+            /* 边框外轮廓宽度 */
+            /* outline-width: 20px; */
+            /* 边框外轮廓颜色 */
+            /* outline-color: orange; */
+            /* 边框外轮廓线条样式 */
+            /* outline-style: solid; */
+
+            /* 边框外轮廓位置，可以写负数 */
+            outline-offset: 50px;
+
+            /* 上面 宽度 颜色 线条样式 合起来写*/
+            outline: 20px solid green;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">你好啊</div>
+    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, eveniet reprehenderit dolores, necessitatibus reiciendis sit minima rerum tempore quam perspiciatis officiis labore fuga eos corrupti voluptas cum accusamus saepe. Modi, fugiat vel. Numquam architecto tempora, iusto labore dolore possimus laudantium iste asperiores, quos, doloremque itaque cupiditate temporibus excepturi animi reprehenderit?</div></div>
+</body>
+</html>

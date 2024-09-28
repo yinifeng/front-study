@@ -1,0 +1,9 @@
+/* 设置基本样式 */
+* {
+    box-sizing: border-box;
+}
+/* 设置body样式 */
+body {
+    background-color: #DFDFDF;
+    margin: 0;
+}

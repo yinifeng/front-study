@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10_练习</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            vertical-align: top;
+        }
+        ul {
+            list-style: none;
+        }
+        .outer {
+            width: 206px;
+            height: 215px;
+            margin: 100px auto;
+        }
+        .img-list {
+            height: 215px;
+        }
+        .img-list li {
+            position: absolute;
+            opacity: 0;
+            /* 动画过渡 */
+            transition: opacity 1s;
+        }
+        li.current {
+            z-index: 1;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <ul class="img-list">
+            <li class="current">
+                <a href="#">
+                    <img src="./images/01.png">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/02.png">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/03.png">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/04.png">
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        /* 
+            优化图片轮播
+                打开页面所有图片先加载，通过改变css样式实现图片轮播
+        */
+        setTimeout(function auto() {
+            const current = document.querySelector(".img-list .current");
+
+            //当最后一张nextElementSibling为null
+            const next = current.nextElementSibling || document.getElementsByTagName("li")[0];
+            //切换显示状态
+            current.classList.remove("current");
+            next.classList.add("current");
+            setTimeout(auto,3000);
+        },3000)
+    </script>
+</body>
+</html>

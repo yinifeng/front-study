@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_ifelse语句</title>
+    <script>
+        /* 
+            流程控制语句来改变程序的执行顺序：
+                1、条件判断语句
+                2、条件分支语句
+                3、循环语句
+
+        
+        */
+
+        let a = prompt('请输入一个整数');
+        if (a < 10) {
+            alert("弹窗：" + a);
+        }else if (a>= 10 && a <= 20) {
+            console.log("输出：" + a);
+        }else {
+            alert(typeof a);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

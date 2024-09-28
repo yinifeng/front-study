@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08_定时器</title>  
+</head>
+<body>
+    <script>
+        /* 
+            定时间隔3秒执行一次
+                setInterval是每隔3秒把回调函数添加到消息队列中，当调用栈每释放就不会执行
+                缺点：
+                    但是如果函数执行的速度比较慢，它是无法确保每次执行的间隔都是一样的
+        */
+
+        //console.time("间隔");
+        //setInterval(function() {
+        //    console.timeEnd("间隔");
+        //    //console.log("定时器执行了");
+        //    alert("定时器执行了!");
+        //    console.time("间隔");
+        //},3000)；
+
+        /* 
+            希望可以确保函数每次执行都有相同的间隔
+                故 setTimeout 常用
+        */
+        
+        //console.time("间隔");
+        //setTimeout(function fn(){
+        //    console.timeEnd("间隔");
+        //    //console.log("定时器执行了");
+        //    alert("定时器执行了~");
+        //    console.time("间隔");
+        //    setTimeout(fn,3000);
+        //},3000);
+
+        setTimeout(()=>{
+            console.log("1111");
+        },0);
+        //2222先执行，因为要等调用栈释放，1111才会执行，否则一直在消息队列中
+        console.log("2222");
+    </script>
+</body>
+</html>

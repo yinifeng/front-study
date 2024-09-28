@@ -1,0 +1,9 @@
+/* 
+    这种注释编译后会在css文件中
+*/
+#wrap {
+  color: red;
+  background-color: green;
+  width: 200px;
+  height: 200px;
+}

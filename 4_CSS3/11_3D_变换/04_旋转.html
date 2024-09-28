@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_旋转</title>
+    <style>
+        .outer {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            margin: 0 auto;
+            margin-top: 100px;
+
+            /* 开启3D空间：元素进行3D变换的首要操作：父元素必须开启3D空间 
+                transform-style开启3D,可选值如下：
+                1、flat：让子元素位于此元素的二维平面内--默认值
+                2、preserve-3d：让子元素位于此元素的三维平面内
+            
+            */
+            transform-style: preserve-3d;
+            /* 设置景深
+                如何设置景深--指定观察者与z=0平面的距离，能让发生3D变换的元素，产生透视效果，看起来更加立体
+                使用perspective设置景深，可选值如下：
+                1、none：不知道透视--默认值
+                2、长度值：指定观察者距离z=0平面的距离，不允许负值。
+
+                近大远小
+            */
+            perspective: 500px;
+
+            /* 透视点位置
+                所谓透视点位置，就是观察者位置；默认的透视点在元素的中心
+                使用perspective-origin设置观察者位置，例如：
+
+                
+                perspective-origin: 400px 300px;
+
+                注意：通常情况下，我们不需要调整透视点位置。
+            */
+
+            perspective-origin: 102px 102px;
+        }
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: rgba(0, 191, 255, 0.397);
+
+            /* 右侧看按X轴旋转30度 */
+            /* transform: rotateX(30deg); */
+            
+            /* 下侧看按Y轴旋转45度 */
+            transform: rotateY(45deg);
+
+            /* 第一个值是否X轴旋转，第二个值是否Y轴旋转，第三个值是否Z轴旋转，第四个值旋转角度
+                一般不用，很难理解
+            */
+            /* transform: rotate3d(1,1,1,20deg); */
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">你好啊</div>
+    </div>
+</body>
+</html>

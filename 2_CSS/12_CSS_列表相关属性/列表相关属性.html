@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表相关属性</title>
+    <style>
+        ul {
+            /* 列表符号 */
+            /* list-style-type: decimal; */
+
+            /* 列表符号位置 */
+            /* list-style-position: inside; */
+
+            /* 自定义列表符号 */
+            /* list-style-image: url("../../favicon.ico"); */
+
+            /* 符合属性 上面3个写一起，没有顺序要求 */
+            list-style: decimal inside url("../../favicon.ico");
+
+            /* 上面样式只能写 在ul 和 li中 */
+        }
+        li {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>北京</li>
+        <li>上海</li>
+        <li>深圳</li>
+    </ul>
+</body>
+</html>

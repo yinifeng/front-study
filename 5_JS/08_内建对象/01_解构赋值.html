@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_解构赋值</title>
+    <script>
+        
+        /* 
+            解构赋值
+        */
+
+        const arr = ["hobart","tom","jack"];
+       
+        let a,b,c;
+        //a = arr[0]
+        //b = arr[1]
+        //c = arr[2]
+
+        //[a,b,c] = ["hobart","tom","jack"];
+        [a,b,c] = arr;//数组解构赋值
+
+        console.log(a,b,c);
+
+        const arr2 = ["刘德华","张学友","周杰伦","黎明"];
+        let [d,e,f,g] = arr2;//变量声明同时解构赋值
+        console.log(d,e,f,g);
+        //避免报错前面加;号
+
+        //;[d,e,f,g] = [1,2,3]
+        //console.log(d,e,f,g);//1,2,3,undefined
+
+        //;[d,e,f = 77,g = 10] = [1,2,3] //给默认值
+        ;[d,e,f,g=g] = [1,2,3]
+        console.log(d,e,f,g);
+
+        let [n1,n2,...n3] = [4,5,6,7];//解构数组时，可以使用...来设置获取多余的元素
+        console.log(n1,n2,n3);//4 5 [6,7]
+
+        //函数返回值解构
+        function fn() {
+            return ["林青霞","张曼玉"]
+        }
+
+        let [name1,name2] = fn();
+        console.log(name1,name2);
+
+        //可以通过解构赋值来快速交换两个变量的值
+        let a1 =10;
+        let a2 = 20;
+
+        //let temp =a1;
+        //a1 = a2;
+        //a2 = temp;
+
+        //上面可以通过解构赋值交换
+        [a1,a2] = [a2,a1];
+        console.log(a1,a2);
+
+        /* 
+            数组中可以存储任意类型的数据，也可以存数组
+                如果一个数组中的元素还是数组，则这个数组我们就称为是二维数组
+        */
+
+        const arr3 = [["张无忌",21,"男"],["周芷若",18,"女"]];
+
+        //解构二维数组
+        let [[name,age,gender],obj] = arr3;
+        console.log(name,age,gender,obj);
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

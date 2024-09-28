@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_缩放</title>
+    <style>
+        .outer {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: deepskyblue;
+
+            /* 设置水平方向缩放比例，值为一个数字，1表示不缩放，大于1放大，小于1缩小 */
+            /* transform: scaleX(1.2); */
+
+            /* 设置垂直方向缩放比例，值为一个数字，1表示不缩放，大于1放大，小于1缩小 */
+            /* transform: scaleY(1.2); */
+
+            /* 同时设置水平方向，垂直方向的缩放比例，一个值代表同时设置水平和垂直缩放；两个值分别代表；水平缩放，垂直缩放 */
+            transform: scale(1.2);
+
+            /* 注意点
+                1、scale的值，支持写负数，但几乎不用，容易让人产生误解。
+                2、借助缩放，可实现小于12px的文字。
+            */
+        }
+
+        /* 可以缩放文字 */
+        span {
+            display: inline-block;
+            font-size: 12px;
+            transform: scale(0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">你好啊</div>
+    </div>
+    <hr>
+    <span>好</span>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_BFC_演示1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /* body {
+            display: flex;
+        } */
+        .outer {
+            width: 400px;
+            background-color: gray;
+
+            /* 如何开启BFC,从说明第2个开始 */
+
+            /* 根元素，就不模拟了  */
+            /* float: left; */
+            /* position: absolute; */
+            /* display: inline-block; */
+            /* display: table; */
+            /* overflow: auto; */
+            /* 伸缩项目,父元素 body开启伸缩容器  */
+            /* column-count: 1; */
+            display: flow-root;
+        }
+        .inner {
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+        }
+        .inner1 {
+            background-color: orange;
+        }
+        .inner2 {
+            background-color: green;
+        }
+        .inner3 {
+            background-color: deepskyblue;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        一、BFC概念
+        1、BFC是块级格式上下文，可以理解成元素的一个 “特异功能”
+        2、该“特异功能”，在默认的情况下处于关闭状态；当元素满足了某些条件后，该“特异功能”被激活。
+        3、所谓激活“特异功能”，专业点说就是：该元素创建了BFC（又称：开启了 BFC）
+
+        二、开启了BFC能解决什么问题
+        1、元素开启BFC后，其子元素不会再产生margin塌陷问题。
+        2、元素开启BFC后，自己不会被其他浮动元素所覆盖。
+        3、元素开启BFC后，就算其子元素浮动，元素自身高度也不会塌陷。
+
+        三、如何开启BFC
+        1、根元素 (就是html元素)
+        2、浮动元素
+        3、绝对定位、固定定位的元素
+        4、行内块元素
+        5、表格单元：table、thead、tbody、tfoot、th、td、tr、caption
+        6、overflow的值不为visable的块元素
+        7、伸缩项目
+        8、多列容器
+        9、column-span为all的元素（即使该元素没有包裹在多列容器中）
+        10、display的值，设置为flow-root
+     -->
+
+     <!-- 1、元素开启BFC后，其子元素不会再产生margin塌陷问题 -->
+     <div class="outer">
+        <div class="inner inner1"></div>
+        <div class="inner inner2"></div>
+        <div class="inner inner3"></div>
+     </div>
+</body>
+</html>

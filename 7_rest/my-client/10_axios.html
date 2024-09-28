@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>axios</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <!-- 
+        axios
+            https://axios-http.com/zh/docs/intro
+            Axios 是一个基于 promise 网络请求库，作用于node.js 和浏览器中。 
+            它是 isomorphic 的(即同一套代码可以运行在浏览器和node.js中)。
+            在服务端它使用原生 node.js http 模块, 而在客户端 (浏览端) 则使用 XMLHttpRequests。
+
+     -->
+     <button id="btn1">按钮1</button>
+     <button id="btn2">按钮2</button>
+
+     <script>
+        const btn1 = document.getElementById("btn1");
+        const btn2 = document.getElementById("btn2");
+
+        btn2.onclick = () =>{
+            axios({
+                method:"get",
+                url:"http://127.0.0.1:3000/students"
+            }).then((res) =>{
+                //默认状态码为2xx，调用then
+                console.log(res);
+                console.log(res.data);
+            }).catch((error) =>{
+                console.log("出错了~",error);
+            });
+        }
+
+        btn1.onclick = () =>{
+            axios({
+                method:"post",
+                url:"http://127.0.0.1:3000/students",
+                data:{
+                    name: "陈慧娴",
+                    age: 21,
+                    gender: "女",
+                    address: "中国香港"
+                }
+            }).then((res) =>{
+                //默认状态码为2xx，调用then
+                console.log(res);
+                console.log(res.data);
+            }).catch((error) =>{
+                console.log("出错了~",error);
+            });
+        }
+     </script>
+</body>
+</html>

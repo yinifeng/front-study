@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06_jQuery的方法</title>
+    <script src="./scripts/jquery-3.7.1.js"></script>
+
+    <script>
+        $(function() {
+            //为按钮绑定响应函数
+            $("#btn").click(function() {
+                /* 
+                    添加容器：
+                    unwrap() 删除外层父元素，参数为选择器（如果参数没达到条件不会删除外层元素）
+                    wrap() 为当前每一个元素添加一个父元素
+                    wrapAll() 为当前所有元素添加一个父元素
+                    wrapInner() 为当前每一个元素添加一个内部元素（子元素）
+                
+                */
+                //$("#list li").unwrap();
+                $("#list li").unwrap("div");
+
+                // $("#list li").wrap("<div/>");
+                // $("#list li").wrapAll("<div/>");
+
+                $("#list li").wrapInner("<div/>");
+            });
+        });
+    </script>    
+</head>
+<body>
+    <button id="btn">点我一下</button>
+    <hr>
+    <ul id="list">
+        <li id="ldh">刘德华</li>
+        <li id="zxy">张学友</li>
+        <li id="gfc">郭富城</li>
+    </ul>
+    <ul id="list2">
+        <li id="lyf">刘亦菲</li>
+        <li id="zmy">张曼玉</li>
+        <li id="lqx">林青霞</li>
+    </ul>
+</body>
+</html>

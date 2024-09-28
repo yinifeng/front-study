@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_background-clip</title>
+    <style>
+        .box1 {
+            width: 400px;
+            height: 400px;
+            background-color: skyblue;
+            margin: 0 auto;
+            font-size: 120px;
+            font-weight: bold;
+            padding: 50px;
+            border: 50px dashed rgba(255, 0, 0, 0.7);
+            /* 文字透明 */
+            color: transparent;
+
+            background-image: url('./bg02.jpg');
+            /* 当一张图片填充不满，不出现重复的图片 */
+            background-repeat: no-repeat;
+            /* 算原点的，从哪里开始，border边框开始 */
+            background-origin: border-box;
+            /* 背景剪切,会影响背景颜色 和 背景图片
+                border-box border以外不可见，默认值
+                padding-box 超出padding以外不可见
+                content-box 超出内容区以外不可见
+                text 让背景呈现在文字上
+
+                结合 background-origin设置的border-box
+                会裁剪掉 从原点边框开始 到内容区超出的背景图片和背景颜色
+            */
+            /* background-clip: content-box; */
+
+            /* text 让背景呈现在文字上,文字要透明才看的出效果
+                浏览器实验性的属性 -webkit-background-clip，需要加内核前缀
+            */
+            /* -webkit-background-clip: text; */
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">你好啊</div>
+</body>
+</html>

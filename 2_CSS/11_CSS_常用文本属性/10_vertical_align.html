@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10_vertical_align</title>
+    <style>
+        div {
+            font-size: 100px;
+            height: 300px;
+            background-color: skyblue;
+        }
+        span {
+            font-size: 40px;
+            background-color: orange;
+            /* 按span元素 x中心点 和 父级元素 x 中心点对齐 */
+            vertical-align: middle;
+        }
+        /* vertical-align
+            作用：用于指定同一元素之间，或表格单元格 内文字的 垂直对齐方式
+            常用值：
+                1、baseline （默认值）：使元素基线与父元素的基线对齐
+                2、top：使元素的顶部与其所在行的顶部对齐
+                3、middle：使元素的中部与父元素的基线加上父元素字母x的一半对齐
+                4、bottom：使元素的底部与其所在行的底部对齐
+        */
+        img {
+            /* 当 图片的height 大于 100px 也就是文字字体大小，那么 文字垂直自适用对齐 图片 */
+            height: 30px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="hobart1">
+        广东深圳1x<span>x前端</span>
+    </div>
+    <hr>
+    <div>
+        广东深圳1x<img src="../images/宁宁婆.jpg">
+    </div>
+</body>
+</html>

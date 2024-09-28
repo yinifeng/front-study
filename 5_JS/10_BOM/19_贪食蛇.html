@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19_贪食蛇</title> 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #main {
+            width: 360px;
+            height: 420px;
+            border: 10px black solid;
+            background-color: #b7d3a8;
+            border-radius: 20px;
+            margin: 50px auto;
+        }
+        #stage {
+            width: 300px;
+            height: 300px;
+            border: 2px black solid;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        #snake>div {
+            width: 10px;
+            height: 10px;
+            background-color: black;
+            position: absolute;
+            border: 1px #b7d3a8 solid;
+        }
+
+        #food {
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            left: 30px;
+            top: 50px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #food>div {
+            width: 5px;
+            height: 5px;
+            background-color: black;
+            transform: rotate(45deg);
+        }
+
+        #info {
+            width: 304px;
+            margin: 0px auto;
+            display: flex;
+            justify-content: space-between;
+            font: bold 20px "Courier";
+        }
+    </style> 
+</head>
+<body>
+    <div id="main">
+        <!-- 蛇移动舞台范围 -->
+        <div id="stage">
+            <div id="snake">
+                <!-- 蛇头 -->
+                <div></div>
+            </div>
+            <!-- 食物 -->
+            <div id="food">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div id="info">
+            <div><span id="score">SCORE:100</span></div>
+            <div><span id="level">LEVEL:1</span></div>
+        </div>
+    </div>
+
+    <script>
+        /* 
+            绑定按键事件keydown keyup
+                - 键盘事件只能绑定给可以获取焦点的元素或者是document
+        */
+        //获取蛇的容器
+        const snake = document.getElementById("snake");
+        const snakes = snake.getElementsByTagName("div");
+        //console.log(snakes);
+
+        //食物
+        const food = document.getElementById("food");
+        //控制键盘的编码
+        const keyArr = ["ArrowLeft","ArrowRight","ArrowUp","ArrowDown"]
+
+        //随机生成食物,0-290之间按10倍的随机数
+        function changeFood() {
+            const left = Math.floor(Math.random() * 30) * 10;
+            const top = Math.floor(Math.random() * 30) * 10;
+            //console.log(left,top);
+            food.style.left = left + "px";
+            food.style.top = top + "px";
+        }
+        //初始化一个食物
+        changeFood();
+
+        const retObj ={
+            ArrowLeft:"ArrowRight",
+            ArrowRight:"ArrowLeft",
+            ArrowUp:"ArrowDown",
+            ArrowDown:"ArrowUp"
+        }
+        /* 
+            如何解决 蛇不能流畅的移动？
+                物体运动：方向 + 速度决定的。（这里肯定是速度导致的，所以利用固定周期定时器控制运动速度）
+            声明一个变量用来记录移动的方向
+        */
+        let dir;
+        //防止短时间重复按键导致掉头,设置按键状态用来防止重复按键
+        let keyActive = true;
+
+        //document绑定键盘事件
+        document.addEventListener("keydown",function(event) {
+            /* 
+                当我们按着某个按键不松开时，按键按下事件会持续触发
+                    但是第一次和第二次触发的时间间隔比较长（操作系统设计如此，第一次和第二次有个时间间隔，后面是连续的）
+                    这样导致练习中蛇不能流畅的移动
+
+                    贪食蛇的游戏，蛇是不能停止运动的    
+            */
+            
+            //这里键盘按下事件控制运动的方向
+            if(keyActive && keyArr.includes(event.key)) {
+                /* 
+                    游戏禁止掉头
+                        构成的要件：
+                            1、身体超过2
+                            2、不能是相反的方向
+                        处理：
+                            保持原来方向不变（不能修改dir的值）    
+                */
+                
+                /*
+                if(snakes.length < 2) {
+                    dir = event.key;
+                }else {
+                    if(dir === "ArrowLeft" && event.key !== "ArrowRight") {
+                        dir = event.key;
+                    }else if(dir === "ArrowRight" && event.key !== "ArrowLeft") {
+                        dir = event.key;
+                    }else if(dir === "ArrowUp" && event.key !== "ArrowDown") {
+                        dir = event.key;
+                    }else if(dir === "ArrowDown" && event.key !== "ArrowUp") {
+                        dir = event.key;
+                    }
+                }
+                */
+
+                //游戏禁止掉头
+                if(snakes.length < 2 || retObj[dir] !== event.key) {
+                    dir = event.key;
+                    keyActive = false;
+                }
+                
+            }
+        });
+
+        //定时器控制运动的速度
+        setTimeout(function move() {
+            /* 
+                蛇的移动就是蛇尾 加到蛇头
+            */
+            //蛇头
+            const snakeHead = snakes[0];
+
+            let x = snakeHead.offsetLeft;
+            let y = snakeHead.offsetTop;
+            
+            switch (dir) {
+                case "ArrowLeft":
+                    //向左
+                    x -= 10;
+                    break;    
+                case "ArrowRight":
+                    //向右
+                    x += 10;
+                    break;
+                case "ArrowUp":
+                    //向上
+                    y -= 10;
+                    break;
+                case "ArrowDown":
+                    //向下
+                    y += 10;
+                    break;    
+            }
+            //蛇吃到食物
+            if (snakeHead.offsetLeft === food.offsetLeft
+                && snakeHead.offsetTop === food.offsetTop) {
+                console.log("蛇吃到食物~");
+                //1、改变食物的位置
+                changeFood();
+                //2、增加蛇的身体
+                snake.insertAdjacentHTML("beforeend","<div/>");
+            }
+
+            /* 
+                游戏结束
+                    1、蛇撞到墙
+                    2、蛇头撞到蛇身体
+            */
+
+            //判断是否撞墙
+            if(x < 0 || x > 290 || y < 0 || y > 290) {
+                alert("撞墙了，游戏结束！");
+                return;
+            }
+            //判断是否撞到自己,蛇头和蛇尾永远不会相撞，所以不用看蛇尾
+            for (let i = 0; i < snakes.length - 1; i++) {
+                if(snakes[i].offsetLeft === x && snakes[i].offsetTop === y) {
+                    alert("撞到自己了，游戏结束！");
+                    return;
+                }
+            }
+
+            //获取蛇尾
+            const snakeTail = snakes[snakes.length - 1];
+            //移动蛇的位置
+            snakeTail.style.left = x + "px";
+            snakeTail.style.top = y + "px";
+            //将尾巴移动到蛇头的位置
+            snake.insertAdjacentElement("afterbegin",snakeTail);
+            keyActive = true;
+            setTimeout(move,300);
+        },300);
+    </script>
+</body>
+</html>

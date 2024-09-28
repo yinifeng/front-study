@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_字体大小</title>
+    <style>
+        /* 
+            字体大小
+            浏览器 有默认字体大小，和最小字体大小，0px字体不显示
+            chrome浏览器（当然可以设置）：
+            默认字体大小 16px
+            最小字体大小 12px
+            通常我们会通过body元素设置一个全局的字体大小，通过继承性应用到全局样式，特别字体通过其他选择器设置
+
+            可以通过chrom图形界面看样式 继承性
+        */
+        .hobart1 {
+            font-size: 40px;
+        }
+        .hobart2 {
+            font-size: 20px;
+        }
+        .hobart3 {
+            font-size: 12px;
+        }
+        .hobart4 {
+            /* 当小于浏览器设置的最小字体时，其他数值无效，比如 <12px 都会按12px显示，0px则没不显示 */
+            font-size: 6px;
+        }
+        .hobart5 {
+            font-size: 16px;
+        }
+        /* hobart5不设置就是浏览器默认字体 16px */
+    </style>
+</head>
+<body>
+    <div class="hobart1">广东深圳1</div>
+    <div class="hobart2">广东深圳2</div>
+    <div class="hobart3">广东深圳3</div>
+    <div class="hobart4">广东深圳4</div>
+    <div class="hobart5">广东深圳5</div>
+    <div class="hobart6">广东深圳6</div>
+</body>
+</html>

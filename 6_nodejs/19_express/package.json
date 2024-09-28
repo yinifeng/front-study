@@ -1,0 +1,16 @@
+{
+  "name": "express-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "hobart <78381092@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "scripts": {
+    "start":"npx nodemon index.js"
+  }
+}

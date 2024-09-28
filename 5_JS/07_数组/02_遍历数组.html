@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_遍历数组</title>
+    <script>
+        //数组中可以存储任何类型的元素
+        let arr = [1,"hello",true,null,{name:"hobart"},()=> {}]
+        console.log(arr);
+
+        //实际开发中数组尽量存储相同类型的元素，这样方便操作
+        arr = [10,20,30,40]
+        console.log(arr);
+
+        //数组遍历,index大于数组索引时不会报错，返回undefined
+        for (let index = 0; index < arr.length; index++) {
+            console.log(arr[index]);
+        }
+        
+        let array = ["tom","jack","maryy","jense"]
+        //倒序遍历
+        for (let index = array.length - 1; index >= 0; index--) {
+            console.log(array[index]);
+        }
+
+        /* 
+            定义一个Person对象定义属性name和age，存储数组中
+            打印未成年的Person对象
+        */
+       
+        class Person{
+            constructor(name,age){
+                this.name = name;
+                this.age = age;
+            }
+        }
+
+        const personArr = [new Person("jack",18),new Person("tom",24),new Person("marry",6)]
+        for (let index = 0; index < personArr.length; index++) {
+            if(personArr[index].age < 18) {
+                console.log(personArr[index]);
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

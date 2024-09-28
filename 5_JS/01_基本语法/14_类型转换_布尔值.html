@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14_类型转换_布尔值</title>
+    <script>
+        /* 
+            将其他的数据类型转换为布尔值
+                1、使用Boolean()函数来将其他类型转换布尔值
+                    - 数值 0 和 NaN 转换为false，其他都是转换为true
+                    - 字符串 空串转换为false，其他都是转换为true
+                    - null 和 undefined 都是转换为false
+                    - 对象都会转换为true
+                    - 所有表示空性的没有错误的值都会转换为false：0、NaN、空串、null、undefined、false
+        */
+       let a = 1;
+       console.log(typeof a, a);
+       a = Boolean(a);//这种都是显示类型转换，JS还有隐私类型转换
+       console.log(typeof a, a);//true
+
+       a = -1;
+       console.log(typeof a, a);
+       a = Boolean(a);
+       console.log(typeof a, a);//true
+
+       a = 0;
+       console.log(typeof a, a);
+       a = Boolean(a);
+       console.log(typeof a, a);//false
+
+       a = -0.1;
+       console.log(typeof a, a);
+       a = Boolean(a);
+       console.log(typeof a, a);//true
+
+       a = 'abc';
+       console.log(typeof a, a);
+       a = Boolean(a);
+       console.log(typeof a, a);//true
+
+       a = '';
+       console.log(typeof a, a);
+       a = Boolean(a);
+       console.log(typeof a, a);//false
+
+       a = '    ';
+       console.log(typeof a, a);
+       a = Boolean(a);
+       console.log(typeof a, a);//true
+
+       a = 'false';
+       console.log(typeof a, a);
+       a = Boolean(a);
+       console.log(typeof a, a);//true
+
+       a = null;
+       console.log(typeof a, a);
+       a = Boolean(a);
+       console.log(typeof a, a);//false
+
+       a = undefined;
+       console.log(typeof a, a);
+       a = Boolean(a);
+       console.log(typeof a, a);//false
+
+       a = NaN;
+       console.log(typeof a, a);
+       a = Boolean(a);
+       console.log(typeof a, a);//false
+
+       a = Infinity;
+       console.log(typeof a, a);
+       a = Boolean(a);
+       console.log(typeof a, a);//true
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

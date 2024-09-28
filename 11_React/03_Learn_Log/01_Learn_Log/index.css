@@ -1,0 +1,66 @@
+/* 设置基本样式 */
+* {
+    box-sizing: border-box;
+}
+/* 设置body样式 */
+body {
+    background-color: #DFDFDF;
+    margin: 0;
+}
+/* 设置外层容器logs的样式 */
+.logs {
+    width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #EAE2B7;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+/* 设置item样式 */
+.item {
+    /* 开启弹性盒 */
+    display: flex;
+    margin: 16px 0;
+    padding: 6px;
+    background-color: #FCBF49;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+/* 设置日期样式 */
+.date {
+    width: 90px;
+    background-color: #fff;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+    overflow: hidden;
+}
+
+.month {
+    height: 30px;
+    line-height: 30px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #D62828;
+
+}
+
+.day {
+    height: 60px;
+    line-height: 60px;
+    font-size: 50px;
+}
+
+.content {
+    flex: auto;
+    text-align: center;
+}
+
+.desc {
+    font-size: 16px;
+    color: #194B49;
+}
+
+.time {
+    color: #D62828;
+}

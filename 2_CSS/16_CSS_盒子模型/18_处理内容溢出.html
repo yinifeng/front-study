@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18_处理内容溢出</title>
+    <style>
+        #d1 {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            /* 
+                hidden 隐藏超出的内容 
+                visible 显示，默认值
+                scroll 滚动条
+                auto 自动，超出时出现滚动条
+
+                hidden和auto为常用值
+            */
+            overflow: auto;
+            
+            /* 这种方式，两个不能 hidden和visible，这两个为实验性的，不推荐使用 */
+            /* overflow-x: hidden; */
+            /* overflow-y: hidden; */
+        }
+        #d2 {
+            width: 1000px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum corrupti quos iure eos nulla inventore
+        <div id="d2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus atque animi sint accusantium ex, facere non id, accusamus consequuntur dicta ea fuga quisquam provident dolore nulla omnis, labore pariatur quos. Beatae id fugiat corporis dolores quaerat hic a veritatis numquam nisi amet ex aut nemo atque unde aperiam, consectetur officia!</div>
+        obcaecati temporibus consequatur qui accusantium. Aliquam placeat iste consequuntur culpa corrupti saepe rem
+        architecto fuga inventore magnam, voluptate tempora officiis provident. Esse beatae inventore ad iure! Numquam
+        obcaecati culpa ad alias natus eaque deleniti, ratione iste amet sapiente? Distinctio suscipit omnis quam, qui
+        officia fuga architecto neque laudantium. Omnis quisquam, delectus doloremque ratione eius minus at repellat
+        commodi error amet illo atque ipsa necessitatibus quasi illum quae rerum, enim perspiciatis obcaecati ad. Beatae
+        aspernatur corrupti ipsa harum atque cupiditate, repellat delectus vitae amet reiciendis alias!
+    </div>
+</body>
+
+</html>

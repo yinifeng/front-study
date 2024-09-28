@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18_读取CSS样式</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: greenyellow;
+        }
+        #box1::before {
+            content: "hello";
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">点我一下</button>
+    <hr>
+    <div id="box1"></div>
+    <script>
+        const btn1 = document.getElementById("btn1");
+        const box1 = document.querySelector("#box1");
+
+        //读取css样式
+        btn1.onclick = function() {
+            //这样获取的样式是 行内样式的值，并不能取到实际最终生效样式的值
+            console.log(box1.style.width);//没在标签设置时获取是空
+
+
+            /* 
+                getComputedStyle()
+                    - 它会返回一个对象，这个对象中包含了当前元素所有生效的样式
+                    - 参数：
+                        1、要获取的样式对象
+                        2、要获取的伪元素
+                    - 返回值
+                        返回的一个对象，对象中存储了当前元素的样式
+                    
+                    注意：
+                        样式对象中返回的样式值，不一定能来拿来直接计算
+                            所以使用时，要确保值是可以计算的才去计算 （有的获取是auto）。    
+            */
+            //获取计算后的样式对象
+            const boxComputedStyle = getComputedStyle(box1);
+            console.log(boxComputedStyle);
+
+            console.log(boxComputedStyle.width);
+            console.log(boxComputedStyle.left);
+
+            //获取后计算结果：获取200px 转int + 200
+            //box1.style.width = parseInt(boxComputedStyle.width) + 200 +"px";
+
+            console.log(boxComputedStyle.backgroundColor);
+
+            //获取伪元素的样式对象
+            const beforeComputedStyle = getComputedStyle(box1,"::before");
+            console.log(beforeComputedStyle.color);
+            console.log(beforeComputedStyle.content);
+        }
+    </script>
+</body>
+</html>

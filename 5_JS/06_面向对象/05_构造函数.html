@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05_构造函数</title>
+    <script>
+        /*
+        class Person {
+            name = "hobart";
+            age = 18;
+            gender = "男";
+            sayHello() {
+                console.log(this.name);
+            }
+        }
+
+        const p1 = new Person("孙悟空",18,"男");
+        const p2 = new Person("猪八戒",21,"男");
+        const p3 = new Person("沙和尚",28,"男");
+        console.log(p1);
+        */
+
+        class Person {
+
+            //在类中可以添加一个特殊的方法constructor
+            //该方法我们称为构造函数（构造方法）
+            //构造函数会在我们调用类创建对象时执行
+            constructor(name = "hobart",age = 16,gender = "女") {
+                console.log("构造函数执行了!",name,age,gender);
+                //可以在构造函数中，为实例属性进行赋值
+                //在构造函数中，this表示当前所创建的对象
+                this.name = name;
+                this.age = age;
+                this.gender = gender;
+            }
+        }
+
+        const p1 = new Person("孙悟空",18,"男");
+        const p2 = new Person("猪八戒",21,"男");
+        const p3 = new Person("沙和尚",28,"男");
+
+        console.log(p1);
+        console.log(p2);
+        console.log(p3);
+
+        console.log("=================");
+
+        const p4 = new Person("tom");
+        console.log(p4);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

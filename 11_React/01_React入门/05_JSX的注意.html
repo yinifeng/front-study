@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSX注意事项</title>
+    <script src="./script/react.development.js"></script>
+    <script src="./script/react-dom.development.js"></script>
+    <!-- 引入babel， babel为了翻译 -->
+    <script src="./script/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- 设置js类型为 text/babel -->
+    <script type="text/babel">
+        /* 
+            JSX的注意事项：
+                1、JSX不是字符串，不要加引号
+                2、JSX中html标签应该小写，React组件应该大写开头
+                3、在JSX中外层有且只有一个根标标签
+                4、JSX的标签必须正确结束（自结束标签必须写/）
+                5、在JSX中可以使用{}嵌入表达式
+                    有值的语句就是表达式
+                6、 如果表达式是空值，布尔值，undefined这些值，将不会显示 
+                7、在JSX中，属性可以直接在标签中设置
+                    calss需要使用className代替
+                    style中必须使用对象设置
+                        样式属性必须驼峰命名，把css中的-改成驼峰
+                        style={{backgroundColor:'red'}}  
+
+        */
+        function fn() {
+            return "函数返回结果";
+        }
+
+        const name = "hobart";
+        const div = <div id="box" 
+                className="box1"
+                onClick={()=> alert("哈哈")}
+
+                style={{
+                    backgroundColor:"pink",
+                    border:"1px red solid"
+                }}
+            >
+                我是JSX一个div
+                <ul>
+                    <li>列表项</li>
+                </ul>
+                <input type="text" />    
+                <div>
+                    {name}<br/>
+                    {1 + 1}<br/>
+                    {fn()}<br/>
+                    {NaN}<br/>
+                </div>
+            </div>;
+        console.log(div);
+
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(div);
+    </script>
+</body>
+</html>

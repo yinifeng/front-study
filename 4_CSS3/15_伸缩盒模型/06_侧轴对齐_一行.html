@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06_侧轴对齐_一行</title>
+    <style>
+        .outer {
+            width: 1000px;
+            height: 600px;
+            background-color: gray;
+            margin: 0 auto;
+
+            /* 开始设置伸缩盒模型属性===== */
+            display: flex;
+            /* 主轴水平方向，默认是从左到右 */
+            flex-direction: row;
+
+            /* 主轴换行方式 */
+            /* 换行，按父元素剩余空间 侧轴居中 */
+            flex-wrap:wrap;
+          
+            /* 侧轴对齐 */
+            /* 侧轴起点对齐 */
+            /* align-items: flex-start; */
+
+            /* 侧轴终点对齐 */
+            /* align-items: flex-end;*/
+
+            /* 侧轴中心点对齐 */
+            /* align-items: center;*/
+
+            /* 侧轴基线对齐 */
+            /* align-items: baseline;*/
+
+            /* 如果伸缩项目未设置高度，将占满整个容器的高度--（默认值） */
+            align-items: stretch;            
+        }
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            border: 1px solid black;
+            /* 盒子区域大小包含边框 */
+            box-sizing: border-box;
+        }
+        .inner2 {
+            height: 300px;
+            font-size: 40px;
+        }
+        .inner3 {
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner inner1">1x</div>
+        <div class="inner inner2">2x</div>
+        <div class="inner inner3">3x</div>
+    </div>
+</body>
+</html>

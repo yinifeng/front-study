@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09_练习</title>
+    <style>
+        .outer {
+            width: 206px;
+            margin: 50px auto;
+            text-align: center;
+        }
+        .outer p {
+            font-size: 14px;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            //获取标题元素对象
+            const info = document.querySelector(".outer p");
+            console.log(info);
+            //获取图片元素标签对象
+            const img = document.getElementsByTagName("img")[0];
+
+            //获取两个按钮
+            const prev = document.getElementById("prev");
+            const next = document.getElementById("next");
+
+            const imgArray = ["../09_DOM/images/01.png",
+                "../09_DOM/images/02.png",
+                "../09_DOM/images/03.png",
+                "../09_DOM/images/04.png",
+                "../09_DOM/images/05.png"
+            ];
+
+            let index = 0;
+
+            const atuoBtn = document.getElementById("atuoBtn");
+            let timer;
+            atuoBtn.onclick = function () {
+                clearTimeout(timer);
+                timer = setTimeout(function auto() {
+                    index++;
+                    if (index >= imgArray.length) {
+                        index = 0;
+                    }
+                    img.setAttribute("src", imgArray[index]);
+                    info.innerText = `共有${imgArray.length}张图片，当前第${index + 1}张`;
+                    timer = setTimeout(auto, 3000);
+                }, 3000);
+            }
+
+            info.innerText = `共有${imgArray.length}张图片，当前第${index + 1}张`;
+
+            prev.onclick = function() {
+                clearTimeout(timer);
+                index--;
+                if(index < 0) {
+                   index = imgArray.length - 1;      
+                }
+                img.setAttribute("src",imgArray[index]);
+                info.innerText = `共有${imgArray.length}张图片，当前第${index + 1}张`;
+            }
+
+            next.onclick = function() {
+                clearTimeout(timer);
+                index++;
+                if(index >= imgArray.length) {
+                   index = 0;      
+                }
+                img.setAttribute("src",imgArray[index]);
+                info.innerText = `共有${imgArray.length}张图片，当前第${index + 1}张`;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="outer">
+        <p>共有m张图片，当前第n张</p>
+        <div class="img-wrapper">
+            <img src="../09_DOM/images/01.png" alt="图片">
+        </div>
+        <div class="btn-wrapper">
+            <button id="prev">上一张</button>
+            <button id="atuoBtn">自动</button>
+            <button id="next">下一张</button>
+        </div>
+    </div>
+</body>
+</html>

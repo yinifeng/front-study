@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>axios</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+     <button id="btn1">按钮1</button>
+
+     <script>
+        axios.defaults.baseURL = "http://127.0.0.1:3000";
+
+        //axios的拦截器可以对请求或响应进行拦截，在请求发送前和数据读取前进行拦截处理
+        // 添加请求拦截器
+        const myInterceptor = axios.interceptors.request.use(function(config) {
+            console.log("请求拦截！！！！");
+            // 在发送请求之前做些什么
+            console.log(config);
+            //拦截设置请求头
+            config.headers["Authorization"] = `Bearer ${localStorage.getItem("token")}`;
+
+            //可以对请求数据拦截修改
+            //config.data.name = "xxx";
+
+            return config;
+        }, function (error) {
+            // 对请求错误做些什么
+            return Promise.reject(error);
+        });
+
+        //也可以撤销某个拦截
+        //axios.interceptors.request.eject(myInterceptor);
+        //清空所有拦截,新版api
+        //axios.interceptors.request.clear();
+
+
+        // 添加响应拦截器
+        axios.interceptors.response.use(function(response) {
+            // 2xx 范围内的状态码都会触发该函数。
+            // 对响应数据做点什么
+            console.log("响应拦截！！！！");
+            console.log(response);
+            return response;
+        }, function (error) {
+            // 超出 2xx 范围的状态码都会触发该函数。
+            // 对响应错误做点什么
+            return Promise.reject(error);
+        });
+
+        //axios的实例拦截器也是独立拦截的，上面设置不会对当前创建的实例生效
+        //const instance = axios.create();
+        //instance.interceptors.request.use(xxx);
+
+        const btn1 = document.getElementById("btn1");
+        btn1.onclick = () =>{
+            axios.get("students").then((res) =>{
+                //默认状态码为2xx，调用then
+                console.log(res);
+                console.log(res.data);
+            }).catch((error) =>{
+                console.log("出错了~",error);
+            });
+        }
+     </script>
+</body>
+</html>

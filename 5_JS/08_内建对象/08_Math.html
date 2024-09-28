@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08_Math</title>
+    <script>
+        /* 
+            Math
+                - Math是一个工具类
+                - Math中为我们提供数学运算相关的一些方法
+                - 常量：
+                    Math.PI 圆周率
+                - 方法：
+                    Math.abs() 求一个数的绝对值    
+        */
+        console.log(Math);
+
+        console.log(Math.PI);
+
+        console.log(Math.abs(-10));
+
+        //最大值
+        console.log(Math.max(-10,55,23,6,2));
+        //最小值
+        console.log(Math.min(-10,55,23,6,2));
+
+        //幂运算
+        console.log(Math.pow(4,2));//4 ** 2
+
+        //开方，给4开平方
+        console.log(Math.sqrt(4));
+
+        //取整
+        //向下取整
+        console.log(Math.floor(1.9));
+        //向上取整
+        console.log(Math.ceil(1.1));
+        //四舍五入取整
+        console.log(Math.round(4.1));
+        //去除小数
+        console.log(Math.trunc(-1.1));
+
+        //生成0-1之间的随机数
+        console.log(Math.random());
+
+        console.log("获取一个0-5之间的随机整数");
+        for (let i = 0; i < 10; i++) {
+            /* 
+                生成0-5之间的随机数
+                    Math.random() ==> 0-1
+                    生成0-x之间的随机数：
+                        Math.round(Math.random() * x)
+                        Math.floor(Math.random() * (x + 1))
+                    
+                    生成一个x-y之间的随机数
+                        Math.round(Math.random() * (y-x) + y)   
+             */
+            //console.log(Math.round(Math.random() * 5));
+            //console.log(Math.floor(Math.random() * (5 + 1)));
+
+            //11 - 20
+            console.log(Math.round(Math.random() * 9 + 11));
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_媒体查询_媒体特性</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            height: 200px;
+            /* 文字内容水平居中 */
+            text-align: center;
+            /* 设置行高和盒子高度一致，达到文字内容垂直居中 */
+            line-height: 200px;
+            background-color: gray;
+
+            font-size: 100px;
+        }
+        /* 媒体查询，改变样式，有顺序性 */
+
+        /* 检测到视口宽度为800px时，应用如下样式 */
+        @media (width:800px) {
+            h1 {
+                background-color: green;
+            }
+        }
+
+        /* 检测到视口宽度为小于等于700px时，应用如下样式 */
+        @media (max-width:700px) {
+            h1 {
+                background-color: orange;
+            }
+        }
+
+        /* 检测到视口宽度为大于等于900px时，应用如下样式 */
+        @media (min-width:900px) {
+            h1 {
+                background-color: dodgerblue;
+            }
+        }
+
+        /* 检测到视口高度为800px时，应用如下样式 */
+        /* @media (height:800px) {
+            h1 {
+                background-color: yellow;
+            }
+        } */
+
+        /* 检测到设备屏幕宽度 1920px时，应用如下样式 
+            操作系统显示设置 屏幕分辨率 / 缩放与布局 = 3840 / 2 = 1920
+        */
+        @media (device-width:1920px) {
+            h1 {
+                color: white;
+            }
+        }
+
+        /* 检查屏幕 旋转 */
+
+    </style>
+</head>
+<body>
+    <h1>你好啊</h1>
+</body>
+</html>

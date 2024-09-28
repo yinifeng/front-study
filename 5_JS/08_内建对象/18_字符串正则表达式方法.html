@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18_字符串正则表达式方法</title>
+    <script>
+        /* 
+            split()
+                - 可以根据正则表达式来对一个字符串进行拆分
+            search()
+                - 可以去搜索符合正则表达式的内容第一次在字符串中出现的位置
+            replace()
+                - 根据正则表达式替换字符串中指定内容
+            match()
+                - 根据正则表达式去匹配字符串中符合要求的内容
+            matchAll()
+                - 根据正则表达式去匹配字符串中符合要求的内容（必须设置g 全局匹配）
+                - 它返回的是一个迭代器                
+        */
+
+        let str = "a@b@c@d";
+        let result = str.split("@");
+
+        console.log(result);
+
+        str = "刘德华abc张学友adc周杰伦";
+        result = str.split(/a[bd]c/);
+        console.log(result);
+
+        str = "dsfsfsdf15068968899sdfsddsf17698745623fgdhfgddh15898745623ghjgh";
+        console.log(str.search("sdf"));
+        //搜索手机号码
+        console.log(str.search(/1[3-9]\d{9}/));
+
+        console.log(str.replace(/1[3-9]\d{9}/g,"哈哈哈"));
+
+        result = str.match(/1[3-9]\d{9}/g);
+        console.log(result);
+
+        result = str.matchAll(/1[3-9]\d{9}/g);
+        console.log(result);
+
+        for (const res of result) {
+            console.log(res);
+        }
+
+        //分组可以取到后4位
+        result = str.matchAll(/1[3-9]\d{5}(\d{4})/g);
+        for (const res of result) {
+            console.log(res);
+        }
+    </script>   
+</head>
+
+<body>
+
+</body>
+
+</html>

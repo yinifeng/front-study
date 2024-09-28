@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_函数的创建方式</title>
+    <script>
+        /* 
+            函数的定义方式：
+                1、函数声明
+                2、函数表达式
+                3、箭头函数
+         
+        */
+        //1、函数声明
+        function fn() {
+            console.log("函数声明定义函数");
+        }
+
+        //2、函数表达式
+        //匿名函数，函数表达式
+        const fn2 = function() {
+            console.log("函数表达式");
+        }
+
+        //3、箭头函数
+        const fn3 = () => {
+            console.log("箭头函数");
+        }
+
+        const fn4 = () => console.log("箭头函数匿名函数");
+
+        console.log(typeof fn);
+        console.log(typeof fn2);
+        console.log(typeof fn3);
+        console.log(typeof fn4);
+
+        fn4();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

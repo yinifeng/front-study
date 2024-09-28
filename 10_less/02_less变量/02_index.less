@@ -1,0 +1,42 @@
+/* 
+    less变量分类：
+        1、选择器变量
+        2、属性变量
+        3、url变量
+        4、声明变量
+        5、变量运算
+        6、变量作用域
+        7、用变量去定义变量
+
+*/
+
+
+//1、选择器变量
+@mySelector:#wrap;
+@wrap:wrap;
+
+//id 选择器
+@{mySelector} {
+    background-color: greenyellow;
+    width: 50%;
+}
+
+//类选择器
+.@{wrap} {
+    background-color: lightskyblue;
+    width: 50%;    
+}
+
+//id 选择器
+#@{wrap} {
+    background-color: pink;
+    width: 50%;    
+}
+
+//属性变量
+@borderStyle:border-style;
+@solid:solid;
+
+@{mySelector} {
+    @{borderStyle}:@solid;
+}

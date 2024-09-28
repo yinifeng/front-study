@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_颜色_HEX或HEXA</title>
+    <style>
+        .p1 {
+            /* 16进制表示
+            */
+            color: #ff0000;
+        }
+        .p2 {
+            color: #00ff00;
+        }
+        .p3 {
+            /* HEXA
+            
+            最后两位也是代表透明度（16进制表示），88半透明
+            IE浏览器不支持
+
+             */
+            color: #00ffff88;
+        }
+        .p4 {
+            /* 
+                可以简写
+                ff f
+                cc c
+                dd d
+                透明度 0-f 半透明 8
+            */
+            color: #fcd8;
+        }
+    </style>
+</head>
+<body>
+    <p class="p1">广东深圳1</p>
+    <p class="p2">广东深圳2</p>
+    <p class="p3">广东深圳3</p>
+    <p class="p4">广东深圳4</p>
+</body>
+</html>

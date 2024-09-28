@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>背景相关属性</title>
+    <style>
+        div {
+            width: 400px;
+            height: 400px;
+            border: 2px black solid;
+            font-size: 40px;
+            /* 设置背景颜色 ，不写背景色默认只 transparent 为透明*/
+            /* background-color: skyblue; */
+            /* 设置背景图片 ,小图不够多张来凑，大图会裁剪*/
+            /* background-image: url(../images/海洋爱心.jpg); */
+            /* 设置背景图片的重复方式，默认值 repeat */
+            /* background-repeat: no-repeat; */
+            /* 控制背景图片的位置，第一种写法：关键词  
+                左右中 left right center
+                上下中 top bottom center
+                只写一个第二个为center省略
+
+                left center 代表左中，可以写成 left
+                top center  代表上中，可以写成 top
+                center 代表中心点
+            */
+            /* background-position: center; */
+
+            /* 控制背景图片的位置，第一种写法：具体像素值。
+                像素值是相对于左上角为原点的坐标轴
+
+                一个像素值代表x轴，第二个像素值代表y轴
+                只写一个像素值是指x轴，y轴永远居中
+            */
+            /* background-position: 200px; */
+
+            /* 复合属性 
+                背景属性写在一个样式中，顺序无关，注意 某个样式不写是有默认值的
+            */
+            background: skyblue url(../images/海洋爱心.jpg) no-repeat 10px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>你好呀！</div>
+</body>
+</html>

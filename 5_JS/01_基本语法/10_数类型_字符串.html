@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10_数类型_字符串</title>
+    <script>
+        /* 
+            字符串
+                - 在JS中使用单引号或双引号来表示字符串
+                - 转义字符 \
+                - 模板字符串
+                    - 使用反单引号`来表示模板字符串
+                    - 模板字符串中可以嵌入变量
+                - 使用typeof 检查类型，返回 "string"
+        */
+       let a = 'Hello';
+       console.log(typeof a);
+       console.log(a);
+       a = "你好";
+       console.log(a);
+       a = "这是一个\"字符\\串\"";
+       console.log(a);
+       a = "呵呵\t哈哈";
+       console.log(a);
+       
+       a = "今天\
+       天气真不错！";
+       console.log(a);
+
+       a = `今天
+       天气真不错2222！`;
+       console.log(a);
+
+       let name = "孙悟空";
+       let str = `你好,${name}`;
+       console.log(str);
+
+       let b = 10;
+       console.log(`b = ${b}`);
+
+       let c = `hhh`;
+       console.log(typeof c);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

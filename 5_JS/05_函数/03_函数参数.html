@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_函数参数</title>
+    <script>
+        /* 
+            定义一个求和的参数
+
+            函数中的参数 叫做形参
+
+            传的参数 就是实参
+
+            参数：
+                1、如果形参和实参数量相同，则对应的实参赋值给对应形参
+                2、如果实参多于形参，则多余的实参不会使用
+                3、如果形参多于实参，则多余的形参为undefined
+
+            参数类型：
+                - JS中不会检查实参的类型    
+
+        */
+        function sum() {
+            console.log(1 + 1);
+        }
+
+        const sum2 = () => console.log(1 + 1);
+
+        sum();
+
+        function fn(a) {
+            console.log("a=",a);
+        }
+
+        fn();
+        fn(100);
+        //fn(100,1)
+
+        function sum3(a,b) {
+            console.log(a + b);
+        }
+
+        sum3(1,2);
+
+        function fn2(a,b) {
+            console.log("a=",a);
+            console.log("b=",b);
+        }
+        fn2(1);
+        fn2(true,"hello");
+        fn2(null,11n);
+        fn2({name:"tom"},"hello");
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

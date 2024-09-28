@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_过渡_小案例</title>
+    <style>
+        .outer {
+            width: 400px;
+            height: 224px;
+            position: relative;
+            overflow: hidden;
+        }
+        .mask {
+            width: 400px;
+            height: 224px;
+            background-color: black;
+            text-align: center;
+            line-height: 224px;
+            color: white;
+            font-size: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: 1s all linear;
+            /* 鼠标变成小手 */
+            cursor: pointer;
+        }
+        img {
+            transition: 0.5s linear;
+        }
+        .outer:hover .mask {
+            opacity: 0.5;
+        }
+        .outer:hover img {
+            transform: scale(1.6) rotate(20deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <img src="../images/shanghai.jpg" alt="">
+        <div class="mask">上海</div>
+    </div>
+</body>
+</html>

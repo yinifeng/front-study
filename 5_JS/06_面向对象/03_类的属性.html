@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_类的属性</title>
+    <script>
+        class Person {
+            /* 
+                类的代码块，默认是严格模式
+                    类的代码块是用来设置对象的属性的，不是什么代码都能写
+            */
+           name = "hobart"; //Person的实例属性name，p1.name
+           age = 18; //实例属性只能通过实例访问,p1.age
+
+           static test = "test的静态属性";//使用static声明的属性，是静态属性（类属性）
+           static hh = "静态属性"; //静态属性只能通过类访问, Person.hh
+        }
+
+        const p1 = new Person();
+        //p1.name = "hobart";
+        //p1.age = 18;
+        const p2 = new Person();
+
+        console.log(p1);
+        console.log(p2);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

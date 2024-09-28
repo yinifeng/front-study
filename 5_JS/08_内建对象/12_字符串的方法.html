@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12_字符串的方法</title>
+    <script>
+        /* 
+            https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String
+
+            字符串：
+                - 字符串其本质就是一个字符数组
+                - "hello" ==> ["h","e","l","l","o"]
+                - 字符串的很多方法都和数组是非常类似的
+                - 属性和方法：
+                    length 获取字符串的长度
+                    字符串[索引] 获取指定位置的字符
+                    str.at() (实验方法)
+                        - 根据索引获取字符，可以接受负索引
+                    str.charAt()
+                        - 根据索引获取字符
+                    str.concat()
+                        - 用来连接两个或多个字符串，通常用+连接
+                    str.includes()
+                        - 用来检查字符串是否包含某个内容
+                            有返回true，没有返回false
+                    str.indexOf()
+                    str.lastIndexOf()
+                        - 查询字符串中是否包含某个内容
+                    str.startsWith()
+                        - 检查一个字符串是否以指定内容开头
+                    str.endsWith()
+                        - 检查一个字符串是否以指定内容结尾
+                    str.padStart()
+                    str.padEnd()
+                        - 通过添加指定的内容，使字符串保持某个长度
+                    str.replace()
+                        - 使用一个字符串替换指定内容
+                    str.replaceAll()
+                        - 使用一个新字符串替换指定所有内容
+                    str.slice()
+                        - 对字符串进行切片
+                    str.substring()
+                        - 截取字符串
+                    str.split()
+                        - 用来将一个字符串拆分为一个数组
+                    str.toLowerCase()
+                        - 将字符串转换为小写
+                    str.toUpperCase()
+                        - 将字符串转换为大写
+                    str.trim()
+                        - 去除前后空格
+                    str.trimStart()
+                        - 去除前空格        
+                    str.trimEnd()
+                        - 去除后空格
+        
+        */
+
+        let str = "hello";
+
+        //获取指定位置的字符
+        //console.log(str[0]);
+        //console.log(str[1]);
+
+        //遍历字符串
+        for (const char of str) {
+            console.log(char);
+        }
+
+        console.log("=========字符串方法==========")
+        //根据索引获取字符，可以接受负索引
+        console.log(str.at(0));
+        console.log(str.at(-2));
+        //根据索引获取字符,老的方法，不支持负索引
+        console.log(str.charAt(1));
+        console.log(str.charAt(-1));
+
+        str = "hello hello how are you";
+        console.log(str.includes("hello"));
+        console.log(str.includes("how",12));//指定某个索引开始查找
+
+        console.log(str.lastIndexOf("hello"));
+
+        console.log(str.startsWith("hello"));
+        console.log(str.endsWith("hello"));
+
+        //7位字符串，不足前面补0
+        console.log("100".padStart(7,"0"));
+        //7位字符串，不足后面补0
+        console.log("100".padEnd(7,"1"));
+
+        console.log(str.replace("hello","haha"));
+        console.log(str.replaceAll("hello","haha"));
+
+        console.log(str.slice(0,5));
+        //substring可以反着指定
+        console.log(str.substring(12,15));
+        console.log(str.substring(15,12));
+
+        console.log("123@abc@www@yy".split("@"));
+
+        console.log("abcABC".toLowerCase());
+        console.log("abcABC".toUpperCase());
+
+        console.log("  abc ABC  ".trim());
+        console.log("  abc ABC  ".trimEnd());
+        console.log("  abc ABC  ".trimStart());
+
+
+
+    </script>   
+</head>
+
+<body>
+
+</body>
+
+</html>

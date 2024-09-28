@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08_定位特殊应用1</title>
+    <style>
+        .outer {
+            height: 400px;
+            background-color: gray;
+            position: relative;
+        }
+
+        /* 一个发生固定定位的元素，没有指定宽和高，需要撑满父元素或居中，按上面样式设定 */
+        .inner {
+            background-color: orange;
+            font-size: 20px;
+            padding: 20px;
+            border: 10px solid black;
+            position: absolute;
+
+            /* 居中父容器，或者撑满 */
+            /* 特殊性 左右撑满父元素，居中就是left和right值一样 */
+            left: 0px;
+            right: 0px;
+
+            /* 特殊性 上下撑满父元素 */
+            top: 0;
+            bottom: 0;
+
+            /* 内容区，padding和border会超出 */
+            /* width: 100%; */
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">你好啊</div>
+    </div>
+</body>
+</html>

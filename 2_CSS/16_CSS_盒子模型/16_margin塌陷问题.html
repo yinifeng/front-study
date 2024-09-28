@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16_margin塌陷问题</title>
+    <style>
+        .outer {
+            width: 400px;
+            /* height: 400px; */
+            background-color: gray;
+
+            /* 解决margin塌陷问题，是W3C历史遗留问题*/
+            /* 第一种解决方案 border，数字写0不行 */
+            /* border: 1px solid red; */
+
+            /* 第二种解决方案 padding，数字写0不行 */
+            /* padding: 1px; */
+
+            /* 第三种解决方案（最完美解决方案），上面解决方案都是会有影响元素大小 */
+            overflow: hidden;
+        }
+        .inner1 {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+
+            /* inner2向下移动50px */
+            /* margin-bottom: 50px; */
+
+            /* 下面这行代码是有问题的 ，并不是我们想的inner1向下移动50px，而是父级元素向下移动50px*/
+            margin-top: 50px;
+        }
+        .inner2 {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+
+            /* inner2向下移动50px */
+            /* margin-top: 50px; */
+
+            /* 下面这行代码是有问题的 ，并不是我们想的inner2下面会50px，而是父级元素下外边距是50px*/
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner1">inner1</div>
+        <div class="inner2">inner2</div>
+    </div>
+    <div>我是一段文字</div>
+</body>
+</html>

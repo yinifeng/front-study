@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05_兄弟选择器</title>
+    <style>
+        /* 兄弟选择器
+            兄弟只往下看，紧紧相连
+
+            注意：
+            div+p  div紧紧相连的p
+        */
+        /* 相邻兄弟选择器 */
+        /* div+p {
+            color: red;
+        } */
+
+        /* 
+            通用兄弟选择器
+            选择div所有兄弟选择器
+        */
+        div~p {
+            color: green;
+        }
+        li~li {
+            color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div>广东</div>
+    <p>广州</p>
+    <p>东莞</p>
+    <p>深圳</p>
+    <p>佛山</p>
+    <ul>
+        <li>水果</li>
+        <li>香蕉</li>
+        <li>苹果</li>
+        <li>葡萄</li>
+    </ul>
+</body>
+</html>

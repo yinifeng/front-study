@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22_递归练习</title>
+    <script>
+        /* 
+            一对兔子出生后的两个月后每个月都能生一对小兔子
+                - 编写一个函数，可以用来计算第n个月的兔子数量
+            第1个月：1    
+            第2个月：1    
+            第3个月：2    
+            第4个月：3    
+            第5个月：5    
+            第6个月：8    
+            第7个月：13    
+            第8个月：21    
+            第9个月：34    
+            第10个月：56    
+            第11个月：90    
+            第12个月：146 
+            规律: 当前数等于前两个数之和（斐波那契数列）   
+        */
+
+        //求斐波那契数列中的第n个数
+        function fib(n) {
+            //明确基线条件
+            if(n < 3) {
+                return 1;
+            }
+            //设置递归条件
+            //第n个数 = 第n-1个数 + 第n-2个数
+            return fib(n-1) + fib(n-2);
+        }
+
+        let result = fib(10);
+        console.log(result);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

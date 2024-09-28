@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_重复渐变</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 200px;
+            border: 1px solid black;
+            float: left;
+            margin-left: 50px;
+            font-size: 20px;
+        }
+        .box1 {
+            /* 重复线性渐变，在未发生渐变的区域重复渐变
+                右上至下的方向
+                50px 为红色 开始渐变
+                100px 为黄色 （50px纯红色渐变到100px为纯黄色）
+                150px 为绿色 （100px纯黄色渐变到150px为纯绿色）
+
+                150px~200px和 0px~50px未发生渐变，接着由 红 黄 蓝 开始重复渐变
+            */
+            background-image: repeating-linear-gradient(red 50px,yellow 100px,green 150px);
+        }
+        .box2 {
+            /* 第一个参数 像素，调整径向渐变的范围
+
+                原理和上面，只是从中心点开始
+
+            */
+            background-image: repeating-radial-gradient(red 50px,yellow 100px,green 150px);
+        }
+    </style>
+</head>
+<body>
+    <div class="box box1">通过像素调整渐变的区域</div>
+    <div class="box box2">通过像素调整径向渐变的区域</div>
+</body>
+</html>

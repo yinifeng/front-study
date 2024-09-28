@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13_类型转换_数值</title>
+    <script>
+        /* 
+            将其他的数据类型转换为数值
+                1、使用Number()函数来将其他类型转换为数值
+                2、如果字符串不是合法数字，则转换为NaN
+                3、如果字符串是空串或纯空格的字符串，则转换为0
+                4、布尔值：true转换为1，false转换为0
+                5、null 转换为 0 
+                6、undefined 转换为NaN
+            专门用来将字符串转换为数值的两个方法
+                1、parseInt() - 将一个字符串转换为一个整数
+                    - 解析时，会自左向右读取一个字符串，直到读取到字符串中所有的有效的整数
+                    - 可以用 parseInt() 取整
+                2、parseFloat() - 将一个字符串转换为浮点数
+                    - 解析时，会自左向右读取一个字符串，直到读取到字符串中所有的有效的小数
+        */
+       let a = "123";
+       console.log(typeof a, a);
+       a = Number(a);
+       console.log(typeof a, a);
+
+       a = 'abc';
+       console.log(typeof a, a);
+       a = Number(a);
+       console.log(typeof a, a);//NaN
+
+       a = '-3.1415926';
+       console.log(typeof a, a);
+       a = Number(a);
+       console.log(typeof a, a);
+
+       a = "";
+       console.log(typeof a, a);
+       a = Number(a);
+       console.log(typeof a, a);//0
+
+       a = "        ";
+       console.log(typeof a, a);
+       a = Number(a);
+       console.log(typeof a, a);//0
+
+       a = true;
+       console.log(typeof a, a);
+       a = Number(a);
+       console.log(typeof a, a);//1
+
+       a = false;
+       console.log(typeof a, a);
+       a = Number(a);
+       console.log(typeof a, a);//0
+
+       a = null;
+       console.log(typeof a, a);
+       a = Number(a);
+       console.log(typeof a, a);//0
+
+       a = undefined;
+       console.log(typeof a, a);
+       a = Number(a);
+       console.log(typeof a, a);//NaN
+       console.log("=============================================================");
+
+       let b = "123";
+       b= parseInt(b);
+       console.log(typeof b, b);
+
+       b = "123px";
+       b= parseInt(b);//可以转换成123
+       console.log(typeof b, b);
+    
+       b = "a123px";
+       b= parseInt(b);//NaN
+       console.log(typeof b, b);
+
+       b = "3.1415926";
+       b= parseInt(b);//3
+       console.log(typeof b, b);
+
+       b = "-1.1415926";
+       b= parseInt(b);//-1
+       console.log(typeof b, b);
+
+       b = 456.123;
+       b= parseInt(b);//456,取整，不是最佳解
+       console.log(typeof b, b);
+
+       b = undefined;
+       b= parseInt(b);//null 和 undefined 都是 NaN
+       console.log(typeof b, b);
+
+       console.log("=============================================================");
+       
+       let c = "111.1";
+       c= parseFloat(c);//-1
+       console.log(typeof c, c);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

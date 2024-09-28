@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05_定时器</title>  
+</head>
+<body>
+    <span id="num"></span>
+    <script>
+        /* 
+            通过定时器，可以使代码在指定时间后执行
+                - 设置定时器的方式有两种：
+                    setTimeout()
+                        - 参数：
+                            1、回调函数（要执行的代码）
+                            2、间隔的时间（毫秒）
+                        - 关闭定时器
+                            clearTimeout()
+                    setInterval() (每间隔一段时间代码就会执行一次)
+                        - 参数：
+                            1、回调函数（要执行的代码）
+                            2、间隔的时间(毫秒)
+                        - 关闭定时器
+                            clearInterval()                
+        */
+
+        //const timer = setTimeout(()=>{
+        //    alert("我是定时器setTimeout");
+        //},3000);
+
+        //clearTimeout(timer);
+
+        const numSpan = document.getElementById("num");
+        
+        let num = 0;
+        const timer2= setInterval(()=>{
+            num++;
+            numSpan.textContent = num;
+            if(num == 20) {
+                clearInterval(timer2);
+            }
+        },500);
+    </script>
+</body>
+</html>

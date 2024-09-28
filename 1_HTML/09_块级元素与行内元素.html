@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>块级元素与行内元素</title>
+</head>
+<body>
+    <!-- Alt +Shift + 向下 当前行向下复制 -->
+
+    <!-- 块级元素，特点：独占一行 ，排版标签都是块级元素-->
+    <!-- <marquee direction="测试">Hobart</marquee>
+    <marquee direction="测试">Hobart</marquee>
+    <h1>标题</h1>
+    <h1>标题</h1>
+    <P>段落</P>
+    <P>段落</P> -->
+
+    <!-- 行内元素，特点：不独占一行，input span -->
+    <!-- <input type="text">
+    <input type="text">
+    <span>Hello</span>
+    <span>Hello</span> -->
+
+    <!-- 规则1：块级元素中能写：块级元素、行内元素，(几乎什么都能写) -->
+    <!-- <div>
+        <span>苹果1</span>
+        <input type="text">
+        <div>苹果2</div>
+    </div> -->
+
+    <!-- 规则2：行内元素中能写：行内元素，但不能写：块级元素 -->
+    <span>
+        <span>苹果1</span>
+        <input type="text">
+        <span>苹果2</span>
+    </span>
+
+    <!-- 特殊规则：h1-h6不能相互嵌套 -->
+
+    <!-- 特殊规则：p标签不能写块级元素 -->
+    <p>
+        <!-- marquee标签已经废弃，不推荐使用 -->
+        <marquee>苹果</marquee>
+    </p>
+
+    <!-- 注意：不遵循上述规则会影响css布局 -->
+</body>
+</html>

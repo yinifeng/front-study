@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_input新增的type属性值</title>
+</head>
+<body>
+    <!-- novalidate属性不对任何标签校验 -->
+    <form action="" novalidate>
+        <!-- 会增加email格式校验 -->
+        <!-- 邮箱：<input type="email" name="email"> -->
+
+        <!-- url格式校验 -->
+        <!-- url：<input type="url" name="url" required> -->
+
+        <!-- 限制输入数字，可以递增，默认递增按1，step设置递增值 -->
+        <!-- 数值：<input type="number" name="number" max="20" min="10" step="2" required> -->
+
+        <!-- 和文本输入框差不多，只是语义化 -->
+        <!-- 搜索：<input type="search" name="keyword"> -->
+
+        <!-- 移动端，可以唤起专有电话键盘输入 -->
+        <!-- 电话：<input type="tel" name="phone"> -->
+
+        <!-- 光照强度：<input type="range" name="range" max="80" min="20" value="22"> -->
+
+        <!-- 提交值16进制字符串 -->
+        <!-- 颜色：<input type="color" name="color"> -->
+
+        <!-- 日期 -->
+        <!-- 日期：<input type="date" name="date"> -->
+
+        <!-- 月份：<input type="month" name="month"> -->
+
+        <!-- 周：<input type="week" name="week"> -->
+
+        <!-- 时间：<input type="time" name="time"> -->
+
+        日期+时间：<input type="datetime-local" required name="datetime">
+
+        <br>
+        <button>提交</button>
+    </form>
+</body>
+</html>

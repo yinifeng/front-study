@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21_递归</title>
+    <script>
+        /* 
+            求一个数的阶乘
+                1! = 1
+                2! = 2 * 1
+                3! = 3 * 2 * 1
+                4! = 4 * 3 * 2 *1
+            
+            如果用递归来解决阶乘的问题？
+                5! = 4! * 5    
+                4! = 3! * 4    
+                3! = 3! * 2
+            递归的核心思想就是将一个大问题拆分为一个一个小问题，小的问题解决了，大的问题也就解决了
+            
+            编写递归函数，一定要包含两个条件：
+                1、基线条件 -- 递归的终止条件
+                2、递归条件 -- 如何对问题进行拆分
+        */
+
+        function jieCheng(num) {
+            let a = 1;
+            for (let i = 2; i <= num; i++) {
+                a *=  i;
+            }
+            return a;
+        }
+
+        console.log(jieCheng(5));
+
+        //递归思想解决阶乘
+        function jieCheng2(num) {
+            //递归终止条件
+            if(num === 1) {
+                return 1;
+            }
+            return jieCheng2(num - 1) * num;
+        }
+
+        console.log(jieCheng2(6));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

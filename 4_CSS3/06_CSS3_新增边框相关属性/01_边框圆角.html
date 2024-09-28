@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_边框圆角</title>
+    <style>
+        .box1 {
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            border: 1px solid black;
+
+            /* 正圆,常用写法 */
+            /* border-radius: 200px; */
+            /* border-radius: 100%; */
+
+            /* 左上角，按顺时针旋转 四个角正圆 */
+            /* border-top-left-radius: 100px;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 20px;
+            border-bottom-left-radius: 10px; */
+
+            /* 椭圆写法，按顺时针旋转 四个角椭圆 */
+            /* border-top-left-radius: 100px 50px;
+            border-top-right-radius: 50px 20px;
+            border-bottom-right-radius: 20px 10px;
+            border-bottom-left-radius: 10px 5px; */
+
+            /* 椭圆写法，按顺时针旋转 四个角椭圆，复合写法，和上面效果一样 */
+            border-radius: 100px 50px 20px 10px / 50px 20px 10px 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07_jQuery的方法</title>
+    <script src="./scripts/jquery-3.7.1.js"></script>
+    <style>
+        #box1 {
+            width: 200px;
+            height: 200px;
+            background-color: greenyellow;
+        }
+        #box2 {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+        #box3 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+
+    <script>
+        $(function() {
+            //为按钮绑定响应函数
+            $("#btn").click(function() {
+                /* 
+                    添加子元素：
+                    append()
+                        - 向父元素后边添加一个子元素
+                    appendTo()
+                        - 将子元素添加到父元素右边
+                    prepend()
+                    prependTo()
+                        - 向父元素前边添加子元素
+                    text()
+                        - 设置或获取文本内容
+                    html()
+                        - 设置或获取html代码（xss攻击风险）                
+                */
+
+                //$("#box1").append("<div id='box2'/>");
+                // $("<div id='box2'/>").appendTo("#box1");
+
+                //$("#box1").prepend("<div id='box2'/>");
+                $("<div id='box2'/>").prependTo("#box1");
+            });
+        });
+    </script>    
+</head>
+<body>
+    <button id="btn">点我一下</button>
+    <hr>
+    <div id="box1">
+        <div id="box3"></div>
+    </div>
+</body>
+</html>

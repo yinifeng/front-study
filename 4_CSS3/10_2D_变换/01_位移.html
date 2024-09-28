@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_位移</title>
+    <style>
+        .outer {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            margin: 0 auto;
+            margin-top: 100px;
+            position: relative;
+        }
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: deepskyblue;
+            /* 位移，原点为父容器左上角 */
+
+            /* x轴方向位移，正数右移，负数左移,百分比为发生位移容器的宽度 */
+            /* transform: translateX(50px); */
+
+            /* y轴方向位移，正数下移，负数上移,百分比为发生位移容器的高度 */
+            /* transform: translateY(50%); */
+
+            /* x轴方向和y轴方向都移动  */
+            /* transform: translateX(50px) translateY(50px); */
+
+            /* x轴方向和y轴方向都移动  */
+            transform: translate(50%,50%);
+            
+            /* 位移和相对定位很相似 （hr没动，不脱离文档流）
+                不同点：
+                    相对定位百分比是参考父元素容器 
+                    相对定位可以 让一个元素成为另一个元素包含块
+            
+            
+            */
+        }
+        .inner2 {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            position: absolute;
+            /* 绝对定位，父元素容器的50%宽高 */
+            top: 50%;
+            left: 50%;
+
+            /* 定位方式，通过外边距 垂直居中 */
+            /* margin-left: -50px; 
+            margin-top: -50px; */
+
+            /* 位移方式垂直居中 */
+            transform: translate(-50%,-50%);
+
+            /* 注意点：
+                1、位移与相对定位很相似，都不脱离文档流，不会影响其他元素。
+                2、与相对定位的区别：相对定位的百分比值，参考的是其父元素；位移的百分比值，参考的是其自身。
+                3、浏览器针对位移有优化，与定位相比，浏览器处理位移的效率更高。
+                4、transform可以链式编写，例如：transform: translateX(50px) translateY(50px);
+                5、位移对行内元素无效。
+                6、位移配合定位，可实现元素水平垂直居中。
+            
+            
+            */
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">你好啊</div>
+    </div>
+    <hr>
+    <div class="outer">
+        <div class="inner2">你好啊</div>
+    </div>
+</body>
+</html>

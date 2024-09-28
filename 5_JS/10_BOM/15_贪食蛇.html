@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15_贪食蛇</title> 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #main {
+            width: 360px;
+            height: 420px;
+            border: 10px black solid;
+            background-color: #b7d3a8;
+            border-radius: 20px;
+            margin: 50px auto;
+        }
+        #stage {
+            width: 300px;
+            height: 300px;
+            border: 2px black solid;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        #snake>div {
+            width: 10px;
+            height: 10px;
+            background-color: black;
+            position: absolute;
+        }
+
+        #food {
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            left: 30px;
+            top: 50px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #food>div {
+            width: 5px;
+            height: 5px;
+            background-color: black;
+            transform: rotate(45deg);
+        }
+
+        #info {
+            width: 304px;
+            margin: 0px auto;
+            display: flex;
+            justify-content: space-between;
+            font: bold 20px "Courier";
+        }
+    </style> 
+</head>
+<body>
+    <div id="main">
+        <!-- 蛇移动舞台范围 -->
+        <div id="stage">
+            <div id="snake">
+                <!-- 蛇头 -->
+                <div></div>
+            </div>
+            <!-- 食物 -->
+            <div id="food">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div id="info">
+            <div><span id="score">SCORE:100</span></div>
+            <div><span id="level">LEVEL:1</span></div>
+        </div>
+    </div>
+
+    <script>
+        /* 
+            绑定按键事件keydown keyup
+                - 键盘事件只能绑定给可以获取焦点的元素或者是document
+        */
+        //获取蛇的容器
+        const snake = document.getElementById("snake");
+        const snakes = snake.getElementsByTagName("div");
+        console.log(snakes);
+        //蛇头
+        const snakeHead = snakes[0];
+
+        //document绑定键盘事件
+        document.addEventListener("keydown",function(event) {
+            //键盘编号，不同的键盘可能键盘编号不一样，故不推荐使用这个方式判断键盘按键
+            //console.log(event.keyCode);
+
+            //键盘按键代码
+            //console.log(event.key);
+
+            /* 
+                当我们按着某个按键不松开时，按键按下事件会持续触发
+                    但是第一次和第二次触发的时间间隔比较长（操作系统设计如此，第一次和第二次有个时间间隔，后面是连续的）
+                    这样导致练习中蛇不能流畅的移动
+
+                    贪食蛇的游戏，蛇是不能停止运动的    
+            */
+            switch (event.key) {
+                case "ArrowLeft":
+                    //向左
+                    console.log("←");
+                    snakeHead.style.left = snakeHead.offsetLeft - 10 + "px";
+                    break;    
+                case "ArrowRight":
+                    //向右
+                    console.log("→");
+                    snakeHead.style.left = snakeHead.offsetLeft + 10 + "px";
+                    break;
+                case "ArrowUp":
+                    //向上
+                    console.log("↑");
+                    snakeHead.style.top = snakeHead.offsetTop - 10 + "px";
+                    break;
+                case "ArrowDown":
+                    //向下
+                    console.log("↓");
+                    snakeHead.style.top = snakeHead.offsetTop + 10 + "px";
+                    break;    
+            }
+        });
+    </script>
+</body>
+</html>

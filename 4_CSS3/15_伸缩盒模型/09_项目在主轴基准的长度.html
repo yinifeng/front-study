@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09_项目在主轴基准的长度</title>
+    <style>
+        .outer {
+            width: 1000px;
+            height: 600px;
+            background-color: gray;
+            margin: 0 auto;
+
+            /* 开始设置伸缩盒模型属性===== */
+            display: flex;
+            /* 主轴水平方向，默认是从左到右 */
+            flex-direction: row;
+
+            /* 主轴换行方式 */
+            /* 换行，按父元素剩余空间 侧轴居中 */
+            flex-wrap:wrap;
+
+            justify-content: flex-start;
+          
+        }
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            border: 1px solid black;
+            /* 盒子区域大小包含边框 */
+            box-sizing: border-box;
+        }
+        .inner2 {
+            /* 设置伸缩项目在主轴上的基准长度，若主轴是横向的宽失效，若主轴是纵向的高失效，默认是auto和宽高自适用 */
+            /* 这个属性一般不设置，使用默认值auto，浏览器根据这个计算主轴方向的剩余空间 */
+            flex-basis: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">1</div>
+        <div class="inner inner2">2</div>
+        <div class="inner">3</div>
+    </div>
+</body>
+</html>

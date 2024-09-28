@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06_盒子的内容区_content</title>
+    <style>
+        div {
+            /* 当不指定width时，内容区宽度是随着 body的视口大小，浏览器窗口改变随之改变 */
+            /* width: 600px; */
+
+            /* 这个是指定范围值 最小 300px到1000px，浏览器窗口发生变化之能变好在这个区间内 */
+            max-width: 1000px;
+            min-width: 300px;
+
+
+            /* 写了height就是固定大小，否则随着内容改变而改并，当浏览器视口没这么大就会出现滚动条 */
+            /* height: 100px; */
+            
+            min-height: 300px;
+            max-height: 600px;
+
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat at hic ex itaque vel neque delectus, sequi consequatur dolores debitis rem voluptates porro! Mollitia et dolor, dolorum odit hic repudiandae totam corrupti optio provident! Ullam amet reiciendis esse veritatis molestias vitae nisi minus nostrum placeat dolor aliquid eligendi sapiente culpa, animi dolorem eos ea ex eaque necessitatibus, possimus quasi fugiat cumque! Voluptatibus beatae veniam dolorum fugiat voluptatem laudantium illo quidem, magnam neque asperiores deleniti nesciunt, hic quibusdam iusto, placeat tempora dicta? Corrupti ea, possimus hic officia tenetur cum, doloribus similique laboriosam, nihil quis perspiciatis ut tempore neque modi sunt!</div>
+</body>
+</html>

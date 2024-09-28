@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14_正则表达式语法</title>
+    <script>
+        /* 
+            https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_expressions
+
+            1、在正则表达式中大部分字符都可以直接写
+            2、| 在正则表达式中表示或
+            3、[] 表示或（字符集）
+                [a-z] 任意的小写字面
+                [A-Z] 任意的大写字面
+                [a-zA-Z] 任意的字面
+                [0-9] 任意的数字
+            4、[^] 表示除了
+                [^x] 除了x
+            5、. 表示除了换行外的任意字符
+            6、在正则表达式中使用\作为转义字符
+            7、其他的字符集
+                \w 任意单词字符集 等价于 [a-zA-Z0-9_]
+                \W 除了单词字符 [^a-zA-Z0-9_]
+                \d 任意数字  [0-9]
+                \D 除了数字 [^0-9]
+                \s 空格
+                \S 除了空格
+                \b 单词边界
+                \B 除了单词边界
+            8、开头和结尾
+                ^ 表示字符串的开头
+                $ 表示字符串的结尾    
+
+
+        
+        */
+
+        let re = /abc|bcd/;
+
+        re = /[a-z]/;
+
+        re = /[A-Z]/;
+
+        re = /[a-zA-Z]/;
+
+        re = /[a-zA-Z0-9]/;
+
+        re = /[a-z]/i;//匹配模式i表示忽略大小写
+
+        re = /[^a-z]/i;//匹配包含小写字母以为内容的字符串
+
+        re = /./;
+
+        re = /\w/;
+
+        re = /^a/; //表示匹配以a开头，ba不匹配
+        re = /a$/; //表示匹配以a结尾，ab不匹配
+
+        re = /^a$/; //只匹配a，完全匹配，要求字符串和正则表达式完全匹配
+
+        let result = re.test("ab");
+        console.log(result);
+    </script>   
+</head>
+
+<body>
+
+</body>
+
+</html>

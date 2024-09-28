@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09_伪类选择器_结构伪类_1</title>
+    <style>
+        /* div元素下第一个儿子p元素（按照所有兄弟计算的）-结构1 */
+        /* div>p:first-child {
+            color: red;
+        } */
+
+        /* div元素下第一个儿子p元素（按照所有兄弟计算的）-结构2 */
+        /* div>p:first-child {
+            color: red;
+        } */
+
+        /* div元素后代p元素，且p的父级是谁无所谓，但p必须是其父亲第一个儿子（按照所有兄弟计算的）-结构3 */
+        /* div p:first-child {
+            color: red;
+        } */
+
+        /* p元素，且p的父级是谁无所谓，但p必须是其父亲第一个儿子（按照所有兄弟计算的）-结构3 */
+        p:first-child {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 结构1 -->
+    <!-- <div>
+        <p>张三：98分</p>
+        <p>李四：88分</p>
+        <p>王五：78分</p>
+        <p>赵六：68分</p>
+    </div> -->
+
+    <!-- 结构2 -->
+    <!-- <div>
+        <span>张三：98分</span>
+        <p>李四：88分</p>
+        <p>王五：78分</p>
+        <p>赵六：68分</p>
+    </div> -->
+
+    <!-- 结构3 -->
+    <p>测试1</p>
+    <div>
+        <p>测试2</p>
+        <marquee>
+            <p>测试3</p>
+            <p>张三：98分</p>
+        </marquee>
+        <p>李四：88分</p>
+        <p>王五：78分</p>
+        <p>赵六：68分</p>
+    </div>
+</body>
+</html>

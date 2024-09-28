@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_background-origin</title>
+    <style>
+        .box1 {
+            width: 400px;
+            height: 400px;
+            background-color: skyblue;
+            margin: 0 auto;
+            font-size: 40px;
+            padding: 50px;
+            border: 50px dashed rgba(255, 0, 0, 0.7);
+
+            background-image: url('./bg01.jpg');
+            /* 当一张图片填充不满，不出现重复的图片 */
+            background-repeat: no-repeat;
+            /* 以什么为参考点
+                padding-box 内边距左上角为开始点，默认值
+                content-box 内容区左上角为开始点
+                border-box 边框左上角为开始点
+            */
+            background-origin: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">你好啊</div>
+</body>
+</html>

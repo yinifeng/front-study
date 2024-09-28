@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15_正则表达式</title>
+    <script>
+        /* 
+            量词
+                {m} 正好m个
+                {m,} 至少m个
+                {m,n} m-n个
+                + 一个以上，相当于{1,}
+                * 任意数量的a
+                ? 0-1次 {0,1}
+        */
+
+        let reg = /a{3}/;//包含3个连续的a
+        reg = /^a{3}$/;//只能3个a
+
+        reg = /^(ab){3}$/;
+
+        reg = /^[a-z]{3}$/;
+
+        reg = /^[a-z]{1,}$/;
+
+        reg = /^[a-z]{1,3}$/;
+
+        reg = /^ba+$/;
+
+        reg = /^ba*$/;
+
+        reg = /^ba?$/;
+
+        let result = reg.test("baB");
+        console.log(result);
+
+    </script>   
+</head>
+
+<body>
+
+</body>
+
+</html>

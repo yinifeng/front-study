@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08_数据类型_数值</title>
+    <script>
+        /* 
+            一、原始值，7种
+                1、数值（Number）
+                2、大整数 （BigInt）
+                3、字符串（String）
+                4、布尔值（Boolean）
+                5、空值（Null）
+                6、未定义（Undefined）
+                7、符号（Symbol）
+            二、对象（后面介绍）
+        */
+
+        /* 
+            1、数值（Number）
+                - 在JS中所有整数和浮点数都是Number类型
+                - JS中的数值并不是无限大，当数值超过一定范围会显示近似值
+                - Infinity是一个特殊的数值，表示无穷
+                - 在JS中进行一些精度比较高的运算时要十分注意
+                - NaN也是一个特殊的数值，表示非法数值
+        */
+        console.log('===============数值================');
+        let a = 10;
+        a = 10.5;
+        a = 3.14;
+        console.log(a);
+        a = 99999999999999991;
+        console.log(a);
+        a = 99999 ** 99999;
+        console.log(a);
+        a = 1.1111111111111111111111111111111111;
+        a = 0.0000000000000000000000000000000001;
+        console.log(a);//1e-34 科学计算法
+        a = 0.1 + 0.2;//0.30000000000000004 小数计算丢精度
+        console.log(a);
+        a = 1 - 'a';
+        console.log(a);//NaN (Not a Number)
+
+        console.log('===============大整数================');
+        /* 
+            2、大整数 （BigInt）
+                - 大整数用来表示一些比较大的整数
+                - 大整数是以n结尾，它可以表示的数字范围是无限大
+                - 只能表示整数，不能表示小数
+
+        */
+        let b = 99999999999999999999999999999999999999999n;
+        console.log(b);
+
+        console.log('===============其他进制的数字================');
+        /* 
+            其他进制的数字：
+                二进制 0b
+                八进制 0o
+                十六进制 0x
+
+        */
+       let c = 0b1010;
+       console.log(c);
+       c = 0o10;
+       console.log(c);
+       c= 0xff;
+       console.log(c);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

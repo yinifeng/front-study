@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16_伪类选择器_伪元素选择器</title>
+    <style>
+        /* 什么事伪元素选择器？很像元素，但不是元素（element），是元素中的一些特殊位置 */
+        /* 选中div中的第一文字 ,CSS2可以用一个：，按CSS3标准写两个：：*/
+        div::first-letter {
+            color: red;
+            font-size: 40px;
+        }
+        /* 选中div中的第一行内容,CSS2可以用一个： */
+        div::first-line {
+            background-color: yellow;
+        }
+
+        /* 选中div中的被鼠标选中的内容 */
+        div::selection {
+            background-color: green;
+            color: orange;
+        }
+
+        /* 选中input中的提示元素 placeholder */
+        input::placeholder {
+            color: aqua;
+        }
+
+        /* 选中p元素最开始的位置，随后创建一个子元素,CSS2可以用一个： */
+        p::before {
+            content: "￥";
+        }
+
+        /* 选中p元素最后的位置，随后创建一个子元素,CSS2可以用一个： */
+        p::after {
+            content: ".00";
+        }
+        
+    </style>
+</head>
+<body>
+    <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora recusandae repellat neque ut aliquid asperiores expedita itaque, unde accusantium ducimus nesciunt harum ex ea laboriosam at dicta saepe accusamus sed! Perspiciatis doloremque unde sequi dolores rerum, sapiente debitis est tempore, nihil illum in impedit obcaecati, officia cum corporis. Impedit architecto esse laborum fugiat voluptate libero asperiores vero quaerat dolore enim.</div>
+    <input type="text" placeholder="请输入您的用户名">
+    <p>199</p>
+    <p>299</p>
+    <p>399</p>
+    <p>499</p>
+</body>
+</html>

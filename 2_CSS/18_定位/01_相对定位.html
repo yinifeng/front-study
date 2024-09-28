@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_相对定位</title>
+    <style>
+        .outer {
+            width: 500px;
+            background-color: gray;
+            border: 1px solid black;
+            padding: 20px;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            font-size: 20px;
+        }
+        .box1 {
+            background-color: skyblue;
+        }
+        .box2 {
+            background-color: orange;
+            /* 开启相对定位 */
+            position: relative;
+            /* left和right不要一起用，也可以设置负数，相对原来的位置变动 */
+            left: 10px;
+            /* top和bottom不要一起用，也可以设置负数，相对原来的位置变动 */
+            top: 10px;
+
+            /* margin-left: 10px; */
+            /* float: left; */
+        }
+        .box3 {
+            background-color: green;
+        }
+        /* 相对定位
+            1.1、如何设置相对定位？
+                给元素设置 position: relative 即可实现相对定位
+                可以使用 left、right、top、bottom 四个属性调整位置
+            1.2、相对定位的参考点在哪里
+                相对自己原来的位置
+            1.3、相对定位的特点：
+                1、不会脱落文档流，元素位置的变化，只是视觉效果上的变好，不会对其他元素产生任何影响。
+                2、定位元素的显示层级比普通元素要高，无论什么定位，显示层级是一样的。
+                  默认规则是：
+                    定位的元素会盖在普通元素之上
+                    都发生定位的两个元素，后写的元素会盖在先写的元素之上
+                3、left不能和right一起设置，top和bottom不能一起设置
+                4、相对定位的元素，也能继续浮动，但不推荐这样做。
+                5、相对定位的元素，也能通过margin调整位置，但不推荐这样做。
+            注意：绝大多数情况下，相对定位，会与绝对定位配合使用
+        */
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="box box1">1</div>
+        <div class="box box2">2</div>
+        <div class="box box3">3</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05_jQuery的方法</title>
+    <script src="./scripts/jquery-3.7.1.js"></script>
+
+    <script>
+        $(function() {
+            //为刘德华li绑定click事件
+            $("#list li:nth-child(1)").click(function() {
+                alert("刘德华");
+            })
+
+            /* 
+                clone() 复制对象
+                    参数 传true 是深拷贝，会把元素上绑定的事件也会复制过去
+            */
+            //var $ldh = $("#list li:nth-child(1)").clone();
+            var $ldh = $("#list li:nth-child(1)").clone(true);
+            var $list2 = $("#list2");
+
+            //为按钮绑定响应函数
+            $("#btn").click(function() {
+                //把list的刘德华 元素 添加到list2中
+                $list2.append($ldh);
+            });
+        });
+    </script>    
+</head>
+<body>
+    <button id="btn">点我一下</button>
+    <hr>
+    <ul id="list">
+        <li id="ldh">刘德华</li>
+        <li id="zxy">张学友</li>
+        <li id="gfc">郭富城</li>
+    </ul>
+    <ul id="list2">
+        <li id="lyf">刘亦菲</li>
+        <li id="zmy">张曼玉</li>
+        <li id="lqx">林青霞</li>
+    </ul>
+</body>
+</html>

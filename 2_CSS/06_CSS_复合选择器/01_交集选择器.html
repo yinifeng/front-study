@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_交集选择器</title>
+    <style>
+        .rich {
+            color: goldenrod;
+        }
+        .beauty {
+            color: red;
+        }
+        /* 交集选择器 ：既...又...（两个选择器连着写）
+            1、元素选择器必须写在最前面
+            2、可以连着写两个类选择器，不能连着写两个元素选择器（因为一个标签不可能是两种元素）
+            3、可以写 类选择器和id选择器，但是这个情况就直接用id选择器了
+        */
+        p.beauty {
+            color: green;
+        }
+        /* 这个写最后，不然可能被 前面类似类选择器覆盖样式 */
+        .beauty.rich {
+            color:blueviolet;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="rich">土豪</h2>
+    <h2 class="beauty">明星</h2>
+    <h2 class="beauty rich">土豪明星</h2>
+    <hr>
+    <p class="beauty">小狗旺财</p>
+    <p class="beauty">小猪佩奇</p>
+</body>
+</html>

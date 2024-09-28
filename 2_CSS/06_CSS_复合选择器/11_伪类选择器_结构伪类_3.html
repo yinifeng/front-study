@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11_伪类选择器_结构伪类_3</title>
+    <style>
+        /* div元素下倒数第几个p元素（按照所有兄弟计算的）-结构1
+            n 所有
+            2n 偶数
+            2n+1 奇数
+            odd 奇数
+            even 偶数
+            -n+5 前5个（-0+5=5,-+5=4....）
+            公式：an+b => 0n+1
+        */
+        /* div>p:nth-last-child(2) {
+            color: red;
+        } */
+
+        /* div元素下相同类型倒数第几个p元素（按照同类型元素计算的）-结构1
+            n 所有
+            2n 偶数
+            2n+1 奇数
+            odd 奇数
+            even 偶数
+            -n+5 前5个（-0+5=5,-+5=4....）
+            公式：an+b => 0n+1
+        */
+        /* div>p:nth-last-of-type(2) {
+            color: red;
+        } */
+        
+        /* div元素下唯一的span元素（没有兄弟元素只有一个）-结构2 */
+        /* span:only-child {
+            color: red;
+        } */
+
+        /* div元素下唯一的span类型元素（有且只有一个span类型，同类型）-结构2 */
+        /* span:only-of-type {
+            color: red;
+        } */
+
+        /* 根元素root，也就是html下的 */
+        /* :root {
+            background-color: gray;
+        } */
+
+        /* div元素下，没有任何内容（包括不包含空格）的div */
+        div:empty {
+            background-color: red;
+            width: 100px;
+            height: 200px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 结构1 -->
+    <!-- <div>
+        <span>测试</span>
+        <p>张三：98分</p>
+        <p>李四：88分</p>
+        <p>王五：78分</p>
+        <p>赵六：68分</p>       
+        <p>孙七：78分</p>
+        <p>老八：68分</p>
+        <span>测试</span>
+    </div> -->
+
+    <!-- 结构2 -->
+    <!-- <div>
+        <span>测试</span>
+    </div>
+    <div>
+        <span>测试</span>
+        <p>张三：98分</p>
+        <p>李四：88分</p>
+        <p>王五：78分</p>
+        <p>赵六：68分</p>       
+        <p>孙七：78分</p>
+        <p>老八：68分</p>
+        <span>测试</span>
+    </div> -->
+
+    <!-- 结构3 -->
+    <div></div>
+</body>
+</html>

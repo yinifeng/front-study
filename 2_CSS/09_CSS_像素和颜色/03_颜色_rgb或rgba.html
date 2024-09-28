@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_颜色_rgb或rgba</title>
+    <style>
+        .p1 {
+            /* 光谱的3元色
+                红  0~255
+                绿  0~255
+                蓝  0~255
+
+                红：(255 0 0)
+                绿：(0 255 0)
+                蓝：(0 0 255)
+            
+            
+            */
+            color: rgb(255, 0, 0);
+        }
+        .p2 {
+            /* 百分比表示 */
+            color: rgb(0%, 100%, 0%);
+        }
+        .p3 {
+            /* 最后一位代表透明度，范围：0~1，也可以百分比50% */
+            color: rgba(255, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <p class="p1">广东深圳1</p>
+    <p class="p2">广东深圳2</p>
+    <p class="p3">广东深圳3</p>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23_数组的方法</title>
+    <script>
+        /* 
+            sort()
+                - sort用来对数组进行排序（会改变原数组）
+                - sort默认会将数组升序排列
+                    注意：sort默认会按照Unicode编码进行排序，所以如果直接通过sort对数字进行排序
+                        可能会得到一个不正确的结果
+                - 参数：
+                    - 可以传递一个回调函数作为参数，通过回调函数来指定排序规则
+                        (a,b) => a - b 升序排列
+                        (a,b) => b - a 降序排列        
+
+            forEach()
+                - 用来遍历数组
+                - 它需要一个回调函数作为参数，这个回调函数会被调用多次
+                    数组中有几个元素，回调函数就会调用几次
+                    每次调用，将会将数组中的数据作为参数传递
+                - 回调函数中有三个参数：
+                    element 当前的元素
+                    index 当前元素的索引
+                    array 被遍历的数组
+            
+            filter()
+                - 将数组中符合条件的元素保存到一个新数组中返回
+                - 需要一个回调函数作为参数，会为每一个元素去调用回调函数，并根据返回值来决定是否将元素添加到新数组中
+                - 非破坏性方法，不会影响原数组
+                
+            map()
+                - 根据当前数组生成一个新数组
+                - 需要一个回调函数作为参数
+                    回调函数的返回值会成为新数组中的元素
+                - 非破坏性方法不会影响原数组 
+            
+            reduce()
+                - 可以用来将一个数组中的所有元素整合为一个值
+                - 参数：
+                    1、回调函数，通过回调函数来进行合并的规则
+                    2、可选参数，初始值    
+        */
+
+        console.log("================>sort");
+        let arr = ["c","a","k","f","a","b"]
+        console.log(arr);
+        arr.sort();//默认会按照Unicode编码进行排序
+        console.log(arr);
+
+        arr = [1,8,3,4,5,2,9,10,6]
+        console.log(arr);
+        arr.sort((a,b) => a - b);
+        arr.sort((a,b) => b - a);
+        console.log(arr);
+
+        console.log("================>forEach");
+        arr = ["周杰伦","刘德华","张学友"]
+        //arr.forEach((element,index,array) => {
+        //    console.log(index,element);
+        //});
+        arr.forEach(element => console.log(element));
+
+        console.log("================>filter");
+        arr = [1,8,3,4,5,2,9,10,6]
+        let result = arr.filter(element => element % 2 === 0);
+        console.log(result);
+
+        console.log("================>map");
+        arr = ["周杰伦","刘德华","张学友"]
+        result = arr.map(ele => "<li>" + ele + "</li>");
+        console.log(result);
+
+        console.log("================>reduce");
+        arr = [1,8,3,4,5,2,9,10,6]
+        //result = arr.reduce((a,b) => {
+        //    console.log(a,b);
+        //    return a + b;
+        //});//求和
+
+        result = arr.reduce((a,b) => a + b,10);//第二个参数为初始值
+        console.log(result);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

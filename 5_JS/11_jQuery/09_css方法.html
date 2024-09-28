@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09_css方法</title>
+    <script src="./scripts/jquery-3.7.1.js"></script>
+    <style>
+        #box1 {
+            width: 200px;
+            height: 200px;
+            background-color: greenyellow;
+        }
+        #box2 {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+        #box3 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+
+    <script>
+        $(function() {
+            //为按钮绑定响应函数
+            $("#btn").click(function() {
+                /* 
+                    css可以用来读取和设置元素的样式
+                */
+               var $width = $("#box1").css("width");
+               console.log($width);
+               //console.log($("#box1").css("background-color"));
+               console.log($("#box1").css("backgroundColor"));
+
+               console.log($("#box1").css("left"));
+
+               //$("#box1").css("width","300px");
+               $("#box1").css("width",300);
+
+               $("#box1").css({width:"300px",height:"500px",backgroundColor:"yellow",padding:"20px",border:"10px red solid"});
+
+               //内容区加内边距,返回数字
+               console.log($("#box1").innerHeight());
+
+               //$("#box1").innerHeight(500);
+
+               console.log($("#box1").offset().top + "---" + $("#box1").offset().left);
+
+               //没有定位，默认会开启定位
+               $("#box1").offset({left:500,top:200});
+            });
+        });
+    </script>    
+</head>
+<body>
+    <button id="btn">点我一下</button>
+    <hr>
+    <div id="box1">
+    </div>
+</body>
+</html>

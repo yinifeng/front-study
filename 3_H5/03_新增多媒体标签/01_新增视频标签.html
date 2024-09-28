@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_新增视频标签</title>
+    <style>
+        video {
+            width: 600px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <!-- 需要控制增加属性 controls，不然没发播放 -->
+    <!-- muted 属性，默认视频静音 -->
+    <!-- autoplay 自动播放，前提是要静音muted -->
+
+    <!-- 如果自动播放，不静音，需要媒体参与度（浏览器行为） -->
+    <!-- chrome可以查看媒体参与度：chrome://media-engagement/ -->
+
+    <!-- loop循环播放 -->
+
+    <!-- 设置视频封面,封面大小要视频一致，不然看起来样式很怪 -->
+
+    <!-- preload 预加载，可以预加载视频信息，如：时长 
+        auto：下载整个视频文件
+        metadata：获取视频元数据
+    -->
+    <video src="./小电影.mp4" controls muted loop poster="./封面.png" preload="metadata"></video>
+</body>
+</html>

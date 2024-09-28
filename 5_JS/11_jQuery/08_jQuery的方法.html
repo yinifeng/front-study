@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08_jQuery的方法</title>
+    <script src="./scripts/jquery-3.7.1.js"></script>
+
+    <script>
+        $(function() {
+            const $li = $("li:nth-child(1)");
+            //为按钮绑定响应函数
+            $("#btn").click(function() {
+                /* 
+                    empty() 删除所有子元素
+                    remove() 移除元素（包含事件）
+                    detach() 异常元素，还原回来的元素包含事件
+
+                */
+                //$("ul").empty();
+                //$("li:nth-child(1)").remove();
+                $("li:nth-child(1)").detach();
+            });
+            $("#btn2").click(function() {
+                $("#list").append($li);
+
+            });
+
+
+            $("#btn3").click(function() {
+                /* 
+                    attr()
+                    prop()
+                        - 读取或设置属性值
+                */
+               const type = $("input[type=text]").attr("type");
+               const name = $("input[type=text]").prop("name");
+               console.log(name);
+               //存在获取的是checked，不存在获取的undefined
+               let checked = $("input[type=radio]").attr("checked");
+               console.log(checked);
+               //存在获取的是true，不存在的是false
+               checked = $("input[type=radio]").prop("checked");
+               console.log(checked);
+
+               $("input[type=text]").attr("value","哈哈");
+               //$("input[value=female]").prop("checked",true);
+
+               let value = $("input[type=text]").val();
+               console.log(value);
+
+               //设置值
+               $("input[type=text]").val("呵呵");
+            });
+        });
+    </script>    
+</head>
+<body>
+    <button id="btn">点我一下</button>
+    <button id="btn2">点我一下2</button>
+    <hr>
+    <ul id="list">
+        <li id="ldh">刘德华</li>
+        <li id="zxy">张学友</li>
+        <li id="gfc">郭富城</li>
+    </ul>
+    <hr>
+    <input type="radio" name="gender" value="male" checked />男
+    <input type="radio" name="gender" value="female" />女
+    <input type="text" name="username" value="xxx" />
+    <hr>
+    <button id="btn3">点我一下3</button>
+</body>
+</html>

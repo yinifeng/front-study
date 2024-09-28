@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H5兼容性处理</title>
+    <!-- 可以判断，IE浏览器版本才引入兼容性处理的js -->
+    <!--[if lt ie 9]>
+    <script src="./html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!-- 新增语义化标签
+        1、header 整个页面，或部分区域的头部
+        2、footer 整个页面，会部分区域的底部
+        3、nav 导航
+        4、article 文章，帖子、杂志、新闻、博客、评论等
+        5、section 页面中的某段文字，或文章中的某段文字
+        6、aside 侧边栏
+        基本不用：
+        main、hgroup
+    -->
+    <!-- 头部 -->
+    <header class="page-header">
+        <h1>苹果汇</h1>
+    </header>
+    <hr>
+    <!-- 主导航 -->
+    <nav>
+        <a href="#">首页</a>
+        <a href="#">订单</a>
+        <a href="#">购物车</a>
+        <a href="#">我的</a>
+    </nav>
+    <!-- 主要内容 -->
+    <div class="page-content" style="width: 800px;">
+        <!-- 侧边栏 -->
+        <aside style="float: right;">
+            <ul>
+                <li><a href="#">秒杀专区</a></li>
+                <li><a href="#">会员专区</a></li>
+                <li><a href="#">领取优惠券</a></li>
+                <li><a href="#">品牌专区</a></li>
+            </ul>
+        </aside>
+        <!-- 文章 -->
+        <article>
+            <h2>《如何一夜暴富》</h2>
+            <section>
+                <h3>第一种方式：你要做梦</h3>
+                <p>你要这么做梦，做美梦：xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+            </section>
+            <section>
+                <h3>第二种方式：买彩票</h3>
+                <p>买福利彩票1000000组：xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+            </section>
+            <section>
+                <h3>第三种方式：好好学习前端</h3>
+                <p>学习html5：xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+            </section>
+        </article>
+    </div>
+    <hr>
+    <footer>
+        <nav>
+            <a href="#">友情链接一</a>
+            <a href="#">友情链接二</a>
+            <a href="#">友情链接三</a>
+            <a href="#">友情链接四</a>
+        </nav>
+    </footer>
+</body>
+</html>

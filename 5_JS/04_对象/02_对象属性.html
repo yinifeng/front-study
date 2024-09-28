@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_对象属性</title>
+    <script>
+        /* 
+            属性名：
+                - 通常属性名就是一个字符串，所以属性名可以是任何值，没有特殊要求
+                    但是如果你的属性名太特殊了，不能直接使用，需要使用[]来设置
+                    我们还是强烈建议属性名也按照标识符的规范命名
+
+                - 也可以使用符号（Symbol）作为属性名，来添加属性
+                    获取这种属性时，也必须使用Symbol
+                    使用Symbol添加的属性，通常是哪些不希望被外界访问的属性
+                    
+                - 使用[]取操作属性时，可以添加变量
+                
+                - 属性值
+                    对象属性值可以是任何类型
+        
+        */
+        let obj = Object();
+
+        obj.name = '孙悟空';
+        obj.if = "哈哈";
+        obj.let ="呵呵";
+        obj['123@###!@##'] = '特殊字符';
+
+        let mySymbol = Symbol();
+
+        //使用symbol作为属性，使用Symbol添加的属性
+        obj[mySymbol] = '通过symbol添加的属性';
+        //取symbol作为属性
+        console.log(obj[mySymbol]);
+
+        let str = "address";
+        obj[str] = "广东深圳";
+
+        obj.o = new Object();
+        obj.o.name = "tom";
+        obj.o['age'] = 12;
+
+        console.log(obj);
+        console.log(typeof obj);
+
+        //判断obj是否存在某个属性
+        console.log("name" in obj)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08_盒子的内边距_padding</title>
+    <style>
+        #d1 {
+            width: 200px;
+            height: 200px;
+
+            /* 左内边距 */
+            /* padding-left: 20px; */
+
+            /* 上内边距 */
+            /* padding-top: 30px; */
+
+            /* 右内边距 */
+            /* padding-right: 40px; */
+
+            /* 底内边距 */
+            /* padding-bottom: 50px; */
+            
+            /* 复合属性，写一个值，含义：四个方向的内边距是一样的 */
+            /* padding: 20px; */
+
+            /* 复合属性，写两个值，含义：上下、左右 */
+            /* padding: 10px 20px; */
+            
+            /* 复合属性，写三个值，含义：上、左右、下 */
+            /* padding: 10px 20px 30px; */
+            
+            /* 复合属性，写四个值，含义：上、右、下、左 */
+            padding: 10px 20px 30px 40px;              
+
+            font-size: 20px;
+            background-color: skyblue;
+        }
+        
+        /* 行内元素，内边距 */
+        span {
+            padding-left: 20px;
+            padding-right: 20px;
+
+            /* 行内元素（只有是带块的元素都没问题，行内块也没问题） 上下 内边距 不能完美设置，样式会有问题 */
+            padding-top: 20px;
+            padding-bottom: 20px;
+
+            font-size: 20px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1">你好啊</div>
+    <hr>
+    <span>天上人间</span></span>
+    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, rerum?</div>
+</body>
+</html>

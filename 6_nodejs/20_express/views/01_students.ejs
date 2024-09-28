@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>这是EJS模板</title>
+</head>
+<body>
+    <h1>Hello EJS</h1>
+    <!-- 通过它可以将render传递进来的数据直接在网页中显示出来 -->
+
+    <%=hello %>
+
+    <%
+        let num = 20;
+        if(num > 10) {
+            console.log("数字大于10");
+        }else {
+            console.log("数字小于10");
+        }
+    
+    %>
+</body>
+</html>

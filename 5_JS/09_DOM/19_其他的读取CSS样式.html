@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19_其他的读取CSS样式</title>
+    <style>
+        .outer {
+            position: relative;
+        }
+        #box1 {
+            width: 200px;
+            height: 200px;
+            margin: 50px;
+            padding: 50px;
+            border: 10px red solid;
+            background-color: greenyellow;
+
+            overflow:scroll;
+        }
+        #box2 {
+            width: 200px;
+            height: 500px;
+            background-color: coral;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">点我一下</button>
+    <hr>
+    <div class="outer">
+        <div id="box1">
+            <div id="box2"></div>
+        </div>
+    </div>
+
+    <script>
+        const btn1 = document.getElementById("btn1");
+        const box1 = document.querySelector("#box1");
+
+        //读取css样式
+        btn1.onclick = function() {
+            /* 
+                元素.clientHeight
+                元素.clientWidth
+                    - 获取元素内部的宽度和高度（包括内容区和内边距）
+                
+                元素.offsetHeight
+                元素.offsetWidth
+                    - 获取元素可见框的大小（包括内容区、内边距和边框）
+
+                元素.scrollHeight    
+                元素.scrollWidth
+                    - 获取元素滚动区域的大小
+                    
+                元素.offsetParent
+                    - 获取元素的定位父元素
+                    - 定位父元素:离当前元素最近的开启了定位的祖先元素
+                        如果所有的元素都没有开启定位则返回body
+                
+                （这个比较常用）        
+                元素.offsetTop        
+                元素.offsetLeft
+                    - 获取元素相对于其定位元素的偏移量
+                
+                注意：以上的属性值都是只读
+
+                元素.scrollTop
+                元素.scrollLeft
+                    - 获取或设置元素滚动条的偏移量（可以检查滚动条位置，可以修改）
+            */
+
+            console.log("clientHeight=",box1.clientHeight);//300
+            console.log("clientWidth=",box1.clientWidth);//300
+
+
+            console.log("offsetHeight=",box1.offsetHeight);//320
+            console.log("offsetWidth=",box1.offsetWidth);//320
+
+            console.log("scrollHeight=",box1.scrollHeight);//600 = box2 + 内边距*2
+
+            //获取元素的定位父元素
+            console.log(box1.offsetParent);
+
+            console.log("offsetTop=",box1.offsetTop);
+            //50 是box1到outer外边距
+            console.log("offsetLeft=",box1.offsetLeft);//50,去掉outer定位=58 body有默认样式8个像素
+
+            console.log("scrollTop=",box1.scrollTop);
+            box1.scrollTop = 50;
+            console.log("scrollTop=",box1.scrollTop);
+        }
+    </script>
+</body>
+</html>

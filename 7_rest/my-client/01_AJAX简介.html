@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>客户端</title>
+</head>
+<body>
+    <h1>这个是我的客户端</h1>
+    <button id="btn">提交</button>
+
+    <script>
+        const btn = document.getElementById("btn");
+        btn.onclick = ()=>{
+                // alert("哈哈");
+                /* 
+                    //向服务器发送请求
+                    在JS中向服务器发送的请求加载数据的技术叫AJAX
+
+                    AJAX
+                        - A 异步 J JavaScript A and X xml
+                        - 异步的js和想xml
+                        - 它的作用就是通过js向服务器发送请求来加载数据
+                        - xml是早期AJAX使用的数据格式
+                            <student>
+                                <name>hobart</name>
+                            </student>    
+                        - 目前数据格式都是使用JSON
+                            {"name":"hobart"}  
+                        
+                        - js发送请求可以选择的方案：
+                            1、XMLHTTPRequest （xhr）
+                            2、Fetch（xhr升级版）
+                            3、Axios （第三方请求框架，xhr基础上封装的）    
+                */
+
+                //1、使用xhr发送请求
+                const xhr = new XMLHttpRequest();
+                //设置请求方式，请求路径,这样请求别的域名地址会发生跨域
+                xhr.open("GET","http://127.0.0.1:3000/students");
+                //发送请求
+                xhr.send();
+        }
+    </script>
+</body>
+</html>

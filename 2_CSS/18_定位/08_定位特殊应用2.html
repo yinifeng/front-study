@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08_定位特殊应用2</title>
+    <style>
+        .outer {
+            width: 800px;
+            height: 400px;
+            background-color: gray;
+
+            /* 方案一 */
+            /* overflow: hidden; */
+
+            /* 方案二 */
+            position: relative;
+        }
+        /* 让里面的块元素水平垂直居中
+            方案一：margin解决
+                父元素设定 overflow: hidden;
+                子元素 水平居中 设定 margin: 0 auto;
+                子元素 垂直居中 设定 margin-top: 150px;
+            方案二：定位解决
+        
+        */
+        .inner {
+            /* 这个子元素必须要有宽和高 */
+            width: 400px;
+            height: 100px;
+            background-color: orange;
+            font-size: 20px;
+
+            /* 方案一 */
+            /* margin: 0 auto;
+            margin-top: 150px; */
+
+            /* 方案二 */
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+
+            /* 方案三 不是很推荐 */
+            /* left: 50%;
+            top: 50%;
+            margin-left: -200px;
+            margin-top: -50px; */
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">你好啊</div>
+    </div>
+</body>
+</html>

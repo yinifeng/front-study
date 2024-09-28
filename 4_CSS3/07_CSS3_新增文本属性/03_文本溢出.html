@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_文本溢出</title>
+    <style>
+        ul {
+            width: 400px;
+            height: 400px;
+            border: 1px solid black;
+            /* 去掉前面点 */
+            list-style: none;
+            font-size: 20px;
+            padding-left: 0px;
+            padding: 10px;
+
+        }
+        li {
+            margin-bottom: 10px;
+            /* 
+                text-overflow 属性设置文本内容溢出时呈现的模式
+                clip：当内联内容溢出时，将溢出部分裁切掉 （默认值）
+                ellipsis：当内联内容溢出时，将溢出部分替代成...
+                注意：要使得 text-overflow属性生效，块容器必须显式定义overflow为非visiable值，white-space为nowrap值
+            */
+            overflow: hidden;
+            white-space: nowrap;
+            /* 把超出的文字用省略号 */
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>当把祭拜的重任交给年轻人后</li>
+        <li>我，嫁到波兰，睡到日上三竿没人管，不做家务公婆也从不甩脸色</li>
+        <li>“人有本事，一看就知”：有本事的人，都坚持了这三点</li>
+        <li>广东 一大妈拿26年前的存款单到银行取款时 被告知存款在23年前已被取走！律师：银行负有举证证明责任！</li>
+        <li>菲律宾围住黄岩岛准备强冲，中国强援一到，反过来包了菲律宾饺子</li>
+        <li>中国人口大迁移：3000县全景呈现</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_代码块</title>
+    <script>
+        /* 
+            使用 {} 来创建代码块，代码块可以用来对代码分组
+                同一个代码中的代码，就是同一组代码，一个代码块中的代码要么都执行要么都不执行
+            
+            let和var
+                - 在JS中，使用let声明的变量具有块作用域
+                    在代码块中声明的变量无法在代码块的外部访问
+
+                - 使用var声明的变量，不具有块作用域
+        */
+       {
+        let a = 10;
+        console.log(a);
+       }
+       //Uncaught ReferenceError: a is not defined
+        //at 01_代码块.html:26:20
+       //console.log(a);
+
+       {
+        var b = 20;
+        console.log(b);
+       }
+       console.log(b);
+
+       {
+        console.log("哈哈");
+        document.write("呵呵");
+       }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

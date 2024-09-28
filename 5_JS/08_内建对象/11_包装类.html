@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11_包装类</title>
+    <script>
+        /* 
+            在JS中，除了直接创建原始值外，也可以创建原始值的对象
+                
+                通过 new String() 可以创建String类型对象
+                通过 new Number() 可以创建Number类型对象
+                通过 new Boolean() 可以创建Boolean类型对象
+                    - 但是千万不要这么做，这个注意是JS解析器用的（通过原始值调用方法，实际上先转为对象再调方法）
+
+            包装类:
+                JS中一共有5个包装类
+                    String ==> 字符串包装为String对象
+                    Number ==> 数值包装为Number对象
+                    Boolean ==> 布尔值包装为Boolean对象
+                    BigInt ==> 大整数包装为BigInt对象
+                    Symbol ==> 符合包装为Symbol对象
+                    - 通过包装类可以将一个原始值包装为一个对象
+                        当我们对一个原始调用方法或属性时，JS解析器会临时将原始值包装为对应的对象
+                            然后调用这个对象的属性或方法
+
+                - 由于原始值会被临时转换为对应对象，这就意味着对象中的方法都可以直接通过原始值来调用                            
+        */
+
+        //不要通过这个方式构建原始值对象
+        //let str = new String("hello");
+        //let num = new Number(123);
+        //let bool = new Boolean(true);
+        //let bool2 = new Boolean(true);
+
+        //console.log(bool == bool2);//false,对象地址不一样
+
+        let str = "hello";
+        str.name = "哈哈";//这个代码解析器，先会包装一个String对象，再设置name属性
+
+        console.log(str.name);//这个代码解析器，先会包装一个String对象，再读取name属性，所以为undefined
+
+        let num = 11;
+        num = num.toString();//这个代码解析器，先会包装一个Number对象,再调用Number对象的toString()方法
+        console.log(num);
+    </script>   
+</head>
+
+<body>
+
+</body>
+
+</html>

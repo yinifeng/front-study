@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06_定位可以越过padding</title>
+    <style>
+        .outer {
+            width: 800px;
+            height: 600px;
+            background-color: gray;
+            border: 5px solid black;
+            padding: 20px;
+            position: relative;
+        }
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            /* 越过padding，但不越过border */
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">1</div>
+    </div>
+</body>
+</html>

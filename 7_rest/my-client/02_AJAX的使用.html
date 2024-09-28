@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_AJAX的使用</title>
+</head>
+<body>
+    <h1>AJAX使用</h1>
+    <button id="btn">加载数据</button>
+    <div id="root"></div>
+    <script>
+        const btn = document.getElementById("btn");
+        const root = document.getElementById("root");
+        btn.onclick = ()=>{
+                // alert("哈哈");
+                //1、使用xhr发送请求
+                const xhr = new XMLHttpRequest();
+
+                //设置响应类型，会自动把json串转换为js对象
+                xhr.responseType = "json";
+
+                //为xhr对象绑定一个onload事件
+                xhr.onload = function() {
+                    //服务器响应状态码
+                    //console.log(xhr.status);
+                    if(xhr.status === 200) {
+                        //xhr.response 表示响应数据
+                        //console.log(xhr.response);
+                        
+                        //1、手工转js对象
+                        //const result = JSON.parse(xhr.response);
+                        //console.log(result);
+
+                        //2、设置响应类型可以自动转js对象
+                        const result = xhr.response;
+                        console.log(result);
+
+                        const ul = document.createElement("url");
+                        //将ul加入到root中
+                        root.appendChild(ul);
+                        //获取数据渲染页面
+                        for (let stu of result.data) {
+                            ul.insertAdjacentHTML("beforeend",`<li>${stu.id} - ${stu.name} - ${stu.age} - ${stu.gender} - ${stu.address}</li>`)
+                        }
+                    }
+                }
+
+                //设置请求方式，请求路径,这样请求别的域名地址会发生跨域
+                xhr.open("GET","http://127.0.0.1:3000/students");
+
+                //发送请求
+                xhr.send();
+        }
+    </script>
+</body>
+</html>

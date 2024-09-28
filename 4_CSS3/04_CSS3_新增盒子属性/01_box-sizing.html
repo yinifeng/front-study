@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_box-sizing</title>
+    <style>
+        /* 盒子大小为 220px
+            这个和屏幕设置的 缩放比有点关系
+            有可能 会超过220px，有小数，是boder 会缩放
+        */
+        .box1 {
+            /* 这个宽高默认是  内容区的宽高，标准盒模型 */
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            padding: 5px;
+            border: 5px solid black;
+        }
+        
+        .box2 {
+            /* 这个box-sizing 设置 包含border 为宽高，所以会压缩内容区 为180px，这就是怪异盒模型，也叫IE盒模型*/
+            width: 200px;
+            height: 200px;
+            background-color: gray;
+            padding: 5px;
+            border: 5px solid black;
+            /* 这个按border开始 宽高大小，这样200px会压缩内容区为180px */
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div> 
+    <div class="box2"></div>
+</body>
+</html>

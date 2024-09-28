@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_自增和自减</title>
+    <script>
+        /* 
+            ++ 自增运算符
+                - ++ 使用后会使的原来的变量立刻增加1
+                - 前自增(++a)，后自增（a++），都会使原变量立刻加1
+                - 不同的是 ++a和a++所返回的值不同
+
+        
+        */
+       let a = 1;
+
+       //let b = a++;
+       //console.log("a++ ：",b);
+
+       let b = ++a;
+       console.log("++a ：",b);
+
+       console.log(a);
+
+       let n = 5;
+
+       let result = n++ + ++n + n;//5 + 7 + 7
+       console.log(result);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

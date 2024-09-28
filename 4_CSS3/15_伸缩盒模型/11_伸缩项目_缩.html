@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11_伸缩项目_缩</title>
+    <style>
+        .outer {
+            width: 400px;
+            height: 600px;
+            background-color: gray;
+            margin: 0 auto;
+
+            /* 开始设置伸缩盒模型属性===== */
+            display: flex;
+            /* 主轴水平方向，默认是从左到右 */
+            flex-direction: row;
+
+            /* 主轴换行方式 */
+            /* 不换行，才会有缩 */
+            flex-wrap:nowrap;
+
+            justify-content: flex-start;
+          
+        }
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            border: 1px solid black;
+            /* 盒子区域大小包含边框 */
+            box-sizing: border-box;
+            flex-grow: 1;
+        }
+
+        /* (200+300+200)<子容器总宽度> - 400<父容器宽度> = 300,总共缩300px */
+
+        /* 按比例，(200 * 1) / 700 = 比例值1 * 300px = 缩放像素，有误差是边框的计算 */
+        .inner1 {
+            flex-shrink: 1;
+        }
+        /* 按比例，(300 * 1) / 700 = 比例值1 * 300px = 缩放像素，有误差是边框的计算 */
+        .inner2 {
+            width: 300px;
+            flex-shrink: 2;
+        }
+        /* 按比例，(200 * 1) / 700 = 比例值1 * 300px = 缩放像素，有误差是边框的计算 */
+        .inner3 {
+            flex-shrink: 3;
+        }
+
+        /* 一般不设置 flex-shrink，直接默认值1的比例缩放
+            在怎么缩放还是会呈现盒子中的内容
+        */
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner inner1">
+            <div style="background-color: green;width: 50px;height: 50px;"></div>
+        </div>
+        <div class="inner inner2">2</div>
+        <div class="inner inner3">3</div>
+    </div>
+</body>
+</html>

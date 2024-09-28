@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS的ID选择器</title>
+    <style>
+        /* ID选择器
+            1、id值不能数字开头（会影响样式查找），不能纯数字
+            2、同一个html中id值要唯一
+            3、一个元素可以同时存在 id 和 class属性
+        */
+        #tuwei {
+            color: blue;
+        }
+        #un-tuwei {
+            color: green;
+        }
+        .un {
+           font-size: 16px; 
+        }
+    </style>
+</head>
+<body>
+    <h1>欢迎来到土味网，土的味道我知道</h1>
+    <br>
+    <h2 id="tuwei">土味情话</h2>
+    <h3>作者：优秀的网友们</h3>
+    <p>我对你说：万水千山总是情，爱我多点行不行</p>
+    <p>我对你说：草莓，蓝莓，蔓越莓，今天想我了没</p> 
+    <p>我对你说：我心里给你留了块地，我的死心塌地</p>
+    <span>哈哈哈</span>
+    <br>
+    <h2 id="un-tuwei" class="un">反杀土味情话</h2>
+    <h3>作者：更优秀的网友们</h3>
+    <p>你回答我：一寸光阴一寸金，劝你死了这条心</p>
+    <p>你回答我：西瓜，南瓜，哈密瓜，把你打成大傻瓜</p> 
+    <p>你回答我：我的心里只有一块地，我的玛莎拉蒂</p>
+</body>
+</html>

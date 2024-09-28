@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_文本阴影</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        h1 {
+            font-size: 40px;
+            text-align: center;
+            color: white;
+            /* 
+                text-shadow 属性给文本添加阴影
+                h-shadow：必须写，水平阴影的位置。允许为负值
+                v-shadow：必须写，垂直阴影的位置。允许为负值
+                blur：可选 模糊的距离
+                color：可选，阴影的颜色
+                默认值：none  没有阴影
+
+            */
+            /* text-shadow: 2px 2px; */
+
+            /* text-shadow: 5px 5px 10px; */
+
+            /* text-shadow: 5px 5px 10px red; */
+
+
+            text-shadow: 1px 1px 1px red;
+            font-family: 宋体;
+        }
+    </style>
+</head>
+<body>
+    <h1>你好啊</h1>
+</body>
+</html>

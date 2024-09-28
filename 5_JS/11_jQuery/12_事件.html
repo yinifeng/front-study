@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12_事件</title>
+    <script src="./scripts/jquery-3.7.1.js"></script>
+    <style>
+        .box1 {
+            float: left;
+            width: 100px;
+            height: 100px;
+            border: 2px red solid;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">点我一下</button>
+    <button id="btn2">点我一下2</button>
+    <a href="#">超链接</a>
+    <button id="btn3">点我一下3</button>
+    <hr>
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <script>
+        $(function() {
+            //可以通过制定方法来为jQuery对象绑定事件
+            $("a").click(function(event) {
+                //在jQuery的事件响应中，同样有事件对象，但是这个对象是经过jQuery包装过的新对象
+                //包装该对象主要是为了解决兼容性问题
+
+                //event.stopPropagation();//取消冒泡
+                event.preventDefault();//去消息默认行为
+                alert(123);
+
+                //在jQuery的事件回调函数中， 可以通过return false来取消默认行为和冒泡
+                //retur false;
+            });
+
+            //$(document.body).click(function() {
+            //    alert(111);
+            //});
+
+            //也可以通过on()方法绑定事件
+            $("#btn").on("click.a",function(){
+                alert("通过on绑定click.a事件");
+            });
+            $("#btn").on("click.b",function(){
+                alert("通过on绑定click.b事件");
+            });
+            $("#btn").on("click.c",function(){
+                alert("通过on绑定click.c事件");
+            });
+
+            $("#btn2").on("click",function(){
+                //off()可以用来取消事件的绑定
+                //$("#btn").off("click");
+                $("#btn").off("click.a");//取消绑定的click.a事件
+            });
+
+            $("#btn3").click(function() {
+               $(document.body).append("<div class='box1'></div>");
+            });
+
+            $(document).on("click",".box1",function() {
+                //只冒泡box1的事件，上面新加的追加的box1也有事件
+                alert("哈哈");
+            })
+        });
+    </script> 
+</body>
+</html>

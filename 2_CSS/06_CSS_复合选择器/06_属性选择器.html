@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06_属性选择器</title>
+    <style>
+        /* 属性选择器 */
+        /* 第一种写法：具有属性的选择器，不关心值 ：[属性] 
+            选择具有title属性的元素
+        */
+        /* [title] {
+            color: rebeccapurple;
+        } */
+
+        /* 第二种写法：具有属性的值选择器，关心值 ：[属性=属性值] 
+            选择title的属性值="shengzhen1"的元素
+        */
+        /* [title="shengzhen1"] {
+            color: red;
+        } */
+
+        /* 第三种写法：具有属性的值以什么开头选择器 ：[属性^=属性值] 
+            选择title的属性值以s开头元素
+        */
+        /* [title^="s"] {
+            color: gold;
+        } */
+
+        /* 第四种写法：具有属性的值以什么结尾选择器 ：[属性$=属性值] 
+            选择title的属性值以n结尾元素
+        */
+        /* [title$="n"] {
+            color: blue;
+        } */
+
+        /* 第五种写法：具有属性的值包含什么值选择器 ：[属性*=属性值] 
+            选择title的属性值包含z元素
+        */
+        [title*="z"] {
+            color: rgb(255, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <div title="shengzhen1">深圳1</div>
+    <div title="shengzhen2">深圳2</div>
+    <div title="shengzhen">深圳3</div>
+    <div title="shengzhen">深圳4</div>
+</body>
+</html>

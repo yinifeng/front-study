@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07_浅拷贝和深拷贝</title>
+    <script>
+        /* 
+            浅拷贝（shallow copy）
+                - 通常对对象的拷贝都是浅拷贝
+                - 浅拷贝顾名思义，只对对象的浅层进行复制（只复制一层）
+                - 如果对象中存储的数据是原始值，那么拷贝的深浅不重要
+                - 浅拷贝只会对对象本身进行复制，不会复制对象中的属性（或元素）
+            
+            深拷贝（deep copy）
+                - 深拷贝指不仅复制对象本身，还复制对象中的属性和元素
+                - 因为性能问题，通常情况下不太使用深拷贝    
+        
+        */
+
+        let arr = [{name:"hobart",age:18},{name:"tom",age:24}]
+
+        //浅拷贝
+        let arr2 = arr.slice();
+
+        console.log(arr);
+        console.log(arr2);
+        //浅拷贝，元素中的地址相同
+        console.log(arr[0] === arr2[0]);
+        arr[0].name = "jack";
+        console.log(arr);
+        console.log(arr2);
+
+        console.log("===============深拷贝==============")
+        //深拷贝
+        let array = [{name:"刘德华",age:18},{name:"张学友",age:24}]
+
+        let array2= structuredClone(array);
+        console.log(array);
+        console.log(array2);
+        //深拷贝，元素中的地址不相同
+        console.log(array[0] === array2[0]);
+        array2[0].name = "周杰伦";
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

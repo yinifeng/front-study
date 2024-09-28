@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05_可变类型</title>
+    <script>
+        /* 
+            原始值属于不可变类型，一旦创建就无法修改
+        */
+       let a = 10;
+       a = 12;
+
+       /* 
+            对象属于可变类型
+                - 对象创建后，可以任意添加修改删除 属性
+                -注意：
+                    - 当两个对象进行相等或全等比较时，比较的是对象的内存地址
+                    - 如果两个变量指向同一个对象
+                        通过一个变量修改对象，另一个变量指向的对象也会发生变化
+       */
+      let obj = {name: "tom"};
+      obj.age = 12;
+
+      let obj2 = Object();
+      let obj3 = Object();
+      console.log(obj2 == obj3);
+      console.log(obj2 === obj3);
+
+      let obj4 = obj;
+      obj4.name = "jack";
+      console.log("obj",obj);
+      console.log("obj4",obj4);
+      console.log(obj4 == obj);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

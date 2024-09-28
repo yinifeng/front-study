@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17_margin合并问题</title>
+    <style>
+        /* 块级元素 */
+        .box {
+            width: 100px;
+            height: 100px;
+        }
+        .box1 {
+            background-color: skyblue;
+            margin-bottom: 50px;
+        }
+        /* box1设置下外边距为50px，box2设置上外边距为60px，但是box1和box2之间并没有110px，而是60px。
+            产生这个问题也可以不解决。
+            如果要解决：
+            1、把box2的上外边距设置成110px
+            2、利用浮动，box2增加浮动 float: left
+        */
+        .box2 {
+            background-color: orange;
+            margin-top: 60px;
+        }
+        /* 什么是margin合并问题
+            上面兄弟元素的下外边距和下面兄弟元素的上外边距会合并，取一个最大值，而不是相加。
+        */
+        /* 上面margin合并问题只是上线外边距，左右外边距不受影响 */
+        /* 行内块元素 */
+        .test {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+        }
+        .testA {
+            background-color: purple;
+            margin-right: 50px;
+        }
+        .testB {
+            background-color: pink;
+            margin-left: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box box1">1</div>
+    <div class="box box2">2</div>
+    <hr>
+    <div class="test testA">a</div><div class="test testB">b</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07_方法</title>
+    <script>
+        /* 
+            方法（method）
+                - 当一个对象的属性指向一个函数
+                    那么我们就称这个函数是该对象的方法
+                    调用函数就称为调用对象的方法
+        */
+       let obj = {}
+       obj.name = "tom";
+       obj.age = 10;
+
+       //函数可以成为一个对象的属性
+       obj.sayHello = function() {
+            alert("hello");
+       }
+       console.log(obj);
+
+       //调用对象的函数
+       //obj.sayHello();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

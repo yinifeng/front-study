@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13_margin的注意事项3</title>
+    <style>
+        /* 块级元素 */
+        #d1 {
+            width: 400px;
+            height: 400px;
+            margin: 50px;
+            background-color: skyblue;
+        }
+        /* 行内块元素 */
+        img {
+            margin: 50px;
+        }
+        /* 行内元素 */
+        .one {
+            background-color: skyblue;
+        }
+        .two {
+            background-color: orange;
+            margin-left: 50px;
+            margin-right: 50px;
+            /* 当为行内元素 上下外边距设置是无效的 */
+            margin-top: 3000px;
+            margin-bottom: 3000px;
+        }
+        .three {
+            background-color: green;
+        }                
+    </style>
+</head>
+<body>
+    <!-- 对应行内元素来说，左右的margin是可以完美设置的，上下的margin设置是无效的  -->
+
+    <!-- 块级元素 -->
+    <div id="d1">我是一个块级元素</div>
+    <div>我是一段文字</div>
+    <hr>
+    <!-- 行内块元素 -->
+    <img src="../images/海洋爱心.jpg" alt="">
+    <div>我是一段文字</div>
+    <hr>
+    <!-- 行内元素 -->
+    <span class="one">人之初</span><span class="two">性本善</span><span class="three">性相近</span>
+    <div>我是一段文字</div>
+</body>
+</html>

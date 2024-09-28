@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_并集选择器</title>
+    <style>
+        .rich {
+            color: goldenrod;
+        }
+        .beauty {
+            color: red;
+        }
+        .dog {
+            color: brown;
+        }
+        .pig {
+            color: pink;
+        }
+        /* 并集选择器，多个基本选择器用逗号隔开 */
+        #cat,
+        .rich,
+        .beauty,
+        .dog,
+        .pig {
+            font-size: 40px;
+            background-color: lavender;
+            width: 180px;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="rich">土豪张三</h2>
+    <h2 class="beauty">明星李四</h2>
+    <h2>破产王五（不加任何样式）</h2>
+    <hr>
+    <p class="dog">小狗旺财</p>
+    <p class="pig">小猪佩奇</p>
+    <p id="cat">小猫警长</p>
+</body>
+</html>

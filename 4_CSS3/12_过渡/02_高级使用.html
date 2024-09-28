@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_高级使用</title>
+    <style>
+        .outer {
+            width: 1300px;
+            height: 900px;
+            border: 1px solid black;
+        }
+        .box {
+            width: 200px;
+            height: 100px;
+
+            /* 所有的属性都过渡，数值类型 */
+            transition-property: all;
+
+            /* 设置过渡时间 ，单位s或ms
+            */
+            transition-duration: 5s;
+
+            /* 过渡延迟时间 */
+            /* transition-delay: 2s; */
+        }
+        .outer:hover .box{
+            width: 1300px;
+        }
+        .box1 {
+            background-color:skyblue;
+            /* 平滑过渡，默认值 */
+            transition-timing-function: ease;
+        }
+        .box2 {
+            background-color:orange;
+            transition-timing-function: linear;
+        }
+        .box3 {
+            background-color:darkgray;
+            transition-timing-function: ease-in;
+        }
+        .box4 {
+            background-color:tomato;
+            transition-timing-function: ease-out;
+        }
+        .box5 {
+            background-color:green;
+            transition-timing-function: ease-in-out;
+        }
+        .box6 {
+            background-color:blueviolet;
+            transition-timing-function: step-start;
+        }
+        .box7 {
+            background-color:aqua;
+            transition-timing-function: step-end;
+        }
+        .box8 {
+            background-color:brown;
+            /* transition-timing-function: steps(20); */
+            /* 第二个默认end， */
+            transition-timing-function: steps(20,start);
+        }
+        .box9 {
+            background-color:chartreuse;
+            /* 贝塞尔曲线，生成公式地址： https://cubic-bezier.com */
+            transition-timing-function: cubic-bezier(.94,.37,.65,1.15);
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="box box1">ease(慢，快，慢)</div>
+        <div class="box box2">linear(匀速)</div>
+        <div class="box box3">ease-in(慢，快)</div>
+        <div class="box box4">ease-out(快，慢)</div>
+        <div class="box box5">ease-in-out(慢，快，慢)</div>
+        <div class="box box6">step-start(不考虑时间，直接到终点)</div>
+        <div class="box box7">step-end(考虑时间，但无过渡效果，过渡时间到了以后，瞬间到达终点)</div>
+        <div class="box box8">steps(分步过渡)</div>
+        <div class="box box9"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_对象的解构</title>
+    <script>
+        
+        const obj = {name:"周杰伦",age:26,gender:"男"}
+
+        //对象解构赋值
+        //let {name,age,gender} = obj;//声明变量同时赋值
+
+        let name,age,gender;//先声明变量
+        //这个时候要加()避免js执行报错
+        ({name,age,gender} = obj);
+        console.log(name,age,gender);
+
+        let {address} = obj;
+        console.log(address);//没有的属性返回undefined
+
+        //指定别名，同时给默认值
+        let {name:a,age:b,gender:c,address:d = "深圳"} = obj;
+        console.log(a,b,c,d);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

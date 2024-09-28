@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_对象</title>
+    <script>
+        /* 
+            一、原始值，7种
+                1、数值（Number）
+                2、大整数 （BigInt）
+                3、字符串（String）
+                4、布尔值（Boolean）
+                5、空值（Null）
+                6、未定义（Undefined）
+                7、符号（Symbol）
+            二、对象（后面介绍）
+                原始值只能表示一些简单的数据，不能表示复杂数据
+                比如：现在要表示一个人
+        */
+
+
+        //创建对象
+        //let obj = new Object();
+        //创建Object对象可以简化写
+        let obj = Object();
+        /* 
+            对象中添加属性
+            obj.name = '';
+        
+        */
+        obj.name = '孙悟空';
+        obj.age= 18;
+        obj.gender = '男';
+        console.log(obj);
+        //读取对象的属性
+        console.log(obj.name);
+        //修改属性
+        obj.name = 'jack';
+        console.log(obj);
+        //删除属性
+        delete obj.name;
+        //读取对象不存在的属性，不会报错，为undefined
+        console.log(obj.name);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

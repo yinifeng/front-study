@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_history</title>  
+</head>
+<body>
+    <button id="btn">点我一下</button>
+    <script>
+        /* 
+            History —— 浏览器的历史记录（控制浏览器前进后退）    
+                history.back()
+                    - 回退按钮
+                history.forward()
+                    - 前进按钮
+                history.go()
+                    - 可以向前跳转也可以向后跳转，正数向前跳转，负数向后跳转        
+        */
+        const btn = document.getElementById("btn");
+        btn.onclick = function() {
+            console.log(history.length);
+
+            //history.back();
+            //history.forward();
+
+            history.go(-1);
+        }
+    </script>
+</body>
+</html>

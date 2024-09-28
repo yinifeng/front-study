@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_文本修饰</title>
+    <style>
+        div {
+            font-size: 30px;
+        }
+        .hobart1 {
+            /* 上划线 虚线 颜色 ：没有顺序要求*/
+            text-decoration: overline dotted greenyellow;
+        }
+        .hobart2 {
+            /* 下划线 波浪线 颜色 */
+            text-decoration: underline wavy red;
+        }
+        .hobart3 {
+            /* 删除线 */
+            text-decoration: line-through;
+        }
+        a,del {
+            font-size: 30px;
+            /* 没有各种线 */
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="hobart1">广东深圳1</div>
+    <div class="hobart2">广东深圳2</div>
+    <div class="hobart3">广东深圳3</div>
+    <!-- 这个a标签也有下划线，可以通过css去掉，语义不一样 -->
+    <a href="https://www.baidu.com">去百度</a>
+    <!-- 这个del标签也为删除线，可以通过css去掉，语义不一样 -->
+    <del>广东深圳4</del>
+</body>
+</html>

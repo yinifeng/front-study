@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    height: 200px;
+    /* 文字内容水平居中 */
+    text-align: center;
+    /* 设置行高和盒子高度一致，达到文字内容垂直居中 */
+    line-height: 200px;
+    background-color: gray;
+
+    font-size: 100px;
+}

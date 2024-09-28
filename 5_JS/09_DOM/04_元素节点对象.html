@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_元素节点对象</title>  
+</head>
+<body>
+    <div id="box1">
+        我是box1
+        <span class="s1">我是span</span>
+        <span class="s1">我是span</span>
+    </div>
+
+    <span class="s1">我是span</span>
+
+    <script>
+        /* 
+            div元素节点对象原型链
+                HTMLDivElement => HTMLElement => Element => Node => EventTarget => Object.prototy => null
+
+            通过元素节点对象获取其他节点方法
+                element.childNodes 获取当前元素的子节点 （会包含空白子文本节点），一般不用这个方式获取
+                element.children 获取当前元素的子元素，常用
+                element.firstElementChild 获取当前元素的第一个子元素
+                element.lastElementChild 获取当前元素的最后一个子元素
+                element.nextElementSibing 获取当前元素的下一个兄弟元素
+                element.previousElementSibing 获取当前元素的前一个兄弟元素
+                element.parentNode 获取当前元素的父节点
+                element.targetName 获取当前元素的标签名
+
+        */
+
+        //document对象中获取
+        const box1 = document.getElementById("box1");
+        console.log(box1);
+
+        //这里会获取3个，整个文档中搜索
+        const spans1 = document.getElementsByClassName("s1");
+        console.log(spans1);
+
+        //box1元素节点下获取，所以只有两个
+        let spans2 = box1.getElementsByClassName("s1");
+        console.log(spans2);
+
+        spans2 = box1.getElementsByTagName("span");
+        console.log(spans2);
+
+        const childs = box1.childNodes;
+        //有5个元素，元素节点，文本节点（包含空白的文件节点）
+        console.log(childs);
+
+        const childrens =box1.children;
+        console.log(childrens);
+
+    </script>
+</body>
+</html>

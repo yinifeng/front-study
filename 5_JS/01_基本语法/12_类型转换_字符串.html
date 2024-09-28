@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12_类型转换_字符串</title>
+    <script>
+        /* 
+            类型转换值将一种数据类型转换为其他类型
+                - 将其他类型转换为（字符串、数值、布尔值）
+            转换字符串
+                1、调用toSting()方法将其他类型转换为字符串
+                2、null 和 undefined中没有toString()方法，所以这个两个东西调用toString()时会报错
+                3、调用String()函数将其他类型转换为字符串
+                    对于拥有toString()方法的值调用String()函数时，实际上就是在调用toString()方法
+                    对于null，则直接转换为"null"
+                    对于undefined，则直接转换为"undefined"
+                4、所以用String()转换string比较常用
+            上面toString()和String()都是强制类型转换    
+        */
+       let a = 10;
+       console.log(typeof a, a);
+       a = a.toString();
+       console.log(typeof a, a);
+
+       let b = true;
+       console.log(typeof b, b);
+       b = b.toString();
+       console.log(typeof b, b);
+
+       let c = 20n;
+       console.log(typeof c, c);
+       c = c.toString();
+       console.log(typeof c, c);
+
+       //null 不能调用 .toString();
+
+       console.log("============================");
+       let d = 33;
+       console.log(typeof d, d);
+       d = String(d);
+       console.log(typeof d, d);
+
+       d = null;
+       d = String(d);
+       console.log(typeof d, d);
+
+       d = undefined;
+       d = String(d);
+       console.log(typeof d, d);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

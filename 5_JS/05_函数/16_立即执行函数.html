@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16_立即执行函数</title>
+    <script>
+        /* 
+            在开发中应该尽量减少直接在全局作用域中编写代码！
+
+            所以我们的代码要尽量编写局部作用域
+
+            如果使用let声明的变量，可以使用{}来创建块作用域
+        
+        */
+       {
+        let a = 10;
+       }
+
+        {
+            let a = 20;
+        }
+
+        //var变量用函数作用域来编写局部作用域
+        // function fn() {
+        //     var a = 10;
+        // }
+        // fn();
+
+        // function fn2() {
+        //     var a =20;
+        // }
+        // fn2();
+
+        //希望可以创建一个只执行一次的匿名函数
+
+        /* 
+            立即执行函数（IIFE）
+                - 立即是一个匿名的函数，并它只会调用一次
+                - 可以利用IIFE来创建一个一次性的函数作用域，避免变量冲突的问题
+        */
+       (function (){
+            let a =10;
+            console.log("立即执行函数只执行一次: " + a);
+       }());
+
+       //(xx)(xx)导致下面错误，解析器错误，在上面立即执行函数后面加分号
+       //(intermediate value)(intermediate value)(...) is not a function
+       (function (){
+            let a =20;
+            console.log("立即执行函数只执行一次: " + a);
+       }())
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

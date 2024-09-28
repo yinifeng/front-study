@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14_练习</title>
+    <style>
+        .outer {
+           width: 400px; 
+           margin: 100px auto;
+           text-align: center;
+           background-color:bisque;
+        }
+        table {
+            width: 400px;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        td,th {
+            border: 1px black solid;
+            padding: 10px 0;
+        }
+        form div {
+            margin: 10px 0;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded",function(){
+            /* 
+                点击删除，删除当前行
+            */
+
+            function delEmpHandler() {
+                //事件触发完，超链接还是会跳转，本练习不希望发生跳转，但是超链接跳转是默认行为
+                //只要点击超链接就会触发页面跳转，事件中可以通过取消默认行为来阻止超链接的跳转
+                //alert(123);
+
+                //此事件到这里就结束，就不会触发超链接的默认行为
+                //使用return false来取消默认行为，只在 xxx.xxx = function(){}这种形式绑定的事件中才适用
+                //return false;//通过标签中javascript:; 取消默认调整
+
+                //获取父节点的父节点
+                const tr = this.parentNode.parentNode;
+
+                //获取要删除员工的名字
+                //let empName = tr.getElementsByTagName("td")[0].textContent;
+                let empName = tr.firstElementChild.textContent;
+
+                //弹出提示，确认是否要删除
+                if (confirm("确认要删除【" + empName + "】吗？")) {
+                    tr.remove();
+                }
+            }
+
+           //获取a标签的删除超链接
+           //const links = document.links;
+           const links = document.getElementsByTagName("a");
+           //const links = document.querySelectorAll("a");
+
+           for (const link of links) {
+                //避免重复创建函数，函数声明在外面
+                link.onclick = delEmpHandler;
+                
+                //return false;//无法取消默认行为
+                //link.addEventListener("click",function() {
+                //    alert(123);
+                //    return false;//无法取消默认行为
+                //});
+           }
+
+            /* 
+                点击添加，向表格中添加一行数据
+            */
+            const btn = document.getElementById("btn");
+            //获取元素tbody
+            const tbody = document.querySelector("tbody");
+            btn.onclick = function() {
+                //alert(456);
+                const name = document.getElementById("name").value;
+                const email = document.getElementById("email").value;
+                const salary = document.getElementById("salary").value;
+                console.log(name,email,salary);
+                /* 
+                    添加元素
+                    <tr>
+                        <td>marry</td>
+                        <td>marry@qq.com</td>
+                        <td>2000</th>
+                        <td><a href="javascript:;">删除</a></td>
+                    </tr>
+                */
+                tbody.insertAdjacentHTML("beforeend",
+                    `<tr>
+                        <td>${name}</td>
+                        <td>${email}</td>
+                        <td>${salary}</th>
+                        <td><a href="javascript:;">删除</a></td>
+                    </tr>`
+                );
+
+                //由于上边的超链接是新添加的，所以它的上边并没有绑定单级响应函数，所以新添加的员工无法删除
+                //解决方式：为新添加的超链接单独绑定响应函数
+                links[links.length - 1].onclick = delEmpHandler;
+            }
+
+        });
+    </script>
+</head>
+<body>
+    <div class="outer">
+        <table>
+            <tbody>
+                <tr>
+                    <th>姓名</th>
+                    <th>邮箱</th>
+                    <th>薪资</th>
+                    <th>操作</th>
+                </tr>
+                <tr>
+                    <td>tom</td>
+                    <td>tom@qq.com</td>
+                    <td>3000</th>
+                    <!-- javascript:; 取消默认调整 -->
+                    <td><a href="javascript:;">删除</a></td>
+                </tr>
+                <tr>
+                    <td>jack</td>
+                    <td>jack@163.com</td>
+                    <td>6000</td>
+                    <td><a href="javascript:;">删除</a></td>
+                </tr>
+                <tr>
+                    <td>marry</td>
+                    <td>marry@qq.com</td>
+                    <td>2000</th>
+                    <td><a href="javascript:;">删除</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <form action="#">
+            <div>
+                <label for="name">姓名</label>
+                <input type="text" name="name" id="name">
+            </div>
+            <div>
+                <label for="email">邮箱</label>
+                <input type="text" name="email" id="email">
+            </div>
+            <div>
+                <label for="salary">薪资</label>
+                <input type="number" name="salary" id="salary">
+            </div>
+            <!-- button类型不会提交表单 -->
+            <button id="btn" type="button">添加</button>
+        </form>
+    </div>
+</body>
+</html>

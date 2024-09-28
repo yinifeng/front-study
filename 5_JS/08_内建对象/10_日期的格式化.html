@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10_日期的格式化</title>
+    <script>
+
+        /* 
+            toLocaleString()
+                - 可以将一个日期转换为本地时间格式的字符串
+                - 参数：
+                    1、描述语言和国家信息的字符串
+                        zh-CN 中文中国
+                        zh-HK 中文香港
+                        en-US 英文美国
+                    2、需要一个对象作为参数，在对象中可以通过对象的属性来对日期的格式进行配置
+                        dateStyle 日期的风格
+                        timeStyle 时间的风格
+                            full
+                            long
+                            medium
+                            short
+                        hour12 是否采用12小时制
+                            true
+                            false
+                        weekday 星期的显示方式
+                            long
+                            short
+                            narrow
+                        year
+                            2-digit                
+        
+        
+        */
+        let d = new Date();
+
+        let result = d.toLocaleDateString();//将日期转换为本地日期字符串
+
+        result = d.toLocaleTimeString();//将日期转换为本地时间字符串
+
+        result = d.toLocaleString();//将日期转换为本地日期和时间字符串
+
+        //result = d.toLocaleString("zh-CN",{dateStyle:"full",timeStyle:"full"});
+        //result = d.toLocaleString("zh-CN",{dateStyle:"medium",timeStyle:"medium"});
+        result = d.toLocaleString("zh-CN",{dateStyle:"medium"});
+        result = d.toLocaleString("zh-CN",{timeStyle:"medium"});
+
+        result = d.toLocaleString("zh-CN",{timeStyle:"medium",hour12:false});
+
+        result = d.toLocaleString("zh-CN",{weekday:"narrow"});
+
+        result = d.toLocaleString("zh-CN",{year:"2-digit",weekday:"long"});
+
+        result = d.toLocaleString("zh-CN",{
+            year:"numeric",
+            month:"long",
+            day:"2-digit",
+            weekday:"long"
+        });
+
+        console.log(result);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15_旧类</title>
+    <script>
+        /* 
+            早期JS,直接通过函数来定义类
+                - 一个函数如果直接调用 xxx() 那么这个函数就是一个普通函数
+                - 一个函数如果通过 new 调用 new xxx() 那么这个函数就是一个构造函数
+        
+        */
+
+        /* 
+            等价于：
+                class Person{}
+        
+        */
+
+        //所以会用立即执行函数限制作用域
+        var Person = (function () {
+            function Person(name, age) {
+
+                //在构造函数，this表示新建对象
+                this.name = name;
+                this.age = age;
+
+                //不推荐这样写，利用原型添加方法如下
+                //this.sayHello = function () {
+                //    console.log(this.name);
+                //}
+            }
+
+            //向原型中添加属性（方法）
+            Person.prototype.sayHello = function () {
+                console.log(this.name);
+            }
+
+            //防止中间创建对象，后面方法还没加到原型中去，所以会用立即执行函数限制作用域
+
+            //静态属性
+            Person.staticProperty = "xxx";
+            //静态方法
+            Person.staticMethod = function () { }
+
+            return Person;
+        })();
+
+
+        //Person();//调用函数
+
+        //通过new 就是创建对象，这个Person()就是构造函数
+        var p = new Person("hobart", 19);
+        console.log(p);
+
+        p.sayHello();
+
+        console.log(Person.staticProperty);
+        console.log(Person.staticMethod());
+
+        //继承 写法
+        var Animal = (function(){
+            function Animal() {
+
+            }
+
+            return Animal;
+        })();
+
+        var Cat = (function(){
+            function Cat() {
+
+            }
+            //Cat继承 Animal
+            Cat.prototype = new Animal();
+            return Cat;
+        })();
+
+        const cat = new Cat();
+        console.log(cat);
+
+        //认识，主要能够认识老代码的写法
+        //都是推荐使用新语法class定义类new创建对象，可以通过编译工具编译成这些老代码兼容低版本的浏览器
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

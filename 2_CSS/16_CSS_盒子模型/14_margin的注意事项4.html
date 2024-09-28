@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14_margin的注意事项4</title>
+    <style>
+        div {
+            width: 600px;
+            height: 100px;
+
+            /* 对于块元素下面设置可以使元素水平居中 */
+            /* margin-left: auto; */
+            /* margin-right: auto; */
+            /* 上面也可以这么表达 */
+            margin: 100px auto;
+
+            /* 对于块元素下面设置并不能垂直居中 */
+            /* margin-top: auto; */
+            /* margin-bottom: auto; */
+
+            background-color: deepskyblue;
+        }
+        span {
+            background-color: purple;
+            /* 对于行内元素下面设置不能达到水平居中的效果 */
+            margin: 0px auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- margin的值也可以使auto，给一个块级元素左右margin设置auto可以实现该员素在其父级元素达到水平居中的效果 -->
+    <div>你好啊</div>
+    <hr>
+    <span>好好学习</span>
+</body>
+</html>

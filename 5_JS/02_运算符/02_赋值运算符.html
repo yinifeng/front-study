@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_赋值运算符</title>
+    <script>
+        /* 
+            赋值运算符用来将一个值赋值给一个变量
+            =
+                - 赋值远算
+            ??=
+                - 空赋值
+                - 只有当变量的值为null或undefined时才会对变量进行赋值
+            +=
+            -=
+            *=
+            /=
+            **=
+            %=
+        */
+       let a = 10;
+       a = 5;//将右边的值赋值给左边变量
+
+       let b = a;//一个变量只有在=左边才是变量，在=右边时它是值
+
+       a = 6;
+       //a = a +6;
+       a += 6;
+
+
+       a = null;//
+       a ??= 101;//a为null或undefined才赋值
+       console.log(a);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

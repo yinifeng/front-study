@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_resize</title>
+    <style>
+        .box1 {
+            width: 400px;
+            height: 400px;
+            background-color: orange;
+            /* 
+                horizontal: 水平方向调整大小
+                vertical：垂直方向调整大小
+                both：水平和垂直都可以调整大小
+            */
+            resize: both;
+            /* 需要resize生效，要设置overflow */
+            overflow: auto;
+        }
+        .box2 {
+            width: 800px;
+            height: 600px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2">123</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_媒体查询_运算符</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            height: 200px;
+            /* 文字内容水平居中 */
+            text-align: center;
+            /* 设置行高和盒子高度一致，达到文字内容垂直居中 */
+            line-height: 200px;
+            background-color: gray;
+
+            font-size: 100px;
+        }
+        /* 媒体查询，改变样式，有顺序性 */
+
+        /* 且运算符  */
+        /* 检测到视口宽度大于等于700px且视口宽度小于等于800px，应用如下样式 */
+        /* @media (min-width:700px) and (max-width:800px) {
+            h1 {
+                background-color: green;
+            }
+        } */
+
+        /* @media screen and (min-width:700px) and (max-width:800px) {
+            h1 {
+                background-color: green;
+            }
+        } */
+
+        /* 或运算符，or或者逗号隔开 */
+        /* 检测到视口宽度大于等于700px或者视口宽度小于等于800px，应用如下样式 */
+        /* @media (min-width:700px) or (max-width:800px) {
+            h1 {
+                background-color: orange;
+            }
+        } */
+
+        /* 否定运算符 */
+        /* @media not screen {
+            h1 {
+                background-color: red;
+            }
+        } */
+
+        /* 肯定运算符，可以规避ie兼容性处理，其实写only和不写效果是一样 */
+        @media only screen {
+            h1 {
+                background-color: yellow;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>你好啊</h1>
+</body>
+</html>

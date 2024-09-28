@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05_逻辑运算符非</title>
+    <script>
+        /* 
+            ! 逻辑非
+                - ! 可以用来对一个值进行非运算
+                - 可以对一个布尔值进行取反操作
+                - 如果对一个非布尔值进行取反，它会先将其转换为布尔值然后再取反
+                    利用这特点将其他类型转换为布尔值
+            && 逻辑与
+            || 逻辑或
+        */
+       let a = true;
+       a = !a;
+       console.log(a);
+        a = 123;
+        a = !!a;//隐私转换Boolean值
+        console.log(typeof a,a);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

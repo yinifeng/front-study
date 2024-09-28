@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20_样式的继承</title>
+    <link rel="stylesheet" href="./index.css">
+    <style>
+        #d1 {
+            height: 400px;
+            padding: 50px;
+            background-color: gray;
+        }
+        #d2 {
+            height: 300px;
+            padding: 50px;
+            background-color: orange;
+            font-size: 40px;
+            font-weight: bold;
+            color: pink;
+        }
+        /* 
+            1、会继承的CSS属性
+                字体属性、文本属性（除了vertical-align）、字体颜色 等。
+            2、不会继承的CSS属性
+                边框、背景、内边距、外边距、宽高、溢出方式 等
+            一个规律：能继承的属性，都是不影响布局的，简单说：都是盒子模型没关系的。
+        */
+        #dd3 {
+            height: 200px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1">
+        <div id="d2">
+            <div id="dd3" style="font-family: 楷体;">你好啊</div>
+        </div>
+    </div>
+</body>
+</html>

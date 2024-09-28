@@ -1,0 +1,14 @@
+.app {
+    width: 400px;
+    height: 400px;
+    margin: 50px auto;
+    padding: 10px;
+    background-color: #bfa;
+    text-align: center;
+}
+
+.app button {
+    width: 100px;
+    margin: 20px;
+    font-size: 50px;
+}

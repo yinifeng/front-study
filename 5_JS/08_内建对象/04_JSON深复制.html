@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_JSON深复制</title>
+    <script>
+        
+        const obj = {
+            name:"hoabrt",
+            friend:{
+                name:"周杰伦"
+            },
+        }
+
+        //对obj浅复制
+        const obj2 = Object.assign({},obj);
+        console.log(obj === obj2);//false
+        console.log(obj.friend === obj2.friend);//true
+
+        console.log("======================");
+        //对obj深复制
+        const obj3 = structuredClone(obj);
+        console.log(obj === obj3);//false
+        console.log(obj.friend === obj3.friend);//false
+
+        console.log("======================");
+        //JSON对obj深复制
+        const obj4 = JSON.parse(JSON.stringify(obj));
+        console.log(obj === obj4);//false
+        console.log(obj.friend === obj4.friend);//false
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_线性渐变</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 200px;
+            border: 1px solid black;
+            float: left;
+            margin-left: 50px;
+            font-size: 20px;
+        }
+        .box1 {
+            /* 线性渐变，从上到下 */
+            background-image: linear-gradient(red,yellow,green);
+        }
+        .box2 {
+            /* 第一个参数 指定方向
+                to left 从右往左 (红，黄,绿)
+                to right 从左往右 (红，黄,绿)
+                to right top 从左下角到左上角 (红，黄,绿)
+            */
+            background-image: linear-gradient(to right top,red,yellow,green);
+        }
+        .box3 {
+            /* 第一个参数 指定方向
+                20deg 旋转角度，类似时钟 0点顺时针旋转
+            */
+            background-image: linear-gradient(90deg,red,yellow,green);
+        }
+        .box4 {
+            /* 第一个参数 指定方向
+                从指向的方向 开始 多数像素 为某种颜色
+            */
+            background-image: linear-gradient(red 50px,yellow 100px,green 150px);
+        }
+        .box5 {
+            background-image: linear-gradient(20deg,red 50px,yellow 100px,green 150px);
+            font-size: 80px;
+            text-align: center;
+            line-height: 200px;
+            font-weight: bold;
+            color: transparent;
+            -webkit-background-clip: text;
+        }
+    </style>
+</head>
+<body>
+    <div class="box box1">默认情况（从上到下）</div>
+    <div class="box box2">通过关键词调整渐变的方向</div>
+    <div class="box box3">通过角度调整渐变的方向</div>
+    <div class="box box4">通过位置调整渐变</div>
+    <div class="box box5">你好啊</div>
+</body>
+</html>

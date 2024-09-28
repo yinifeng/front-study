@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_浮动后的影响</title>
+    <style>
+        .outer {
+            width: 500px;
+            background-color: gray;
+            border: 1px solid black;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            border: 1px solid black;
+            /* 第一个元素margin-top没问题是父元素加了border */
+            margin: 10px;
+        }
+        .box1,.box2,.box3 {
+            float: left;
+        }
+        /* 浮动后会有哪些影响：
+            1、对兄弟元素的影响：后面的兄弟元素，会占据浮动元素之前的位置，在浮动元素的下面；对前面的兄弟无影响。
+            2、对父元素的影响：不能撑起父元素的高度，导致父元素高度塌陷；但父元素的宽度依然束缚浮动元素。
+        */
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <!-- <div class="box box0">0</div> -->
+        <div class="box box1">1</div>
+        <div class="box box2">2</div>
+        <div class="box box3">3</div>
+        <!-- <div class="box box4">4</div> -->
+    </div>
+    <!-- <div style="background-color: orange;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis expedita veritatis deserunt consequuntur nisi deleniti excepturi porro placeat ratione corrupti tempore in aliquid, iste itaque doloremque architecto exercitationem odit pariatur totam quisquam sunt accusamus. Impedit, excepturi asperiores quisquam obcaecati tempore culpa nemo distinctio. Tenetur sint, repellat sapiente consectetur corporis aliquid commodi ea! Eveniet et, hic velit sed nesciunt facere assumenda a eum, sit quos atque dolor eligendi? Quo et eum enim deleniti illum distinctio, nostrum cupiditate quas repellendus. Mollitia esse aliquid doloribus et cupiditate ducimus assumenda provident praesentium dicta incidunt repudiandae expedita ullam repellat ea sequi, quasi at minima molestias est id. Dicta totam fuga perferendis quam expedita similique velit, aliquid numquam tempora corrupti officiis saepe provident alias eum, sequi dolore obcaecati inventore dolorem nisi. Illo perspiciatis consequatur quos commodi alias sit necessitatibus sunt architecto, adipisci quas! Iure commodi maiores sit hic ullam, atque, quas molestias alias voluptatum voluptatem quidem dicta. Dicta tempore laboriosam maiores voluptates ratione labore dolores sunt, quidem iure alias recusandae eligendi est ipsam, repellendus eum voluptatibus iste ab, officia consectetur neque officiis! Deleniti animi optio inventore in soluta nisi dolore ipsam maxime quos obcaecati ducimus deserunt est exercitationem vel voluptates ad, quis dolorum nemo. Ipsum, eaque!</div> -->
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_总结各元素的显示模式</title>
+    <style>
+        /* 块元素（block），又称：块级元素
+            特点：
+                1、在页面中独占一行，不会与任何元素共用一行，是从上到下排列的。
+                2、默认宽度：撑满父元素。
+                3、默认高度：由内容撑开。
+                4、可以通过CSS设置宽高。
+
+            1、主体结构标签：<html>、<body>
+            2、排版标签：<h1>~<h6>、<hr>、<p>、<pre>、<div>    
+            3、列表标签：<ul>、<ol>、<li>、<dl>、<dt> 、<dd>
+            4、表格相关标签：<table>、<tbody>、<thead>、<tfoot>、<tr> 、<caption>
+            5、<form>、<option>         
+        */
+
+        /* 行内元素（inline），又称：内联元素
+            特点：
+                1、在页面中不独占一行，一行中不能容纳下的行内元素，会在下一行继续从左到右排列。
+                2、默认宽度：由内容撑开。
+                3、默认高度：由内容撑开。
+                4、无法通过CSS设置宽高。
+                
+            1、文本标签：<br>、<em>、<strong>、<sup>、<sub> 、<del>、<ins>
+            2、<a>、<label>     
+        */
+
+
+        /* 行内块元素（inline-block），又称：内联块元素 ，后面才有这个说法，以前也叫行内元素 
+             特点：
+                1、在页面中不独占一行，一行中不能容纳下的行内元素，会在下一行继续从左到右排列。
+                2、默认宽度：由内容撑开。
+                3、默认高度：由内容撑开。
+                4、可以通过CSS设置宽高。
+                
+            1、图片标签：<img>
+            2、单元格标签：<td>、<th>    
+            3、表单控件：<input>、<textarea>、<select>、<button>
+            4、框架标签：<iframe>   
+        */
+        
+        #s1 {
+            background-color: skyblue;
+        }
+        div {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <span id="s1">123</span><br><br>
+    <div>789</div>
+</body>
+</html>

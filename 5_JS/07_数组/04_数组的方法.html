@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_数组的方法</title>
+    <script>
+        /* 
+            参考文档，MDN:
+                https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+                静态方法:Array.isArray() 判断是否为数组
+                实例属性：length
+                实例方法（非破坏性函数）：
+                    at()
+                    concat() 
+        */
+
+        //静态方法，判断是否为数组
+        console.log(Array.isArray({name:"haobrt"}));
+        console.log(Array.isArray([1,2,4]));
+
+        let arr = ["hello","jack","marry","hoabrt"]
+        //数组的长度
+        console.log(arr.length);
+
+        //实例方法
+        console.log(arr.at(-1));//可以传负数，取最后的元素
+        console.log(arr[arr.length - 2]);//上面传负数和这个类似
+
+        let arr2 = ["刘德华","张学友"]
+
+        //合并数组
+        let result = arr.concat(arr2,["梅艳芳","邓丽君"]);
+        console.log(result);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

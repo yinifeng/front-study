@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_AJAX的使用</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+        }
+        td,th {
+            font-size: 20px;
+            text-align: center;
+            border: 1px solid black;
+        }
+        caption {
+            font-size: 26px;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fetch测试</h1>
+    <button id="btn">加载数据</button>
+    <hr>
+    <div id="root"></div>
+    <script>
+        const btn = document.getElementById("btn");
+        const root = document.getElementById("root");
+        btn.onclick = ()=>{
+            //fetch 是原生的js的方法，返回的是Promise
+            //默认发GET请求
+            fetch("http://127.0.0.1:3000/students").then(res => {
+                if(res.status === 200) {
+                    //返回的Promise
+                    return res.json();
+                }else {
+                    throw new Error("接口服务请求失败");
+                }
+            }).then((result) => {
+                //console.log(result);
+                if(!(result.status === "ok")) {
+                    return;
+                }
+                //渲染数据
+                const table = document.createElement("table");
+                root.appendChild(table);
+
+                table.insertAdjacentHTML("beforeend","<caption>学生列表</caption>");
+                table.insertAdjacentHTML("beforeend",`
+                    <thead>
+                        <tr>
+                            <th>学号</th>
+                            <th>姓名</th>
+                            <th>年龄</th>
+                            <th>性别</th>
+                            <th>地址</th>
+                        </tr>
+                    </thead>
+                `);
+
+                const tbody = document.createElement("tbody");
+                table.appendChild(tbody);
+                for (const stu of result.data) {
+                    tbody.insertAdjacentHTML("beforeend",`
+                        <tr>
+                            <td>${stu.id}</td>
+                            <td>${stu.name}</td>
+                            <td>${stu.age}</td>
+                            <td>${stu.gender}</td>
+                            <td>${stu.address}</td>
+                        </tr>    
+                    `);
+                }
+            }).catch(err =>{
+                console.log("出错了",err);
+            });
+        }
+    </script>
+</body>
+</html>

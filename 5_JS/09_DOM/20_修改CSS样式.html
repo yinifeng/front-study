@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20_修改CSS样式</title>
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: greenyellow;
+        }
+        .box2 {
+            width: 400px;
+            height: 600px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">点我一下</button>
+    <hr>
+    <div class="box1"></div>
+    <script>
+        const btn1 = document.getElementById("btn1");
+        const box1 = document.querySelector(".box1");
+
+        //修改css样式
+        btn1.onclick = function() {
+            /* 
+                除了直接修改样式外，也可以通过修改class属性来间接的修改样式
+                通过class修改样式的好处：
+                    1、可以一次性修改多个样式
+                    2、对JS和CSS进行解耦
+            */
+            //box1.className += " box2";//不推荐这样做
+
+            /* 
+                元素.classList 是一个对象，对象中提供了对当前元素的类的各种操作方法
+                    元素.classList.add() 向元素中添加一个或多个class
+                    元素.classList.remove() 移除原始值中一个或多个class
+                    元素.classList.toggle() 切换元素中的class
+                    元素.classList.replace() 替换class
+                    元素.classList.contains() 检查class
+            */
+
+            //box1.classList.add("box2","box4","box3");
+            
+            //box1.classList.remove("box1","box2","box3");
+
+            //box1.classList.toggle("box2");
+
+            //box1.classList.replace("box1","box2");
+
+            let result = box1.classList.contains("box1");
+            console.log(result);
+        }
+    </script>
+</body>
+</html>

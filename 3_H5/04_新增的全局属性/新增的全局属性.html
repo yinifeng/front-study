@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新增的全局属性</title>
+    <style>
+        div {
+            width: 600px;
+            height: 200px;
+            border: 1px solid black;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .box1 {
+            background-color: skyblue;
+        }
+        .box2 {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        内容是否可以编辑，富文本编辑器
+        contenteditable true：可边编辑 false：不可编辑
+        
+        元素是否可拖动
+        draggable true：可拖到 false：不可拖动
+
+        隐藏元素
+        hidden
+
+        规定是否对元素进行拼写和语法检查(浏览器拼写检查要开启)
+        spellcheck true：检查 false：不检查
+
+        固定元素的上下文菜单，在用户鼠标右键点击元素时显示。（定制右键的属性）
+        contextmenu
+
+        用于存储页面的私有定制数据
+        data-* 
+
+    -->
+    <div class="box1" spellcheck="true" contenteditable="true">Lorem ipsum dolor sit amet.</div>
+    <div class="box2" draggable="true" ondragend="go(event)">Lorem ipsum dolor sit amet.</div>
+
+    <script>
+        function go(e) {
+            alert(e.x + ":" + e.y);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25_函数调用call和apply</title>
+    <script>
+        /* 
+            this
+                根据函数调用方式不同，this的值也不同
+                    1、以函数形式调用时，this指向的是window
+                    2、以方法的形式调用时，this指向的是调用方法的对象
+                    3、构造函数中，this是新建的对象
+                    4、箭头函数没有自己的this，由外层作用域决定
+        */
+
+        function fn() {
+            console.log("fn函数调用了~",this);
+        }
+        //fn();//window对象
+
+        const obj = {name:"hobart",fn}
+        //obj.fn();//obj对象
+
+        /* 
+            调用函数除了通过 函数() 这种形式外，还可以通过其他方式来调用函数
+                比如，我们可以通过调用函数的call()和apply()方法来调用函数
+                    函数.call()
+                    函数.apply()
+                        - call和apply除了可以调用函数，还可以用来指定函数中的this
+                        - call和apply的第一个参数，将会成为函数的this
+                        - 通过call方法调用函数，函数的实参直接在第一个参数后一个一个的列出来
+                        - 通过apply方法调用函数，函数的实参需要通过一个数组传递
+        
+        */
+
+        //fn.call();//window对象
+        //fn.apply();//window对象
+
+        //fn.call(obj);//obj对象
+        //fn.apply(obj);//obj对象
+
+        //fn.call(console);
+
+        function fn2(a,b) {
+            console.log("a =",a,"b =",b,this);
+        }
+        //fn2.call(obj,"hello",2);//obj对象
+        fn2.apply(obj,["hello",2]);//obj对象
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05_对象作为参数</title>
+    <script>
+        function fn(a) {
+            console.log("a =",a);
+            console.log(a.name);
+            
+            a = {};//修改变量时，只会影响当前变量
+            a.name ="hobrt";
+            console.log("a =",a);
+        }
+
+        const obj ={name:"jack"};
+        //fn(obj);
+        //console.log("obj =",obj);
+
+        //函数重新调用时，都会重新创建默认值
+        function fn2(a = {name:"tom"}) {
+            console.log("a =",a);
+            a.name ="hobrt";
+            console.log("a =",a);
+        }
+
+        //fn2();//tom hobart
+        //fn2();//tom hobart
+
+        let obj2 = {name:"mike"}
+        function fn3(a = obj2) {
+            console.log("a =",a);
+            a.name ="hobrt";
+            console.log("a =",a);
+        }
+
+        fn3();//mike hobrt
+        fn3();//hobrt hobart
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

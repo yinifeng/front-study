@@ -1,0 +1,17 @@
+//这种注释编译后不会在css文件中
+/* 
+    这种注释编译后会在css文件中
+*/
+
+//声明变量，@开头
+@color:red;
+@bgColor:green;
+@width:200px;
+@height:200px;
+
+#wrap {
+    color: @color;
+    background-color: @bgColor;
+    width: @width;
+    height: @height;
+}

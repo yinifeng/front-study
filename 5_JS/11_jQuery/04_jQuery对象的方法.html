@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_jQuery对象的方法</title>
+    <script src="./scripts/jquery-3.7.1.js"></script>
+    <style>
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: greenyellow;
+        }
+        .box2 {
+            border: 10px red solid;
+        }
+        .box3 {
+            background-color: orange;
+        }
+    </style>
+    <script>
+        $(function() {
+            //为按钮绑定click事件
+            $("#btn").click(function() {
+
+                //为box1添加class
+                //addClass() 可以为元素添加一个或多个class
+                //$(".box1").addClass("box2");
+                //$(".box1").addClass(["box2","box3"]);
+
+                //为addClass 可以接收一个回调函数作为参数
+                $(".box1").addClass(function(index,className){
+                    //在回调函数中，this表示当前元素，（箭头函数不能使用，会导致this不准确）
+                    
+                    //1、this表示当前元素的DOM对象
+                    //if(index % 2 === 0) {
+                    //    this.classList.add("box2");
+                    //}else {
+                    //    this.classList.add("box3");
+                    //}
+
+                    //2、使用jQuery对象操作
+                    //if(index % 2 === 0) {
+                    //    //把this转换为jQuery对象在调用方法
+                    //    $(this).addClass("box2");
+                    //}else {
+                    //    $(this).addClass("box3");
+                    //}
+
+                    /* 
+                        https://api.jquery.com/category/css/
+                        addClass()
+                            为jQuery对象添加一个或多个class
+                        hasClass()
+                            检查jQuery对象是否含有某个class
+                        removeClass()    
+                            删除jQuery对象的指定class
+                        toggleClass()
+                            切换jQuery对象的指定class
+                    */
+
+                    //3、通过返回值，添加class
+                    //return ["box2","box3"];//回调函数返回值会成为当前元素的class
+
+                    if(index % 2 === 0) {
+                        return "box2";
+                    }else {
+                        return "box3";
+                    }
+                });
+            });
+        });
+    </script>    
+</head>
+<body>
+    <button id="btn">点我一下</button>
+    <hr>
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <div class="box1"></div>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_元素节点对象</title>  
+</head>
+<body>
+    <button id="btn">点我一下</button>
+
+    <span class="s1">我是span元素</span>
+    <span class="s1">我是span元素</span>
+    <span class="s1">我是span元素</span>
+    <span class="s1">我是span元素</span>
+    <span class="s1">我是span元素</span>
+
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+
+    <form action="#">
+        <input type="text" name="userName">用户名
+        <input type="radio" name="gender" value="男">男
+        <input type="radio" name="gender" value="女">女
+    </form>
+
+    <script>
+        /* 
+            元素节点对象
+                - 如何获取元素节点对象?
+                    1、通过document对象来获取元素节点
+                    2、通过document对象来创建元素节点
+                - 通过document来获取已有的元素节点：
+                    document.getElementById()
+                        - 根据id获取一个元素节点对象
+                    document.getElementsByClassName()
+                        - 根据元素的class属性值获取一组元素节点对象
+                        - 返回的是一个类数组对象
+                        - 该方法返回的结果是一个实时更新的集合
+                            当网页中新添加元素时，集合也会实时的刷新
+                    document.getElementsByTagName()
+                        - 根据标签名获取一组元素节点对象
+                        - 返回的结果是可以实时更新的集合
+                        - document.getElementsByTagName("*")获取页面中所有的元素
+                    document.getElementsByName()
+                        - 根据name属性获取一组元素节点对象
+                        - 返回一个实时更新的集合
+                        - 主要用于表单项
+                    document.querySelectorAll()
+                        - 根据选择器去页面中查询元素
+                        - 会返回一个类数组（不会实时更新）
+                    docment.querySelector()
+                        - 根据选择器去页面中查询第一个符合条件的元素
+                        
+                - 创建一个元素节点对象
+                    document.createElement()
+                        - 根据标签名创建一个元素节点对象        
+
+        
+        */
+
+        const btn = document.getElementById("btn");
+
+        const spans = document.getElementsByClassName("s1");
+        console.log(spans);
+        //for (let s of spans) {
+        //    s.innerText = "哈哈";
+        //}
+        
+        for (let i = 0; i < spans.length; i++) {
+            spans[i].innerText = "哈哈" + i;
+        }
+
+        const divs = document.getElementsByTagName("div");
+        console.log(divs);
+
+        const genders = document.getElementsByName("gender");
+        console.log(genders);
+
+        //根据CSS选择器查找，类数组对象不会实时发生更新
+        const spans2 = document.querySelectorAll(".s1");
+        console.log(spans2);
+
+        //根据选择器去页面中查询第一个符合条件的元素
+        const btn2 = document.querySelector("#btn");
+        console.log(btn2);
+
+        //创建h2元素节点对象，并没有添加到网页中
+        const h2 = document.createElement("h2");
+        console.log(h2);
+    </script>
+</body>
+</html>

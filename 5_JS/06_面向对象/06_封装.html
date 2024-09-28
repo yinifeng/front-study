@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06_封装</title>
+    <script>
+        /* 
+            面向对象编程的特点：
+                封装、继承和多态
+
+            1、封装
+                - 对象就是一个用来存储不同属性的容器
+                - 对象不仅存储属性，还要负责数据的安全
+                - 直接添加到对象中的属性，并不安全，因为它们可以被任意的修改
+                - 如何确保数据的安全
+                    1、私有化数据
+                        - 将需要保护的数据设置为私有，只能在类的内部使用
+                    2、提供setter和getter方法来开放对数据的操作
+                        - 属性设置私有，通过getter和setter 方法操作属性带来的好处
+                            1、可以控制属性的读写权限
+                            2、可以在方法中对属性的值进行验证
+                - 封装主要用来保证数据的安全
+                - 实现封装的方式：
+                    1、属性私有化 加#
+                    2、通过getter和setter方法来操作属性
+                        get 属性名() {
+                            return this.#属性
+                        }                
+
+                        set 属性名(参数) {
+                            this.#属性 = 参数
+                        }
+                
+        */
+
+        class Person {
+            #name;
+            #age;
+            #gender;
+
+            constructor(name,age,gender) {
+                this.#name = name;
+                this.#age = age;
+                this.#gender = gender;
+            }
+
+            sayHello() {
+                console.log(this.#name);
+            }
+
+            get name() {
+                return this.#name;
+            }
+
+            set name(name) {
+                this.#name = name;
+            }
+        }
+
+        const p1 = new Person("tom",18,"女");
+        //p1.#name = "jack";
+        p1.sayHello();
+        console.log(p1.name);
+        p1.name = "jack";
+
+        p1.sayHello();
+        console.log(p1.name);
+        console.log(p1);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

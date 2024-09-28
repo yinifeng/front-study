@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14_贪食蛇</title> 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #main {
+            width: 360px;
+            height: 420px;
+            border: 10px black solid;
+            background-color: #b7d3a8;
+            border-radius: 20px;
+            margin: 50px auto;
+        }
+        #stage {
+            width: 300px;
+            height: 300px;
+            border: 2px black solid;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        #snake>div {
+            width: 10px;
+            height: 10px;
+            background-color: black;
+            position: absolute;
+        }
+
+        #food {
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            left: 30px;
+            top: 50px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #food>div {
+            width: 5px;
+            height: 5px;
+            background-color: black;
+            transform: rotate(45deg);
+        }
+
+        #info {
+            width: 304px;
+            margin: 0px auto;
+            display: flex;
+            justify-content: space-between;
+            font: bold 20px "Courier";
+        }
+    </style> 
+</head>
+<body>
+    <div id="main">
+        <!-- 蛇移动舞台范围 -->
+        <div id="stage">
+            <div id="snake">
+                <!-- 蛇头 -->
+                <div></div>
+            </div>
+            <!-- 食物 -->
+            <div id="food">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div id="info">
+            <div><span id="score">SCORE:100</span></div>
+            <div><span id="level">LEVEL:1</span></div>
+        </div>
+    </div>
+</body>
+</html>

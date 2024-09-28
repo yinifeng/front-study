@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12_练习-图片轮播</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            vertical-align: top;
+        }
+        ul {
+            list-style: none;
+        }
+        .outer {
+            width: 206px;
+            height: 215px;
+            margin: 100px auto;
+            position: relative;
+        }
+        .img-list {
+            height: 215px;
+        }
+        .img-list li {
+            position: absolute;
+            opacity: 0;
+            /* 动画过渡 */
+            transition: opacity 1s;
+        }
+        li.current {
+            z-index: 1;
+            opacity: 1;
+        }
+        .prve-next a {
+            font-size: 40px;
+            color: black;
+            opacity: 0.1;
+            font-weight: bold;
+            text-decoration: none;
+            position: absolute;
+            height: 40px;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            z-index: 2;
+        }
+        .prve-next a:hover {
+            opacity: 0.5;
+        }
+        #next {
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <ul class="img-list">
+            <li class="current">
+                <a href="#">
+                    <img src="./images/01.png">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/02.png">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/03.png">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/04.png">
+                </a>
+            </li>
+        </ul>
+        <div class="prve-next">
+            <a id="prev" href="javascript:;"><</a>
+            <a id="next" href="javascript:;">></a>
+        </div>
+    </div>
+
+    <script>
+        /* 
+            优化图片轮播
+                打开页面所有图片先加载，通过改变css样式实现图片轮播
+
+            问题一：如何简化代码
+            问题二：如何控制图片自动切换的关闭和开启    
+        */
+
+        //防止变量安全性，匿名函数封装起来
+        const toggleImg = (function(){
+            let timer = null;
+            return function() {
+                if (timer === null) {
+                    timer = setTimeout(function autoImg() {
+                        changeImg("next");
+                        timer = setTimeout(autoImg, 3000);
+                    }, 3000);
+                } else {
+                    clearTimeout(timer);
+                    timer = null;
+                }
+            }
+        })();
+
+        //启动定时任务切换图片
+        toggleImg();
+
+        const outer = document.getElementsByClassName("outer")[0];
+        //当鼠标进入outer
+        outer.onmouseenter = ()=> {
+            //暂停定时
+            toggleImg();
+        }
+        //当鼠标立刻outer
+        outer.onmouseleave = ()=> {
+            //启动定时
+            toggleImg();
+        }
+
+        /* 
+            点击按钮切换图片
+        */
+        const prev = document.getElementById("prev");
+        const next = document.getElementById("next");
+
+        
+
+        //上一张图片
+        prev.onclick = ()=> {
+            changeImg("prev");
+        }
+        
+        //下一张图片
+        next.onclick = ()=> {
+            changeImg("next");
+        }
+
+        /* 
+            参数 dir：
+                next 下一张图片
+                prev 上一张图片
+        */
+        function changeImg(dir) {
+            const currentElement = document.querySelector(".img-list .current");
+
+            //当最后一张nextElementSibling为null
+            let imgElement = null;
+            if(dir === "next") {
+                imgElement = currentElement.nextElementSibling || document.getElementsByTagName("li")[0];
+            }else if(dir === "prev") {
+                imgElement = currentElement.previousElementSibling || document.querySelector("li:last-child");
+            }
+            //切换显示状态
+            currentElement.classList.remove("current");
+            imgElement.classList.add("current");
+        }     
+    </script>
+</body>
+</html>

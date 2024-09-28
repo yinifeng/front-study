@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 让IE浏览器处于一个最优的渲染模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对一些国产的“双核”浏览器的设置，让浏览器优先使用webkit内核去渲染网页 -->
+    <meta name="render" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19_闭包</title>
+    <script>
+        /* 
+            函数在作用域，在函数创建时就已经确定的（词法作用域）
+                和调用位置无关
+            闭包利用的就是词法作用域    
+        */
+
+        let a = "全局变量a";
+
+        function fn() {
+            //全局作用域a
+            console.log(a);
+        }
+
+        function fn2() {
+            let a = "fn2中的a";
+            //和调用的位置无关，和定义的作用域有关系
+            fn();
+        }
+        fn2();//全局变量a
+
+        function fn3() {
+            let a = "fn3中的a";
+
+            function fn4() {
+                console.log(a);
+            }
+            return fn4;
+        }
+
+        let result = fn3();
+        //和调用的位置无关系，和定义作用域有关系
+        result();//fn3中的a
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
